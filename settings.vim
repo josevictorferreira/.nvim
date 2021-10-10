@@ -29,7 +29,6 @@ set number relativenumber
 
 "" Tabs. May be overriten by autocmd rules
 set tabstop=2
-set softtabstop=0
 set shiftwidth=2
 set expandtab
 set hidden

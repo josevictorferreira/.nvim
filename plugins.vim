@@ -8,3 +8,6 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-endwise'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Raimondi/delimitMate'

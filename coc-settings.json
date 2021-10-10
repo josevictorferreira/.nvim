@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["python", "ruby"],
+  "coc.preferences.formatOnSaveFiletypes": ["python", "ruby", "js", "vue"],
   "vetur.format.enable": false,
   "vetur.format.options.tabSize": 2,
   "vetur.format.options.useTabs": false,
