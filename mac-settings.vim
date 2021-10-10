@@ -1,2 +1,2 @@
 let $TERM="xterm-256color"
-set clipboard=namedplus
+set clipboard=unnamed
