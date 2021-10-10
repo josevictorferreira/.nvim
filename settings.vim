@@ -19,7 +19,7 @@ set nowritebackup
 set cmdheight=1
 set updatetime=300
 set shortmess+=c
-set signcolumn=yes
+set signcolumn=number
 set fileformats=unix,dos,mac
 
 "" Syntax
@@ -44,7 +44,7 @@ endif
 "" Lightline configs
 if PluginExists("lightline.vim")
 	let g:lightline#bufferline#number_map = {
-		\ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-		\ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
+	\ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
+	\ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
 	lua require("lightline")
 endif

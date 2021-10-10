@@ -73,3 +73,6 @@ if PluginExists("lightline.vim")
 	nmap <Leader>c9 <Plug>lightline#bufferline#delete(9)
 	nmap <Leader>c0 <Plug>lightline#bufferline#delete(10)
 endif
+
+if PluginExists("coc.nvim")
+endif

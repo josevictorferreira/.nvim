@@ -1,0 +1,11 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["python", "ruby"],
+  "vetur.format.enable": false,
+  "vetur.format.options.tabSize": 2,
+  "vetur.format.options.useTabs": false,
+  "python.venvPath": "~/.cache/pypoetry/virtualenvs",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "79", "--ignore", "W503"],
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true
+}

@@ -5,3 +5,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'lambdalisue/nerdfont.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-endwise'
