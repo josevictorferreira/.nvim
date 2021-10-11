@@ -1,4 +1,5 @@
 let vimfolder='~/.config/nvim'
+let $sourcefolder=vimfolder . '/src'
 
 let vimplug_exists=expand(vimfolder . '/autoload/plug.vim')
 
@@ -17,16 +18,16 @@ if !filereadable(vimplug_exists)
 endif
 
 call plug#begin(expand(vimfolder . '/plugged'))
-  source ~/.config/nvim/plugins.vim
+  source $sourcefolder/plugins.vim
 call plug#end()
 
-source ~/.config/nvim/functions.vim
-source ~/.config/nvim/mappings.vim
+source $sourcefolder/functions.vim
+source $sourcefolder/mappings.vim
 
 if system('uname -s') == "Darwin\n"
-  source ~/.config/nvim/mac-settings.vim
+  source $sourcefolder/mac-settings.vim
 else
-  source ~/.config/nvim/linux-settings.vim
+  source $sourcefolder/linux-settings.vim
 endif
 
-source ~/.config/nvim/settings.vim
+source $sourcefolder/settings.vim
