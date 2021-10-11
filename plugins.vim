@@ -5,9 +5,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'lambdalisue/nerdfont.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-endwise'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'Raimondi/delimitMate'
+Plug 'windwp/nvim-autopairs'
+Plug 'hrsh7th/nvim-compe'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'norcalli/snippets.nvim'

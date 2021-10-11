@@ -35,9 +35,19 @@ set hidden
 set bomb
 set binary
 
+"" Compe settings
+if PluginExists("nvim-compe")
+	set completeopt=menuone,noselect
+	source ~/.config/nvim/src/compe-settings.vim
+endif
+
 "" Colorscheme
 if PluginExists("onedark.vim")
   colorscheme onedark
+endif
+
+if PluginExists("nvim-autopairs")
+	lua require("autopairs")
 endif
 
 "" Lightline configs
