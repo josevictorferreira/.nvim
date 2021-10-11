@@ -13,3 +13,4 @@ Plug 'windwp/nvim-autopairs'
 Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'norcalli/snippets.nvim'
+Plug 'ray-x/lsp_signature.nvim'

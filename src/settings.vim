@@ -58,3 +58,8 @@ if PluginExists("lightline.vim")
 	\ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
 	lua require("lightline")
 endif
+
+"" LSP Signature
+if PluginExists("lsp_signature.nvim")
+	lua require("signature")
+endif
