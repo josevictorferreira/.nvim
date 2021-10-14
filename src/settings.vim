@@ -68,3 +68,8 @@ endif
 if PluginExists("lsp_signature.nvim")
 	lua require("signature")
 endif
+
+"" Treesitter
+if PluginExists("nvim-treesitter")
+	lua require("treesitter")
+endif
