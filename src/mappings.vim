@@ -48,9 +48,6 @@ if PluginExists("telescope.nvim")
 	nnoremap <leader>fb <cmd>Telescope buffers<cr>
 endif
 
-" Grep.vim
-nnoremap <silent> <leader>f :Rgrep<CR>
-
 if PluginExists("lightline.vim")
 	nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 	nmap <Leader>2 <Plug>lightline#bufferline#go(2)
@@ -72,12 +69,4 @@ if PluginExists("lightline.vim")
 	nmap <Leader>c8 <Plug>lightline#bufferline#delete(8)
 	nmap <Leader>c9 <Plug>lightline#bufferline#delete(9)
 	nmap <Leader>c0 <Plug>lightline#bufferline#delete(10)
-endif
-
-if PluginExists("nvim-compe")
-	inoremap <silent><expr> <C-Space> compe#complete()
-	inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
-	inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-	inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-	inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 endif

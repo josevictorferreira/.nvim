@@ -36,10 +36,15 @@ set hidden
 set bomb
 set binary
 
-"" Compe settings
-if PluginExists("nvim-compe")
-	set completeopt=menuone,noselect
-	source ~/.config/nvim/src/compe-settings.vim
+"" LSP settings
+if PluginExists("nvim-lspconfig")
+	lua require("lsp")
+endif
+
+"" Completions
+if PluginExists("nvim-cmp")
+	set completeopt=menu,menuone,noselect
+	lua require("completion")
 endif
 
 "" Colorscheme
