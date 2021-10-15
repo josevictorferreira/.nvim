@@ -15,6 +15,7 @@ if !filereadable(vimplug_exists)
 
   autocmd VimEnter * PlugInstall
   source $MYVIMRC
+	autocmd VimEnter * UpdateRemotePlugins
 endif
 
 call plug#begin(expand(vimfolder . '/plugged'))
