@@ -1,5 +1,6 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local lspkind = require('lspkind')
 
 cmp.setup({
 	snippet = {
@@ -26,5 +27,8 @@ cmp.setup({
   completion = {
     completeopt = 'menu,menuone,noinsert',
 		autocomplete = false
+  },
+  formatting = {
+    format = lspkind.cmp_format({with_text = false, maxwidth = 50})
   }
 })

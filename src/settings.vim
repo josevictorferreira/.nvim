@@ -21,20 +21,18 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=number
 set fileformats=unix,dos,mac
+set mousemodel=popup
+set modeline
+set modelines=10
+set title
 
 "" Syntax
 syntax on
 set ruler
 set number relativenumber
 
-"" Tabs. May be overriten by autocmd rules
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set hidden
-set bomb
-set binary
+"" Fix backspace indent
+set backspace=indent,eol,start
 
 "" LSP settings
 if PluginExists("nvim-lspconfig")
@@ -73,3 +71,13 @@ endif
 if PluginExists("nvim-treesitter")
 	lua require("treesitter")
 endif
+
+"" Tabs. May be overriten by autocmd rules
+set smartindent
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set hidden
+set bomb
+set binary
+set expandtab
