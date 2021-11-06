@@ -26,6 +26,8 @@ set modeline
 set modelines=10
 set title
 
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
 "" Syntax
 syntax on
 set ruler

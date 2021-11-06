@@ -6,6 +6,7 @@ nnoremap <leader>rl :source $MYVIMRC<CR>
 "" Moving between buffers
 nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <S-h> :bp<CR>
+nnoremap <silent> <leader>c :bd!<CR>
 
 "" Splitting buffers
 nmap <leader>s<left>   :leftabove  vsplit<CR>

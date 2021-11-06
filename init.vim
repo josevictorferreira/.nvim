@@ -26,9 +26,9 @@ source $sourcefolder/functions.vim
 source $sourcefolder/mappings.vim
 
 if system('uname -s') == "Darwin\n"
-  source $sourcefolder/mac-settings.vim
+  source $sourcefolder/mac.vim
 else
-  source $sourcefolder/linux-settings.vim
+  source $sourcefolder/linux.vim
 endif
 
 source $sourcefolder/settings.vim
