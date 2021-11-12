@@ -1,6 +1,7 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 local lspkind = require('lspkind')
+local types = require('cmp.types')
 
 cmp.setup({
 	snippet = {
@@ -25,6 +26,9 @@ cmp.setup({
 		}
 	},
   completion = {
+    autocomplete = {
+      types.cmp.TriggerEvent.TextChanged,
+    },
     completeopt = 'menu,menuone,noinsert',
 		autocomplete = false
   },
