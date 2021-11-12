@@ -74,6 +74,10 @@ if PluginExists("nvim-treesitter")
 	lua require("treesitter")
 endif
 
+if PluginExists("telescope.nvim")
+  lua require("navigation")
+endif
+
 "" Tabs. May be overriten by autocmd rules
 set smartindent
 set tabstop=2
