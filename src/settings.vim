@@ -49,7 +49,7 @@ endif
 
 "" Colorscheme
 if PluginExists("onedark.vim")
-  colorscheme onedark
+	colorscheme tokyonight
 endif
 
 if PluginExists("nvim-autopairs")
