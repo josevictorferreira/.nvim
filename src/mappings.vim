@@ -1,5 +1,7 @@
 let mapleader = "\<Space>"
 
+inoremap <cr> <c-x><c-z><cr>
+
 "" Reload nvim config
 nnoremap <leader>rl :source $MYVIMRC<CR> 
 
