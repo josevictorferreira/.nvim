@@ -28,3 +28,4 @@ Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'onsails/lspkind-nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'vim-crystal/vim-crystal'
