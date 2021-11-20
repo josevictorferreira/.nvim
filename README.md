@@ -11,9 +11,10 @@ Nvim config files for NVIM v5+.
 
 ## TODO
 
- - [ ] Fix endwise for ruby.
+ - [X] Fix endwise for ruby.
  - [ ] Add endwise for crystal language.
- - [ ] Update neovim to nightly and check if LSP delay still happens.
+ - [X] Update neovim to nightly and check if LSP delay still happens. <-- Still happens
  - [ ] Add support for Dash docs in MacOS.
  - [ ] Add support for Zeal docs in Linux.
  - [ ] Add VimTest with Tmux support.
+ - [ ] Replace Lightline with Lualine for Nvim 5 support.

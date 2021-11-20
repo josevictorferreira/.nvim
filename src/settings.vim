@@ -48,8 +48,8 @@ if PluginExists("nvim-cmp")
 endif
 
 "" Colorscheme
-if PluginExists("onedark.vim")
-	colorscheme tokyonight
+if PluginExists("neon")
+  lua require("colorscheme")
 endif
 
 if PluginExists("nvim-autopairs")
@@ -76,6 +76,10 @@ endif
 
 if PluginExists("telescope.nvim")
   lua require("navigation")
+endif
+
+if PluginExists("indent-blankline.nvim")
+  lua require("indent_ruler")
 endif
 
 "" Tabs. May be overriten by autocmd rules
