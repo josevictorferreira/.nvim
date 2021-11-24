@@ -5,6 +5,10 @@ inoremap <cr> <c-x><c-z><cr>
 "" Reload nvim config
 nnoremap <leader>rl :source $MYVIMRC<CR> 
 
+"" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 "" Moving between buffers
 nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <S-h> :bp<CR>
