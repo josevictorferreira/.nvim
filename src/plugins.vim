@@ -29,3 +29,4 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'vim-crystal/vim-crystal'
 Plug 'rafamadriz/neon'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'vim-test/vim-test'
