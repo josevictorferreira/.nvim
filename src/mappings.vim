@@ -9,6 +9,9 @@ nnoremap <leader>rl :source $MYVIMRC<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+"" Copy entire line
+noremap YY "+y<CR>
+
 "" Moving between buffers
 nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <S-h> :bp<CR>
