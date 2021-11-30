@@ -10,7 +10,7 @@ set ignorecase
 set smartcase
 
 "" Display 2 tablines
-set showtabline=2
+set showtabline=1
 
 "" Directories for swp files
 set nobackup
@@ -56,14 +56,6 @@ if PluginExists("nvim-autopairs")
 	lua require("autopairs")
 endif
 
-"" Lightline configs
-if PluginExists("lightline.vim")
-	let g:lightline#bufferline#number_map = {
-	\ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-	\ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
-	lua require("lightline")
-endif
-
 "" LSP Signature
 if PluginExists("lsp_signature.nvim")
 	lua require("signature")
@@ -80,6 +72,10 @@ endif
 
 if PluginExists("indent-blankline.nvim")
   lua require("indent_ruler")
+endif
+
+if PluginExists("lualine.nvim")
+  lua require("statusbar")
 endif
 
 "" Tabs. May be overriten by autocmd rules

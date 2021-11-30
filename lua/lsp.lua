@@ -45,46 +45,6 @@ if ok then
 		}
 end
 
-local ok, tailwindcss = lsp_installer_servers.get_server("tailwindcss")
-if ok then
-    if not tailwindcss:is_installed() then
-        tailwindcss:install()
-    end
-		require'lspconfig'.tailwindcss.setup{
-			capabilities = capabilities
-		}
-end
-
-local ok, tsserver = lsp_installer_servers.get_server("tsserver")
-if ok then
-    if not tsserver:is_installed() then
-        tsserver:install()
-    end
-		require'lspconfig'.tsserver.setup{
-			capabilities = capabilities
-		}
-end
-
-local ok, vimls = lsp_installer_servers.get_server("vimls")
-if ok then
-    if not vimls:is_installed() then
-        vimls:install()
-    end
-		require'lspconfig'.vimls.setup{
-			capabilities = capabilities
-		}
-end
-
-local ok, volar = lsp_installer_servers.get_server("volar")
-if ok then
-    if not volar:is_installed() then
-        volar:install()
-    end
-		require'lspconfig'.volar.setup{
-			capabilities = capabilities
-		}
-end
-
 local ok, yamlls = lsp_installer_servers.get_server("yamlls")
 if ok then
     if not yamlls:is_installed() then
@@ -115,16 +75,6 @@ if ok then
 		}
 end
 
-local ok, ember = lsp_installer_servers.get_server("ember")
-if ok then
-    if not ember:is_installed() then
-        ember:install()
-    end
-		require'lspconfig'.ember.setup{
-			capabilities = capabilities
-		}
-end
-
 local ok, dockerls = lsp_installer_servers.get_server("dockerls")
 if ok then
     if not dockerls:is_installed() then
@@ -132,6 +82,17 @@ if ok then
     end
 		require'lspconfig'.dockerls.setup{
 			capabilities = capabilities
+		}
+end
+
+local ok, vuels = lsp_installer_servers.get_server("vuels")
+if ok then
+    if not vuels:is_installed() then
+        vuels:install()
+    end
+		require'lspconfig'.vuels.setup{
+			capabilities = capabilities,
+      filetypes = {"vue"}
 		}
 end
 
@@ -143,6 +104,28 @@ if ok then
 		require'lspconfig'.elixirls.setup{
 			cmd = {path_to_elixirls},
 			capabilities = capabilities
+		}
+end
+
+local ok, eslint = lsp_installer_servers.get_server("eslint")
+if ok then
+    if not eslint:is_installed() then
+        eslint:install()
+    end
+		require'lspconfig'.eslint.setup{
+			capabilities = capabilities,
+			filetypes = {"javascript", "vue"}
+		}
+end
+
+local ok, tsserver = lsp_installer_servers.get_server("tsserver")
+if ok then
+    if not tsserver:is_installed() then
+        tsserver:install()
+    end
+		require'lspconfig'.tsserver.setup{
+			capabilities = capabilities,
+			filetypes = {"typescript"}
 		}
 end
 
