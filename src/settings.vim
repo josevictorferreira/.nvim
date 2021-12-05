@@ -78,6 +78,10 @@ if PluginExists("lualine.nvim")
   lua require("statusbar")
 endif
 
+if PluginExists("nvim-colorizer.lua")
+  lua require("colorizer").setup()
+endif
+
 "" Tabs. May be overriten by autocmd rules
 set smartindent
 set tabstop=2
