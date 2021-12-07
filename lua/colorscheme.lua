@@ -1,3 +1,4 @@
+vim.g.background = "dark"
 vim.g.neon_style = "dark"
 vim.g.neon_italic_keyword = false
 vim.g.neon_italic_function = true

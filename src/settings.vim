@@ -48,6 +48,15 @@ if PluginExists("nvim-cmp")
 endif
 
 "" Colorscheme
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $TERM="screen-256color"
+set background=dark
+set t_Co=256
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 if PluginExists("neon")
   lua require("colorscheme")
 endif
