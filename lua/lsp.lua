@@ -2,7 +2,7 @@ local lsp_installer_servers = require'nvim-lsp-installer.servers'
 
 local ok, rust_analyzer = lsp_installer_servers.get_server("rust_analyzer")
 
-local path_to_elixirls = vim.fn.expand("~/.cache/nvim/elixir-ls/release/language_server.sh")
+local path_to_elixirls = vim.fn.expand("~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh")
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -126,17 +126,6 @@ if ok then
 		require'lspconfig'.tsserver.setup{
 			capabilities = capabilities,
 			filetypes = {"typescript"}
-		}
-end
-
-local ok, efm = lsp_installer_servers.get_server("efm")
-if ok then
-    if not efm:is_installed() then
-        efm:install()
-    end
-		require'lspconfig'.efm.setup{
-			capabilities = capabilities,
-			filetypes = {"elixir"}
 		}
 end
 
