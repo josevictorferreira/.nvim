@@ -79,10 +79,6 @@ if PluginExists("telescope.nvim")
   lua require("navigation")
 endif
 
-if PluginExists("indent-blankline.nvim")
-  lua require("indent_ruler")
-endif
-
 if PluginExists("lualine.nvim")
   lua require("statusbar")
 endif

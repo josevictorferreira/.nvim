@@ -25,7 +25,6 @@ Plug 'folke/tokyonight.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'vim-crystal/vim-crystal'
 Plug 'rafamadriz/neon'
-Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-test/vim-test'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
