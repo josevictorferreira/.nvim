@@ -17,4 +17,4 @@ Nvim config files for NVIM v5+.
  - [ ] Add support for Dash docs in MacOS.
  - [ ] Add support for Zeal docs in Linux.
  - [ ] Add VimTest with Tmux support.
- - [ ] Replace Lightline with Lualine for Nvim 5 support.
+ - [X] Replace Lightline with Lualine for Nvim 5 support.

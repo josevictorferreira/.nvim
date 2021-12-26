@@ -89,3 +89,12 @@ if PluginExists("lightline.vim")
 	nmap <Leader>c9 <Plug>lightline#bufferline#delete(9)
 	nmap <Leader>c0 <Plug>lightline#bufferline#delete(10)
 endif
+
+if PluginExists("trouble.nvim")
+  nnoremap <leader>xx <cmd>TroubleToggle<cr>
+  nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+  nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+  nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+  nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+  nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+endif

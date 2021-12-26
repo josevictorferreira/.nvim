@@ -87,6 +87,10 @@ if PluginExists("nvim-colorizer.lua")
   lua require("colorizer").setup()
 endif
 
+if PluginExists("trouble.nvim")
+  lua require("error_messages")
+endif
+
 "" Tabs. May be overriten by autocmd rules
 set smartindent
 set tabstop=2
