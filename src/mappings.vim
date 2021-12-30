@@ -17,6 +17,9 @@ nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <S-h> :bp<CR>
 nnoremap <silent> <leader>c :bd!<CR>
 
+"" Lint code
+nnoremap <silent> <leader>l :lua vim.lsp.buf.formatting()<CR>
+
 "" Splitting buffers
 nmap <leader>s<left>   :leftabove  vsplit<CR>
 nmap <leader>s<right>  :rightbelow vsplit<CR>
