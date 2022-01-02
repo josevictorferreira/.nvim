@@ -6,6 +6,8 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'windwp/nvim-ts-autotag'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
