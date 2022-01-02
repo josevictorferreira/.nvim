@@ -147,6 +147,17 @@ if ok then
 		}
 end
 
+local ok, emmet_ls = lsp_installer_servers.get_server("emmet_ls")
+if ok then
+    if not emmet_ls:is_installed() then
+        emmet_ls:install()
+    end
+		require'lspconfig'.emmet_ls.setup{
+			capabilities = capabilities,
+			filetypes = {"vue", "html"}
+		}
+end
+
 require('lspkind').init({
     with_text = true,
 

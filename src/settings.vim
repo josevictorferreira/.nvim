@@ -91,6 +91,10 @@ if PluginExists("trouble.nvim")
   lua require("error_messages")
 endif
 
+if PluginExists("Comment.nvim")
+  lua require("Comment").setup()
+endif
+
 "" Tabs. May be overriten by autocmd rules
 set smartindent
 set tabstop=2

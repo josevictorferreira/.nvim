@@ -6,7 +6,7 @@ local types = require('cmp.types')
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+      require('snippy').expand_snippet(args.body)
 		end,
 	},
 	mapping = {
@@ -22,7 +22,7 @@ cmp.setup({
 
 		{ name = 'nvim_lsp' },
 
-		{ name = 'vsnip' },
+    { name = 'snippy' },
 
     { name = 'path' },
 
@@ -33,7 +33,6 @@ cmp.setup({
       types.cmp.TriggerEvent.TextChanged,
     },
     completeopt = 'menu,menuone,noinsert',
-		autocomplete = false
   },
   formatting = {
     format = lspkind.cmp_format({with_text = false, maxwidth = 50})
