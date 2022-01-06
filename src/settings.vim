@@ -21,6 +21,7 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=number
 set fileformats=unix,dos,mac
+set mouse=a
 set mousemodel=popup
 set modeline
 set modelines=10
@@ -81,6 +82,10 @@ endif
 
 if PluginExists("lualine.nvim")
   lua require("statusbar")
+endif
+
+if PluginExists("bufferline.nvim")
+  lua require("tabline")
 endif
 
 if PluginExists("nvim-colorizer.lua")
