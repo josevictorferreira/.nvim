@@ -21,8 +21,7 @@ augroup mygroup
 augroup end
 
 function UpdateNeovim()
-  :! cd ~/.config/nvim && git pull --rebase<CR>
-  autocmd VimEnter * PlugInstall
-  autocmd VimEnter * PlugUpdate
+  :! cd ~/.config/nvim && git stash && git pull --rebase<CR>
+  autocmd :PlugUpdate<CR>
   source $MYVIMRC
 endfunction
