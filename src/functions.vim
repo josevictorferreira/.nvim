@@ -3,7 +3,9 @@ function PluginExists(plugin)
 endfunction
 
 function UpdateNeovim()
+  echo "Updating Neovim..."
   :! cd ~/.config/nvim && git stash && git pull --rebase<CR>
-  :PlugUpdate<CR>
-  :source $MYVIMRC
+  autocmd VimEnter * PlugUpdate
+  source $MYVIMRC
+	autocmd VimEnter * UpdateRemotePlugins
 endfunction
