@@ -4,6 +4,6 @@ endfunction
 
 function UpdateNeovim()
   :! cd ~/.config/nvim && git stash && git pull --rebase<CR>
-  autocmd :PlugUpdate<CR>
-  source $MYVIMRC
+  :PlugUpdate<CR>
+  :source $MYVIMRC
 endfunction
