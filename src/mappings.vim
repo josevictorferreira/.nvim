@@ -72,10 +72,13 @@ if PluginExists("telescope.nvim")
 endif
 
 if PluginExists("trouble.nvim")
-  nnoremap <leader>xx <cmd>TroubleToggle<cr>
-  nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
-  nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
-  nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-  nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-  nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+  nnoremap <leader>xx <cmd>TroubleToggle<CR>
+  nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>
+  nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<CR>
+  nnoremap <leader>xq <cmd>TroubleToggle quickfix<CR>
+  nnoremap <leader>xl <cmd>TroubleToggle loclist<CR>
+  nnoremap gR <cmd>TroubleToggle lsp_references<CR>
 endif
+
+"" Update Neovim
+nnoremap <C-U> :! cd ~/.config/nvim && git pull --rebase<CR>
