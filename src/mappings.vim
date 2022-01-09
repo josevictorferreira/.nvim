@@ -81,4 +81,4 @@ if PluginExists("trouble.nvim")
 endif
 
 "" Update Neovim
-nnoremap <C-U> :! cd ~/.config/nvim && git pull --rebase<CR>
+nnoremap <C-U> :exec UpdateNeovim()<CR>

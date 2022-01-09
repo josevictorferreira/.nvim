@@ -19,3 +19,10 @@ augroup mygroup
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+
+function UpdateNeovim()
+  :! cd ~/.config/nvim && git pull --rebase<CR>
+  autocmd VimEnter * PlugInstall
+  autocmd VimEnter * PlugUpdate
+  source $MYVIMRC
+endfunction
