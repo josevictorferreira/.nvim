@@ -6,5 +6,4 @@ function UpdateNeovim()
   echo "Updating Neovim..."
   silent ! cd ~/.config/nvim && git stash && git pull --rebase
   :PlugUpdate<CR>
-  :UpdateRemotePlugins<CR>
 endfunction
