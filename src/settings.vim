@@ -100,6 +100,10 @@ if PluginExists("Comment.nvim")
   lua require("Comment").setup()
 endif
 
+if PluginExists("nvim-tree.lua")
+  lua require("file_explorer")
+endif
+
 "" Tabs. May be overriten by autocmd rules
 set smartindent
 set tabstop=2

@@ -49,8 +49,9 @@ noremap <Leader>gr :Gremove<CR>
 nnoremap <silent><leader>, :noh<cr>
 
 "" Nerdtree mappings
-if PluginExists("nerdtree")
-	nnoremap <silent><leader><tab> :NERDTreeToggle<CR>
+if PluginExists("nvim-tree.lua")
+  nnoremap <leader><tab> :NvimTreeToggle<CR>
+  nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 endif
 
 "" VimTest mappings
