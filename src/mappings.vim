@@ -63,6 +63,13 @@ if PluginExists("vim-test")
   nmap <silent> t<C-g> :TestVisit<CR>
 endif
 
+"" Ultest
+if PluginExists("vim-ultest")
+  nnoremap <leader><C-t> :UltestSummary!<CR>
+  nnoremap <leader>t :UltestNearest<CR>
+  nnoremap <leader>T :Ultest<CR>
+endif
+
 "" Telescope mappings
 if PluginExists("telescope.nvim")
 	nnoremap <leader>p <cmd>Telescope find_files<cr>

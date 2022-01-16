@@ -104,6 +104,14 @@ if PluginExists("nvim-tree.lua")
   lua require("file_explorer")
 endif
 
+if PluginExists("vim-ultest")
+  let test#python#pytest#options = "--color=yes"
+  let test#javascript#jest#options = "--color=always"
+  let test#ruby#rspec#options = "--force-color"
+  let g:ultest_use_pty = 1
+  let g:ultest_max_threads = 1
+endif
+
 "" Tabs. May be overriten by autocmd rules
 set smartindent
 set tabstop=2
