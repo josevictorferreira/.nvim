@@ -4,7 +4,7 @@ endfunction
 
 function UpdateNeovim()
   echo "Updating Neovim..."
-  silent ! cd ~/.config/nvim && git stash && git pull --rebase
-  :PlugInstall<CR>
-  :PlugUpdate<CR>
+  silent ! cd ~/.config/nvim && git stash && git pull --rebase && git stash apply
+  autocmd VimEnter * PlugInstall
+  autocmd VimEnter * PlugUpdate
 endfunction
