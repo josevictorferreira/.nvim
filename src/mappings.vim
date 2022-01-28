@@ -17,6 +17,9 @@ nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <S-h> :bp<CR>
 nnoremap <silent> <leader>c :bd!<CR>
 
+"" Run ruby code
+nnoremap <C-r> :r !ruby %<CR>
+
 "" Lint code
 nnoremap <silent> <leader>l :lua vim.lsp.buf.formatting()<CR>
 

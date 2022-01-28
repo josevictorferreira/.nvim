@@ -36,3 +36,4 @@ Plug 'folke/trouble.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
