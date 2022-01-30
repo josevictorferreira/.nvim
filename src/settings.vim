@@ -104,6 +104,10 @@ if PluginExists("nvim-tree.lua")
   lua require("file_explorer")
 endif
 
+if PluginExists("is0n/jaq-nvim")
+  lua require("code_runner")
+endif
+
 if PluginExists("vim-ultest")
   let test#python#pytest#options = "--color=yes"
   let test#javascript#jest#options = "--color=always"
