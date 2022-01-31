@@ -10,5 +10,5 @@ endfunction
 
 function RunCode()
   let filename = @%
-  execute "new | term ruby ". filename . ""
+  execute "tabnew | term ruby ". filename . ""
 endfunction
