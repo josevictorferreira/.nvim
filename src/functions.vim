@@ -10,5 +10,12 @@ endfunction
 
 function RunCode()
   let filename = @%
-  execute "tabnew | term ruby ". filename . ""
+  let filetype = &filetype
+  let cmd = "ruby"
+  if &filetype == "ruby"
+    let cmd = "ruby"
+  elseif &filetype == "python"
+    let cmd = "python"
+  endif
+  execute "tabnew | term " . cmd . " ". filename . ""
 endfunction
