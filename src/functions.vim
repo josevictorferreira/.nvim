@@ -11,11 +11,16 @@ endfunction
 function RunCode()
   let filename = @%
   let filetype = &filetype
-  let cmd = "ruby"
   if &filetype == "ruby"
-    let cmd = "ruby"
+    let cmd = "ruby " . filename
   elseif &filetype == "python"
-    let cmd = "python"
+    let cmd = "python " . filename
+  elseif &filetype == "elixir"
+    let cmd = "elixir" . filename
+  elseif &filetype == "sh"
+    let cmd = "sh " . filename
+  else
+    return
   endif
-  execute "tabnew | term " . cmd . " ". filename . ""
+  execute "tabnew | term " . cmd
 endfunction
