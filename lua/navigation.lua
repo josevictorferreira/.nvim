@@ -1,6 +1,6 @@
 
 require('telescope').setup({
-  defaults = { file_ignore_patterns = {"node_modules", "target"} },
+  defaults = { file_ignore_patterns = {"node_modules", "target", ".git"} },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -9,6 +9,11 @@ require('telescope').setup({
       case_mode = 'smart_case',
     },
   },
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  }
 })
 
 require('telescope').load_extension('fzf')
