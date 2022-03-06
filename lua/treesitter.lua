@@ -17,6 +17,7 @@ local defaults = {
     'make',
     'dockerfile',
     'ruby',
+    'rust',
     'regex',
     'vue'
   },
