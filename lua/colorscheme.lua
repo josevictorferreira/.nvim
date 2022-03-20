@@ -1,14 +1,18 @@
-vim.g.background = "dark"
-vim.g.neon_style = "dark"
-vim.g.neon_italic_keyword = false
-vim.g.neon_italic_function = true
-vim.g.neon_transparent = true
-vim.g.neon_italic_comment = true
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_terminal_colors = true
-vim.g.tokyonight_italic_comments = true
-vim.g.tokyonight_italic_keywords = false
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_hide_inactive_statusline = true
+require('kanagawa').setup({
+    undercurl = true,           -- enable undercurls
+    commentStyle = "italic",
+    functionStyle = "NONE",
+    keywordStyle = "italic",
+    statementStyle = "bold",
+    typeStyle = "NONE",
+    variablebuiltinStyle = "italic",
+    specialReturn = true,       -- special highlight for the return keyword
+    specialException = true,    -- special highlight for exception handling keywords
+    transparent = false,        -- do not set background color
+    dimInactive = false,        -- dim inactive window `:h hl-NormalNC`
+    globalStatus = false,       -- adjust window separators highlight for laststatus=3
+    colors = {},
+    overrides = {},
+})
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd("colorscheme kanagawa")
