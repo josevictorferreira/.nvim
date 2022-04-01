@@ -12,6 +12,11 @@ set smartcase
 "" Display 2 tablines
 set showtabline=1
 
+"" Boost rendering performance
+set ttyfast
+set lazyredraw
+
+
 "" Directories for swp files
 set nobackup
 set noswapfile
