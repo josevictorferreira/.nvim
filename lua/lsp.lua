@@ -15,6 +15,16 @@ if ok then
 		}
 end
 
+local ok, bashls = lsp_installer_servers.get_server("bashls")
+if ok then
+    if not bashls:is_installed() then
+        bashls:install()
+    end
+		require'lspconfig'.bashls.setup{
+			capabilities = capabilities
+		}
+end
+
 local ok, pyright = lsp_installer_servers.get_server("pyright")
 if ok then
     if not pyright:is_installed() then
