@@ -38,6 +38,7 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 syntax on
 set ruler
 "set number relativenumber
+set number
 
 "" Fix backspace indent
 set backspace=indent,eol,start
