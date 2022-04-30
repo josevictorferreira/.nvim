@@ -18,11 +18,11 @@ cmp.setup({
 		['<Tab>'] = cmp.mapping.confirm(),
 	},
 	sources = {
-		{ name = 'buffer' },
-
 		{ name = 'nvim_lsp' },
 
     { name = 'snippy' },
+
+		{ name = 'buffer' },
 
     { name = 'path' },
 

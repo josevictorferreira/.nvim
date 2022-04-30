@@ -1,7 +1,6 @@
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lambdalisue/nerdfont.vim'
-Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
