@@ -1,6 +1,5 @@
-
 require('telescope').setup({
-  defaults = { file_ignore_patterns = {"node_modules", "target", ".git"} },
+  defaults = { file_ignore_patterns = {"node_modules", "target", ".git", ".github", ".helm"} },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -16,4 +15,4 @@ require('telescope').setup({
   }
 })
 
-require('telescope').load_extension('fzf')
+--require('telescope').load_extension('fzf')
