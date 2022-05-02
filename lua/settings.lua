@@ -44,7 +44,6 @@ opt.clipboard = 'unnamedplus'
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 opt.background = "dark"
---opt.t_Co = 256
 
 opt.smartindent = true
 opt.tabstop = 2
