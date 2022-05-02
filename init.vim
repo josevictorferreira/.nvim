@@ -31,4 +31,4 @@ else
   source $sourcefolder/linux.vim
 endif
 
-source $sourcefolder/settings.vim
+lua require("settings")

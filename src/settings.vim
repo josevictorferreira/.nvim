@@ -23,7 +23,7 @@ set noswapfile
 set nowritebackup
 set cmdheight=1
 set updatetime=300
-set shortmess+=c
+set shortmess+=c "" <-- Need to update
 set signcolumn=number
 set fileformats=unix,dos,mac
 set mouse=a
@@ -32,10 +32,10 @@ set modeline
 set modelines=10
 set title
 
-au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby "" <-- Need to update
 
 "" Syntax
-syntax on
+syntax on  
 set ruler
 set number relativenumber
 
