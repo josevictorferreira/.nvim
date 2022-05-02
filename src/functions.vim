@@ -17,6 +17,8 @@ function RunCode()
     let cmd = "python " . filename
   elseif &filetype == "elixir"
     let cmd = "elixir" . filename
+  elseif &filetype == "rust"
+    let cmd = "cargo run --quiet"
   elseif &filetype == "sh"
     let cmd = "sh " . filename
   else
