@@ -75,7 +75,7 @@ if ok then
       settings = {
           Lua = {
               diagnostics = {
-                  globals = { 'vim' }
+                  globals = { 'vim', 'use' }
               }
           }
       }
