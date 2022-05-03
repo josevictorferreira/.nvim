@@ -71,7 +71,14 @@ if ok then
         sumneko_lua:install()
     end
 		require'lspconfig'.sumneko_lua.setup{
-			capabilities = capabilities
+			capabilities = capabilities,
+      settings = {
+          Lua = {
+              diagnostics = {
+                  globals = { 'vim' }
+              }
+          }
+      }
 		}
 end
 
