@@ -29,7 +29,7 @@ map('n', '<C-h>', '<C-w>h', options)
 
 map('n', '<leader>sh', ':terminal<CR>', options)
 
-map('n', '<silent><leader>,', ':noh<CR>', options)
+map('n', '<leader>,', ':noh<CR>', options)
 
 map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', options)
