@@ -59,18 +59,3 @@ opt.redrawtime = 1500
 opt.timeoutlen = 250
 opt.ttimeoutlen = 10
 opt.updatetime = 100
-
--- setup plugins settings
-require("lsp")
-require("completion")
-require("colorscheme")
-require("autopairs")
-require("signature")
-require("treesitter")
-require("navigation")
-require("statusbar")
-require("tabline")
-require("colorizer").setup()
-require("error_messages")
-require("Comment").setup()
-require("file_explorer")
