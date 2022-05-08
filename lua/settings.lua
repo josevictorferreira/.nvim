@@ -54,6 +54,8 @@ opt.bomb = true
 opt.binary = true
 opt.expandtab = true
 
+opt.termguicolors = true
+
 -- performance
 opt.redrawtime = 1500
 opt.timeoutlen = 250

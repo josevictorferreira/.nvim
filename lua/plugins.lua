@@ -73,7 +73,6 @@ return require('packer').startup(function()
   -- Snippets plugin
   use 'rafamadriz/friendly-snippets'
   -- Test Plugins
-  use 'vim-test/vim-test'
   use { 'rcarriga/vim-ultest', run = ':UpdateRemotePlugins' }
   -- Status Bar plugin
   use {
