@@ -53,7 +53,6 @@ return require('packer').startup(function()
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
-      { 'dcampos/cmp-snippy' },
       { 'hrsh7th/cmp-path' },
       { 'onsails/lspkind-nvim' }
     },
@@ -68,10 +67,10 @@ return require('packer').startup(function()
       })
     end
   }
+
   -- Multipl cursors plugin
-  use 'terryma/vim-multiple-cursors'
-  -- Snippets plugin
-  use 'rafamadriz/friendly-snippets'
+  use 'mg979/vim-visual-multi'
+
   -- Test Plugins
   use { 'rcarriga/vim-ultest', run = ':UpdateRemotePlugins' }
   -- Status Bar plugin

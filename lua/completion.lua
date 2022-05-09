@@ -20,8 +20,6 @@ cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
 
-    { name = 'snippy' },
-
 		{ name = 'buffer' },
 
     { name = 'path' },
