@@ -4,11 +4,6 @@ local lspkind = require('lspkind')
 local types = require('cmp.types')
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-      require('snippy').expand_snippet(args.body)
-		end,
-	},
 	mapping = {
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),

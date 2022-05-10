@@ -103,6 +103,17 @@ return require('packer').startup(function()
       require("bufferline").setup{}
     end
   }
+  -- Snippets
+  use {
+    'L3MON4D3/LuaSnip',
+    requires = {
+      'rafamadriz/friendly-snippets'
+    },
+    config = function ()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require'luasnip'.filetype_extend("ruby", {"rails"})
+    end
+  }
   -- Nerdtree file sidebar
   use {
     'kyazdani42/nvim-tree.lua',
