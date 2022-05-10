@@ -1,6 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup({function()
   -- Essential setup plugins
   use({
     'wbthomason/packer.nvim',
@@ -131,4 +131,11 @@ return require('packer').startup(function()
       require("colorscheme")
     end
   }
-end)
+end,
+config = {
+  profile = {
+    enable = true,
+    threshold = 1 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+  }
+}}
+)
