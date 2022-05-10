@@ -1,6 +1,9 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
+vim.g["python3_host_prog"] = "/usr/bin/python3"
+vim.g["python3_host_skip_check"] = 1
+
 cmd([[
 	filetype plugin indent on
 ]])
