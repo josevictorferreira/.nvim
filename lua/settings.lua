@@ -28,7 +28,6 @@ opt.swapfile = false
 opt.writebackup = false
 opt.cmdheight = 1
 opt.updatetime = 300
-opt.signcolumn = 'number'
 opt.fileformats = { 'unix', 'dos', 'mac' }
 opt.mouse = 'a'
 opt.mousemodel = 'popup'
