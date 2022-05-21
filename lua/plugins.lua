@@ -69,11 +69,9 @@ return require('packer').startup({function()
     end
   }
 
-  -- Multipl cursors plugin
-  use 'mg979/vim-visual-multi'
+  -- Multiple cursors
+  use 'terryma/vim-multiple-cursors'
 
-  -- Test Plugins
-  use { 'rcarriga/vim-ultest', run = ':UpdateRemotePlugins' }
   -- Status Bar plugin
   use {
     'nvim-lualine/lualine.nvim',
@@ -120,6 +118,14 @@ return require('packer').startup({function()
     'kyazdani42/nvim-tree.lua',
     config = function ()
       require("file_explorer")
+    end
+  }
+  -- Better error messages
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
     end
   }
   -- Debug startuptime
