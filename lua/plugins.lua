@@ -137,6 +137,13 @@ return require('packer').startup({function()
       require("colorscheme")
     end
   }
+  -- Disable relative line numbers in insert mode
+  use {
+    'nkakouros-original/numbers.nvim',
+    config = function ()
+      require('numbers').setup()
+    end
+  }
 end,
 config = {
   profile = {
