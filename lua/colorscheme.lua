@@ -2,7 +2,7 @@ local catppuccin = require("catppuccin")
 
 local settings = {
   transparent_background = true,
-  term_colors = false,
+  term_colors = true,
   styles = {
     comments = "italic",
     conditionals = "italic",
@@ -43,12 +43,12 @@ local settings = {
     nvimtree = {
       enabled = true,
       show_root = false,
-      transparent_panel = false,
+      transparent_panel = true,
     },
     neotree = {
       enabled = false,
       show_root = false,
-      transparent_panel = false,
+      transparent_panel = true,
     },
     which_key = false,
     indent_blankline = {
@@ -73,4 +73,5 @@ local settings = {
 
 catppuccin.setup(settings)
 
+vim.g.catppuccin_flavour = "mocha"
 vim.cmd[[colorscheme catppuccin]]

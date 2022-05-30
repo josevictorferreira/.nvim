@@ -9,11 +9,3 @@ Nvim config files for NVIM v5+.
  - Install dependencies `./dependencies.sh`.
  - Verify if NPM is installed and open nvim and run the `:PlugInstall` command.
 
-## TODO
-
- - [X] Fix endwise for ruby.
- - [X] Update neovim to nightly and check if LSP delay still happens. <-- Still happens
- - [ ] Add support for Dash docs in MacOS.
- - [ ] Add support for Zeal docs in Linux.
- - [ ] Add VimTest with Tmux support.
- - [X] Replace Lightline with Lualine for Nvim 5 support.
