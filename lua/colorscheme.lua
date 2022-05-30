@@ -1,18 +1,76 @@
-require('kanagawa').setup({
-    undercurl = true,           -- enable undercurls
-    commentStyle = "italic",
-    functionStyle = "NONE",
-    keywordStyle = "italic",
-    statementStyle = "bold",
-    typeStyle = "NONE",
-    variablebuiltinStyle = "italic",
-    specialReturn = true,       -- special highlight for the return keyword
-    specialException = true,    -- special highlight for exception handling keywords
-    transparent = false,        -- do not set background color
-    dimInactive = false,        -- dim inactive window `:h hl-NormalNC`
-    globalStatus = false,       -- adjust window separators highlight for laststatus=3
-    colors = {},
-    overrides = {},
-})
+local catppuccin = require("catppuccin")
 
-vim.cmd("colorscheme kanagawa")
+local settings = {
+  transparent_background = true,
+  term_colors = false,
+  styles = {
+    comments = "italic",
+    conditionals = "italic",
+    loops = "NONE",
+    functions = "NONE",
+    keywords = "NONE",
+    strings = "NONE",
+    variables = "NONE",
+    numbers = "NONE",
+    booleans = "NONE",
+    properties = "NONE",
+    types = "NONE",
+    operators = "NONE",
+  },
+  integrations = {
+    treesitter = true,
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = "italic",
+        hints = "italic",
+        warnings = "italic",
+        information = "italic",
+      },
+      underlines = {
+        errors = "underline",
+        hints = "underline",
+        warnings = "underline",
+        information = "underline",
+      },
+    },
+    lsp_trouble = false,
+    cmp = true,
+    lsp_saga = false,
+    gitgutter = false,
+    gitsigns = true,
+    telescope = true,
+    nvimtree = {
+      enabled = true,
+      show_root = false,
+      transparent_panel = false,
+    },
+    neotree = {
+      enabled = false,
+      show_root = false,
+      transparent_panel = false,
+    },
+    which_key = false,
+    indent_blankline = {
+      enabled = true,
+      colored_indent_levels = false,
+    },
+    dashboard = true,
+    neogit = false,
+    vim_sneak = false,
+    fern = false,
+    barbar = false,
+    bufferline = true,
+    markdown = true,
+    lightspeed = false,
+    ts_rainbow = false,
+    hop = false,
+    notify = true,
+    telekasten = true,
+    symbols_outline = true,
+  }
+}
+
+catppuccin.setup(settings)
+
+vim.cmd[[colorscheme catppuccin]]

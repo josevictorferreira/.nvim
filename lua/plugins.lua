@@ -131,12 +131,13 @@ return require('packer').startup({function()
   -- Debug startuptime
   use 'dstein64/vim-startuptime'
   -- Colorscheme Plugin
-  use {
-    'rebelot/kanagawa.nvim',
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin",
     config = function ()
       require("colorscheme")
     end
-  }
+  })
   -- Disable relative line numbers in insert mode
   use {
     'nkakouros-original/numbers.nvim',
