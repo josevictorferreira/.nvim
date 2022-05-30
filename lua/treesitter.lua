@@ -19,7 +19,8 @@ local defaults = {
     'ruby',
     'rust',
     'regex',
-    'vue'
+    'vue',
+    'yaml'
   },
   highlight = {
     enable = true,
