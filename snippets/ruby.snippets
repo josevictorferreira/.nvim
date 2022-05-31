@@ -1,0 +1,13 @@
+snippet basespec
+	# frozen_string_literal: true
+
+	require 'rails_helper'
+
+	RSpec.describe ${1}, type: ${2} do
+		subject(:class_obj) { described_class }
+
+		${3}
+	end
+
+snippet iti
+	it { expect(${1}).to eq() }
