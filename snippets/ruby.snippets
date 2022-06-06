@@ -14,3 +14,17 @@ snippet iti
 
 snippet itis
 	it { is_expected.to be_${1} }
+
+snippet baseservice
+	# frozen_string_literal: true
+
+	require 'rails_helper'
+	
+	class ${1}Service < Aldous::Service
+
+		def initialize()
+		end
+	
+		def perform
+		end
+	end
