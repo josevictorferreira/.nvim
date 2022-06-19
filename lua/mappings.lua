@@ -17,17 +17,16 @@ map('n', '<C-r>', ':lua RunCode()<CR>', options)
 
 map('n', '<leader>l', ':lua vim.lsp.buf.formatting()<CR>', options)
 
-map('n', '<leader>s<left>', ':leftabove vsplit<CR>', options)
-map('n', '<leader>s<right>', ':rightbelow vsplit<CR>', options)
-map('n', '<leader>s<up>', ':leftabove split<CR>', options)
-map('n', '<leader>s<down>', ':rightbelow split<CR>', options)
+-- SPLIT BUFFERS
+map('n', '<leader>sh', ':leftabove vsplit<CR>', options)
+map('n', '<leader>sl', ':rightbelow vsplit<CR>', options)
+map('n', '<leader>sk', ':leftabove split<CR>', options)
+map('n', '<leader>sj', ':rightbelow split<CR>', options)
 
 map('n', '<C-j>', '<C-w>j', options)
 map('n', '<C-k>', '<C-w>k', options)
 map('n', '<C-l>', '<C-w>l', options)
 map('n', '<C-h>', '<C-w>h', options)
-
-map('n', '<leader>sh', ':terminal<CR>', options)
 
 map('n', '<leader>,', ':noh<CR>', options)
 
