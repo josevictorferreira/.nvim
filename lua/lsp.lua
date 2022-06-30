@@ -15,6 +15,16 @@ if ok then
 		}
 end
 
+local ok, gopls = lsp_installer_servers.get_server("gopls")
+if ok then
+    if not gopls:is_installed() then
+        gopls:install()
+    end
+		require'lspconfig'.gopls.setup{
+			capabilities = capabilities
+		}
+end
+
 local ok, bashls = lsp_installer_servers.get_server("bashls")
 if ok then
     if not bashls:is_installed() then
