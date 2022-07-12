@@ -145,6 +145,7 @@ return require('packer').startup({function()
       require('numbers').setup()
     end
   }
+  use {"ellisonleao/glow.nvim", branch = 'main'}
 end,
 config = {
   profile = {
