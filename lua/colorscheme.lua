@@ -9,7 +9,7 @@ local settings = {
   transparent_background = false,
   term_colors = false,
   compile = {
-    enabled = false,
+    enabled = true,
     path = vim.fn.stdpath "cache" .. "/catppuccin",
     suffix = "_compiled"
   },
