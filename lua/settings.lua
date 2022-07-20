@@ -41,8 +41,7 @@ opt.number = true
 opt.relativenumber = true
 
 opt.backspace = { 'eol', 'start', 'indent' }
-opt.clipboard = 'unnamedplus'
-
+opt.clipboard:append({ 'unnamedplus' })
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 opt.background = "dark"
