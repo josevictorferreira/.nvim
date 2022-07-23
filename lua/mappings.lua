@@ -15,7 +15,7 @@ map('n', '<leader>c', ':bd!<CR>', options)
 
 map('n', '<C-r>', ':lua RunCode()<CR>', options)
 
-map('n', '<leader>l', ':lua vim.lsp.buf.formatting()<CR>', options)
+map('n', '<leader>l', ':lua vim.lsp.buf.format({ async = true })<CR>', options)
 
 -- SPLIT BUFFERS
 map('n', '<leader>sh', ':leftabove vsplit<CR>', options)
