@@ -6,7 +6,7 @@ return require('packer').startup({function()
     'wbthomason/packer.nvim',
     'lewis6991/impatient.nvim',
     'nathom/filetype.nvim',
-    'nvim-lua/plenary.nvim',
+    'nvim-lua/plenary.nvim'
   })
   -- Telescope Navigation
   use {
@@ -118,14 +118,6 @@ return require('packer').startup({function()
     'kyazdani42/nvim-tree.lua',
     config = function ()
       require("file_explorer")
-    end
-  }
-  -- Better error messages
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup({})
     end
   }
   -- Debug startuptime
