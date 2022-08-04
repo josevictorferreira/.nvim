@@ -137,7 +137,23 @@ return require('packer').startup({function()
       require('numbers').setup()
     end
   }
+  -- Better Markdown
   use {"ellisonleao/glow.nvim", branch = 'main'}
+  -- Managing external editor tooling
+  use {
+    'williamboman/mason.nvim',
+    config = function ()
+      require("mason").setup({
+          ui = {
+              icons = {
+                  package_installed = "✓",
+                  package_pending = "➜",
+                  package_uninstalled = "✗"
+              }
+          }
+      })
+    end
+  }
 end,
 config = {
   profile = {
