@@ -147,6 +147,7 @@ return require('packer').startup({function()
   -- Managing external editor tooling
   use {
     'williamboman/mason.nvim',
+    "williamboman/mason-lspconfig.nvim",
     config = function ()
       require("mason").setup({
           ui = {
@@ -156,7 +157,8 @@ return require('packer').startup({function()
                   package_uninstalled = "✗"
               }
           }
-      })
+      }),
+      require("mason-lspconfig").setup()
     end
   }
   if packer_bootstrap then
