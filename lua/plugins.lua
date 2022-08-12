@@ -147,17 +147,19 @@ return require('packer').startup({function()
   -- Managing external editor tooling
   use {
     'williamboman/mason.nvim',
-    "williamboman/mason-lspconfig.nvim",
+    requires = {
+      "williamboman/mason-lspconfig.nvim"
+    },
     config = function ()
       require("mason").setup({
-          ui = {
-              icons = {
-                  package_installed = "✓",
-                  package_pending = "➜",
-                  package_uninstalled = "✗"
-              }
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
           }
-      }),
+        }
+      })
       require("mason-lspconfig").setup()
     end
   }
