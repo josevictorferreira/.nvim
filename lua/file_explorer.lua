@@ -6,6 +6,7 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
+  sort_by = "case_sensitive",
   diagnostics = {
     enable = false,
     icons = {
@@ -38,12 +39,13 @@ require'nvim-tree'.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
+    adaptive_size = true,
     mappings = {
       custom_only = false,
       list = {}
     },
     number = false,
-    relativenumber = false,
+    relativenumber = true,
     signcolumn = "yes"
   },
   trash = {
