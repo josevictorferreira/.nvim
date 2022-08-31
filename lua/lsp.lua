@@ -25,6 +25,17 @@ if ok then
 		}
 end
 
+local ok, crystalline = lsp_installer_servers.get_server("crystalline")
+if ok then
+    if not crystalline:is_installed() then
+        crystalline:install()
+    end
+		require'lspconfig'.crystalline.setup{
+			capabilities = capabilities,
+      filetypes = {"crystal", "cr"}
+		}
+end
+
 local ok, bashls = lsp_installer_servers.get_server("bashls")
 if ok then
     if not bashls:is_installed() then

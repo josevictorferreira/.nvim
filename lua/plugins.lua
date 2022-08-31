@@ -10,9 +10,22 @@ return require('packer').startup({function()
   use({
     'wbthomason/packer.nvim',
     'lewis6991/impatient.nvim',
-    'nathom/filetype.nvim',
-    'nvim-lua/plenary.nvim'
+    'nvim-lua/plenary.nvim',
   })
+  use {
+    'nathom/filetype.nvim',
+    config = function ()
+      require("filetype").setup({
+        overrides = {
+          extensions = {
+            cr = "crystal",
+          },
+        }
+      })
+    end
+  }
+  -- Crystal language support
+  use "vim-crystal/vim-crystal"
   -- Telescope Navigation
   use {
     'nvim-telescope/telescope.nvim',
@@ -161,7 +174,7 @@ return require('packer').startup({function()
         }
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "sumneko_lua", "rust_analyzer", "solargraph" }
+        ensure_installed = { "sumneko_lua", "rust_analyzer", "solargraph", "crystalline" }
       })
     end
   }
