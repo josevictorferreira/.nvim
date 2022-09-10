@@ -33,56 +33,11 @@ map('n', '<leader>,', ':noh<CR>', options)
 map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', options)
 
--- VimTest
-map('n', 't<C-n>', ':TestNearest<CR>', options)
-map('n', 't<C-f>', ':TestFile<CR>', options)
-map('n', 't<C-s>', ':TestSuite<CR>', options)
-map('n', 't<C-l>', ':TestLast<CR>', options)
-map('n', 't<C-g>', ':TestVisit<CR>', options)
-
--- Ultest
-map('n', '<leader><C-t>', ':UltestSummary!<CR>', options)
-map('n', '<leader>t', ':UltestNearest<CR>', options)
-map('n', '<leader>T', ':Ultest<CR>', options)
-
 -- Telescope
 map('n', '<leader>p', ':Telescope find_files<CR>', options)
 map('n', '<leader>fg', ':Telescope live_grep<CR>', options)
 map('n', '<leader>f', ':Telescope live_grep<CR>', options)
 map('n', '<leader>fb', ':Telescope buffers<CR>', options)
 map('n', '<leader>fh', ':Telescope help_tags<CR>', options)
-
-
--- Trouble
-map('n', '<leader>xx', ':TroubleToggle<CR>', options)
-map('n', '<leader>xw', ':TroubleToggle workspace_diagnostics<CR>', options)
-map('n', '<leader>xd', ':TroubleToggle document_diagnostics<CR>', options)
-map('n', '<leader>xq', ':TroubleToggle quickfix<CR>', options)
-map('n', '<leader>xl', ':TroubleToggle loclist<CR>', options)
-map('n', 'gR', ':ToubleToggle lsp_references<CR>', options)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- Motion
+map('n', 'f', ":HopWord<CR>", options)
