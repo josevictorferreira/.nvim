@@ -33,3 +33,10 @@ snippet itp
 	it do
 		binding.pry
 	end
+snippet resc
+	rescue StandardError => e
+		${1}
+snippet succ
+	Result::Success.new(${1})
+snippet fail
+	Result::Failure.new(${1})
