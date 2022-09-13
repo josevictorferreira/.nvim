@@ -64,3 +64,6 @@ opt.redrawtime = 1500
 opt.timeoutlen = 250
 opt.ttimeoutlen = 10
 opt.updatetime = 100
+
+opt.foldmethod = "manual"
+opt.foldexpr = ""

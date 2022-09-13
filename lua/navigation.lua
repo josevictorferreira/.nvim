@@ -1,5 +1,20 @@
 require('telescope').setup({
-  defaults = { file_ignore_patterns = {"node_modules", "target", ".git", ".github", ".helm"} },
+  defaults = {
+    file_ignore_patterns = {"node_modules", "target", ".git", ".github", ".helm"},
+    vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--glob=!.git/",
+      },
+    color_devicons = true,
+    set_env = { ["COLORTERM"] = "truecolor" }
+  },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -10,8 +25,11 @@ require('telescope').setup({
   },
   pickers = {
     find_files = {
-      hidden = true
-    }
+      hidden = true,
+    },
+    live_grep = {
+      only_sort_text = true,
+    },
   }
 })
 
