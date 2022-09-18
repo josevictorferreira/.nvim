@@ -25,7 +25,12 @@ return require('packer').startup({function()
     end
   }
   -- Start theme plugin
-  use "mhinz/vim-startify"
+  use {
+    'mhinz/vim-startify',
+    config = function ()
+      vim.g['startify_change_to_vcs_root'] = 1
+    end
+  }
   -- Crystal language support
   use "vim-crystal/vim-crystal"
   -- Telescope Navigation
