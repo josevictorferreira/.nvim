@@ -24,6 +24,8 @@ return require('packer').startup({function()
       })
     end
   }
+  -- Start theme plugin
+  use "mhinz/vim-startify"
   -- Crystal language support
   use "vim-crystal/vim-crystal"
   -- Telescope Navigation
