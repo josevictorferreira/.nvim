@@ -40,3 +40,5 @@ snippet succ
 	Result::Success.new(${1})
 snippet fail
 	Result::Failure.new(${1})
+snippet itc
+	it { expect { ${1} }.to change(${2}, :count).by(1) }
