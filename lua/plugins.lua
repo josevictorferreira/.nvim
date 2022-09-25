@@ -173,6 +173,13 @@ return require('packer').startup({function()
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
+  -- Tests
+  use {
+    "klen/nvim-test",
+    config = function()
+      require('nvim-test').setup()
+    end
+  }
   -- Managing external editor tooling
   use {
     'williamboman/mason.nvim',
