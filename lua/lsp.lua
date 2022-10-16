@@ -4,7 +4,7 @@ local ok, rust_analyzer = lsp_installer_servers.get_server("rust_analyzer")
 
 local path_to_elixirls = vim.fn.expand("/usr/bin/elixir-ls")
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 if ok then
     if not rust_analyzer:is_installed() then
