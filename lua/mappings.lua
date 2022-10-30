@@ -41,3 +41,6 @@ map('n', '<leader>fb', ':Telescope buffers<CR>', options)
 map('n', '<leader>fh', ':Telescope help_tags<CR>', options)
 -- Motion
 map('n', 'f', ":HopWord<CR>", options)
+
+
+map('n', '<leader>jl', ':%!jq .<CR>', options)
