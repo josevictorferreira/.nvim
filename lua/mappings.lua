@@ -1,6 +1,13 @@
 local g = vim.g
 local options = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'LSP: ' .. desc
+  end
+
+  vim.keymap.set('n', keys, func, options)
+end
 
 g.mapleader = ' '
 
@@ -29,6 +36,9 @@ map('n', '<C-l>', '<C-w>l', options)
 map('n', '<C-h>', '<C-w>h', options)
 
 map('n', '<leader>,', ':noh<CR>', options)
+nmap('gd', vim.lsp.buf.definition)
+nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
 map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', options)
@@ -41,6 +51,5 @@ map('n', '<leader>fb', ':Telescope buffers<CR>', options)
 map('n', '<leader>fh', ':Telescope help_tags<CR>', options)
 -- Motion
 map('n', 'f', ":HopWord<CR>", options)
-
 
 map('n', '<leader>jl', ':%!jq .<CR>', options)
