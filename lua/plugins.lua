@@ -18,7 +18,7 @@ return {
     end
   },
   -- Crystal language support
-  { "vim-crystal/vim-crystal" },
+  { "vim-crystal/vim-crystal", ft = "cr" },
   -- Telescope Navigation
   {
     'nvim-telescope/telescope.nvim',
@@ -132,11 +132,13 @@ return {
     end
   },
   -- Debug startuptime
-  { 'dstein64/vim-startuptime' },
+  { 'dstein64/vim-startuptime', cmd = "StartupTime" },
   -- Colorscheme Plugin
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = false,
+    priority = 1000,
     config = function ()
       require("colorscheme")
     end
