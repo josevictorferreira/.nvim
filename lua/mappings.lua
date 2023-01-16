@@ -9,8 +9,6 @@ local nmap = function(keys, func, desc)
   vim.keymap.set('n', keys, func, options)
 end
 
-g.mapleader = ' '
-
 map('v', 'J', ":m '>+1<CR>gv=gv", options)
 map('v', 'K', ":m '<-2<CR>gv=gv", options)
 
