@@ -32,6 +32,7 @@ return {
   -- Autopair
   {
     'windwp/nvim-autopairs',
+    lazy = true,
     config = function ()
       require("autopairs")
     end
@@ -39,6 +40,7 @@ return {
   -- Git Signs
   {
     'lewis6991/gitsigns.nvim',
+    lazy = true,
     config = function()
       require('gitsigns').setup()
     end
@@ -57,11 +59,12 @@ return {
   },
   -- Lsp Integration and Completion
   {
-    'neovim/nvim-lspconfig',
+    'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
     dependencies = {
+      { 'neovim/nvim-lspconfig' },
       { 'ray-x/lsp_signature.nvim' },
       { 'williamboman/nvim-lsp-installer' },
-      { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
@@ -81,20 +84,24 @@ return {
   },
 
   -- Multiple cursors
-  { 'terryma/vim-multiple-cursors' },
+  { 'terryma/vim-multiple-cursors', event = "InsertEnter" },
 
   -- Status Bar plugin
   {
     'nvim-lualine/lualine.nvim',
+    lazy = false,
+    priority = 900,
     config = function ()
       require("statusbar")
     end
   },
   -- DevIcons plugin
-  { 'kyazdani42/nvim-web-devicons' },
+  { 'kyazdani42/nvim-web-devicons', lazy = false },
   -- Colorize hex colors
   {
     'norcalli/nvim-colorizer.lua',
+    lazy = true,
+    event = 'VeryLazy',
     config = function ()
       require("colorizer").setup()
     end
@@ -102,6 +109,7 @@ return {
   -- Comment plugin
   {
     'numToStr/Comment.nvim',
+    lazy = true,
     config = function ()
       require("Comment").setup()
     end
@@ -109,6 +117,7 @@ return {
   -- Buffer Tabs
   {
     'akinsho/bufferline.nvim',
+    lazy = false,
     config = function ()
       require("bufferline").setup{}
     end
@@ -116,6 +125,7 @@ return {
   -- Snippets
   {
     'L3MON4D3/LuaSnip',
+    event = 'VeryLazy',
     dependencies = {
       'honza/vim-snippets'
     },
@@ -127,6 +137,7 @@ return {
   -- Nerdtree file sidebar
   {
     'kyazdani42/nvim-tree.lua',
+    cmd = 'NvimTreeToggle',
     config = function ()
       require("file_explorer")
     end
@@ -146,15 +157,17 @@ return {
   -- Disable relative line numbers in insert mode
   {
     'nkakouros-original/numbers.nvim',
+    lazy = true,
     config = function ()
       require('numbers').setup()
     end
   },
   -- Better Markdown
-  { "ellisonleao/glow.nvim", branch = 'main' },
+  { "ellisonleao/glow.nvim", branch = 'main', ft = 'md' },
   -- Motion
   {
     'phaazon/hop.nvim',
+    lazy = true,
     branch = 'v2', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
@@ -164,6 +177,7 @@ return {
   -- Tests
   {
     "klen/nvim-test",
+    lazy = true,
     config = function()
       require('nvim-test').setup()
     end
@@ -171,6 +185,7 @@ return {
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',
+    lazy = true,
     dependencies = {
       "williamboman/mason-lspconfig.nvim"
     },
