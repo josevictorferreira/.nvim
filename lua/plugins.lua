@@ -32,7 +32,6 @@ return {
   -- Autopair
   {
     'windwp/nvim-autopairs',
-    lazy = true,
     config = function ()
       require("autopairs")
     end
@@ -40,7 +39,6 @@ return {
   -- Git Signs
   {
     'lewis6991/gitsigns.nvim',
-    lazy = true,
     config = function()
       require('gitsigns').setup()
     end
@@ -59,12 +57,11 @@ return {
   },
   -- Lsp Integration and Completion
   {
-    'hrsh7th/nvim-cmp',
+    'neovim/nvim-lspconfig',
     event = "InsertEnter",
     dependencies = {
-      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/nvim-cmp' },
       { 'ray-x/lsp_signature.nvim' },
-      { 'williamboman/nvim-lsp-installer' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
@@ -100,8 +97,6 @@ return {
   -- Colorize hex colors
   {
     'norcalli/nvim-colorizer.lua',
-    lazy = true,
-    event = 'VeryLazy',
     config = function ()
       require("colorizer").setup()
     end
@@ -109,7 +104,6 @@ return {
   -- Comment plugin
   {
     'numToStr/Comment.nvim',
-    lazy = true,
     config = function ()
       require("Comment").setup()
     end
@@ -117,9 +111,9 @@ return {
   -- Buffer Tabs
   {
     'akinsho/bufferline.nvim',
-    lazy = false,
     config = function ()
-      require("bufferline").setup{}
+      vim.opt.termguicolors = true
+      require("bufferline").setup({})
     end
   },
   -- Snippets
@@ -185,9 +179,8 @@ return {
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',
-    lazy = true,
     dependencies = {
-      "williamboman/mason-lspconfig.nvim"
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function ()
       require("mason").setup({
@@ -200,7 +193,7 @@ return {
         }
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "sumneko_lua", "rust_analyzer", "crystalline" }
+        ensure_installed = { "sumneko_lua", "rust_analyzer", "crystalline", "solargraph" }
       })
     end
   }

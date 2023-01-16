@@ -1,200 +1,97 @@
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
-
-local ok, rust_analyzer = lsp_installer_servers.get_server("rust_analyzer")
-
 local path_to_elixirls = vim.fn.expand("/usr/bin/elixir-ls")
+
+local lspconfig = require('lspconfig')
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-if ok then
-    if not rust_analyzer:is_installed() then
-        rust_analyzer:install()
-    end
-		require'lspconfig'.rust_analyzer.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.rust_analyzer.setup{
+  capabilities = capabilities
+}
 
-local ok, gopls = lsp_installer_servers.get_server("gopls")
-if ok then
-    if not gopls:is_installed() then
-        gopls:install()
-    end
-		require'lspconfig'.gopls.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.gopls.setup{
+  capabilities = capabilities
+}
 
-local ok, crystalline = lsp_installer_servers.get_server("crystalline")
-if ok then
-    if not crystalline:is_installed() then
-        crystalline:install()
-    end
-		require'lspconfig'.crystalline.setup{
-			capabilities = capabilities,
-      filetypes = {"crystal", "cr"}
-		}
-end
+lspconfig.crystalline.setup{
+  capabilities = capabilities,
+  filetypes = {"crystal", "cr"}
+}
 
-local ok, bashls = lsp_installer_servers.get_server("bashls")
-if ok then
-    if not bashls:is_installed() then
-        bashls:install()
-    end
-		require'lspconfig'.bashls.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.bashls.setup{
+  capabilities = capabilities
+}
 
-local ok, pyright = lsp_installer_servers.get_server("pyright")
-if ok then
-    if not pyright:is_installed() then
-        pyright:install()
-    end
-		require'lspconfig'.pyright.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.pyright.setup{
+  capabilities = capabilities
+}
 
-local ok, solargraph = lsp_installer_servers.get_server("solargraph")
-if ok then
-    if not solargraph:is_installed() then
-        solargraph:install()
-    end
-		require'lspconfig'.solargraph.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.solargraph.setup{
+  capabilities = capabilities
+}
 
-local ok, jsonls = lsp_installer_servers.get_server("jsonls")
-if ok then
-    if not jsonls:is_installed() then
-        jsonls:install()
-    end
-		require'lspconfig'.jsonls.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.jsonls.setup{
+  capabilities = capabilities
+}
 
-local ok, yamlls = lsp_installer_servers.get_server("yamlls")
-if ok then
-    if not yamlls:is_installed() then
-        yamlls:install()
-    end
-		require'lspconfig'.yamlls.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.yamlls.setup{
+  capabilities = capabilities
+}
 
-local ok, sumneko_lua = lsp_installer_servers.get_server("sumneko_lua")
-if ok then
-    if not sumneko_lua:is_installed() then
-        sumneko_lua:install()
-    end
-		require'lspconfig'.sumneko_lua.setup{
-			capabilities = capabilities,
-      settings = {
-          Lua = {
-              diagnostics = {
-                  globals = { 'vim', 'use' }
-              }
+lspconfig.sumneko_lua.setup{
+  capabilities = capabilities,
+  settings = {
+      Lua = {
+          diagnostics = {
+              globals = { 'vim', 'use' }
           }
       }
-		}
-end
+  }
+}
 
-local ok, html = lsp_installer_servers.get_server("html")
-if ok then
-    if not html:is_installed() then
-        html:install()
-    end
-		require'lspconfig'.html.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.html.setup{
+  capabilities = capabilities
+}
 
-local ok, dockerls = lsp_installer_servers.get_server("dockerls")
-if ok then
-    if not dockerls:is_installed() then
-        dockerls:install()
-    end
-		require'lspconfig'.dockerls.setup{
-			capabilities = capabilities
-		}
-end
+lspconfig.dockerls.setup{
+  capabilities = capabilities
+}
 
-local ok, vuels = lsp_installer_servers.get_server("vuels")
-if ok then
-    if not vuels:is_installed() then
-        vuels:install()
-    end
-		require'lspconfig'.vuels.setup{
-			capabilities = capabilities,
-      filetypes = {"vue"}
-		}
-end
+lspconfig.vuels.setup{
+  capabilities = capabilities,
+  filetypes = {"vue"}
+}
 
-local ok, elixirls = lsp_installer_servers.get_server("elixirls")
-if ok then
-    if not elixirls:is_installed() then
-        elixirls:install()
-    end
-		require'lspconfig'.elixirls.setup{
-			cmd = {path_to_elixirls},
-			capabilities = capabilities,
-      filetypes = {"elixir"},
-      settings = {
-        elixirLS = {
-          dialyzerEnabled = false,
-          fetchDeps = false
-        }
-      }
-		}
-end
+lspconfig.elixirls.setup{
+  cmd = {path_to_elixirls},
+  capabilities = capabilities,
+  filetypes = {"elixir"},
+  settings = {
+    elixirLS = {
+      dialyzerEnabled = false,
+      fetchDeps = false
+    }
+  }
+}
 
-local ok, efm = lsp_installer_servers.get_server("efm")
-if ok then
-    if not efm:is_installed() then
-        efm:install()
-    end
-		require'lspconfig'.efm.setup{
-			capabilities = capabilities,
-      filetypes = {"elixir"}
-		}
-end
+lspconfig.efm.setup{
+  capabilities = capabilities,
+  filetypes = {"elixir"}
+}
 
-local ok, eslint = lsp_installer_servers.get_server("eslint")
-if ok then
-    if not eslint:is_installed() then
-        eslint:install()
-    end
-		require'lspconfig'.eslint.setup{
-			capabilities = capabilities,
-			filetypes = {"javascript", "vue"}
-		}
-end
+lspconfig.eslint.setup{
+  capabilities = capabilities,
+  filetypes = {"javascript", "vue"}
+}
 
-local ok, tsserver = lsp_installer_servers.get_server("tsserver")
-if ok then
-    if not tsserver:is_installed() then
-        tsserver:install()
-    end
-		require'lspconfig'.tsserver.setup{
-			capabilities = capabilities,
-			filetypes = {"typescript"}
-		}
-end
+lspconfig.tsserver.setup{
+  capabilities = capabilities,
+  filetypes = {"typescript"}
+}
 
-local ok, emmet_ls = lsp_installer_servers.get_server("emmet_ls")
-if ok then
-    if not emmet_ls:is_installed() then
-        emmet_ls:install()
-    end
-		require'lspconfig'.emmet_ls.setup{
-			capabilities = capabilities,
-			filetypes = {"vue", "html"}
-		}
-end
+lspconfig.emmet_ls.setup{
+  capabilities = capabilities,
+  filetypes = {"vue", "html"}
+}
 
 require('lspkind').init({
     mode = 'symbol_text',
