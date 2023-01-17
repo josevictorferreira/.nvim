@@ -92,8 +92,6 @@ return {
       require("statusbar")
     end
   },
-  -- DevIcons plugin
-  { 'kyazdani42/nvim-web-devicons', lazy = false },
   -- Colorize hex colors
   {
     'norcalli/nvim-colorizer.lua',
@@ -108,14 +106,6 @@ return {
       require("Comment").setup()
     end
   },
-  -- Buffer Tabs
-  {
-    'akinsho/bufferline.nvim',
-    config = function ()
-      vim.opt.termguicolors = true
-      require("bufferline").setup({})
-    end
-  },
   -- Snippets
   {
     'L3MON4D3/LuaSnip',
@@ -126,14 +116,6 @@ return {
     config = function ()
       require("luasnip.loaders.from_snipmate").lazy_load()
       require'luasnip'.filetype_extend("ruby", {"rails"})
-    end
-  },
-  -- Nerdtree file sidebar
-  {
-    'kyazdani42/nvim-tree.lua',
-    cmd = 'NvimTreeToggle',
-    config = function ()
-      require("file_explorer")
     end
   },
   -- Debug startuptime
