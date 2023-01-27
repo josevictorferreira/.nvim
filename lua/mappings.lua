@@ -42,9 +42,9 @@ nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 map('n', '<leader>p', ':Telescope find_files<CR>', options)
 map('n', '<leader>fg', ':Telescope live_grep<CR>', options)
 map('n', '<leader>f', ':Telescope live_grep<CR>', options)
-map('n', '<leader>fb', ':Telescope file_browser<CR>', options)
+map('n', '<leader>fb', ':Telescope buffers<CR>', options)
 map('n', '<leader>fh', ':Telescope help_tags<CR>', options)
-map('n', '<leader><tab>', ':Telescope buffers<CR>', options)
+map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
 -- Motion
 map('n', 'f', ":HopWord<CR>", options)
 

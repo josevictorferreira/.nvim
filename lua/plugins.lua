@@ -7,7 +7,7 @@ return {
   },
   {
     'nathom/filetype.nvim',
-    config = function ()
+    config = function()
       require("filetype").setup({
         overrides = {
           extensions = {
@@ -23,17 +23,28 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-      { 'nvim-telescope/telescope-file-browser.nvim' }
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
     },
-    config = function ()
+    config = function()
       require('navigation')
+    end
+  },
+  -- File Browser
+  {
+    'nvim-tree/nvim-tree.lua',
+    cmd = 'NvimTreeToggle',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    version = 'nightly',
+    config = function()
+      require("nvim-tree").setup()
     end
   },
   -- Autopair
   {
     'windwp/nvim-autopairs',
-    config = function ()
+    config = function()
       require("autopairs")
     end
   },
@@ -52,7 +63,7 @@ return {
       { 'nvim-treesitter/nvim-treesitter-refactor', lazy = true },
       { 'windwp/nvim-ts-autotag', lazy = true }
     },
-    config = function ()
+    config = function()
       require('treesitter')
     end
   },
@@ -89,21 +100,21 @@ return {
     'nvim-lualine/lualine.nvim',
     lazy = false,
     priority = 900,
-    config = function ()
+    config = function()
       require("statusbar")
     end
   },
   -- Colorize hex colors
   {
     'norcalli/nvim-colorizer.lua',
-    config = function ()
+    config = function()
       require("colorizer").setup()
     end
   },
   -- Comment plugin
   {
     'numToStr/Comment.nvim',
-    config = function ()
+    config = function()
       require("Comment").setup()
     end
   },
@@ -114,9 +125,9 @@ return {
     dependencies = {
       'honza/vim-snippets'
     },
-    config = function ()
+    config = function()
       require("luasnip.loaders.from_snipmate").lazy_load()
-      require'luasnip'.filetype_extend("ruby", {"rails"})
+      require 'luasnip'.filetype_extend("ruby", { "rails" })
     end
   },
   -- Debug startuptime
@@ -127,7 +138,7 @@ return {
     name = "catppuccin",
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       require("colorscheme")
     end
   },
@@ -135,7 +146,7 @@ return {
   {
     'nkakouros-original/numbers.nvim',
     lazy = true,
-    config = function ()
+    config = function()
       require('numbers').setup()
     end
   },
@@ -148,7 +159,7 @@ return {
     branch = 'v2', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   },
   -- Tests
@@ -165,7 +176,7 @@ return {
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
-    config = function ()
+    config = function()
       require("mason").setup({
         ui = {
           icons = {
