@@ -1,4 +1,3 @@
-local g = vim.g
 local options = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 local nmap = function(keys, func, desc)

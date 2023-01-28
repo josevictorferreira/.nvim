@@ -19,6 +19,17 @@ return {
   },
   -- Crystal language support
   { "vim-crystal/vim-crystal", ft = "cr" },
+  -- Buffers Bar
+  {
+    'akinsho/bufferline.nvim',
+    version = 'v3.*',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    lazy = false,
+    priority = 1010,
+    config = function ()
+      require("bufferline").setup{}
+    end
+  },
   -- Telescope Navigation
   {
     'nvim-telescope/telescope.nvim',

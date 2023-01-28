@@ -21,7 +21,7 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 
-opt.showtabline = 1
+opt.showtabline = 2
 
 opt.ttyfast = true
 opt.lazyredraw = true
