@@ -12,6 +12,9 @@ opt.syntax = 'enable'
 
 opt.guicursor = ""
 
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
 opt.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
 opt.fileencodings = 'utf-8'
