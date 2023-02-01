@@ -52,6 +52,13 @@ return {
       require("nvim-tree").setup()
     end
   },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+    config = function()
+      require('fold')
+    end
+  },
   -- Autopair
   {
     'windwp/nvim-autopairs',
