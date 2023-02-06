@@ -35,7 +35,10 @@ local defaults = {
     end,
   },
   indent = {
-    enable = true
+    enable = true,
+    disable = {
+      'ruby'
+    }
   },
   autotag = {
     enable = true,
