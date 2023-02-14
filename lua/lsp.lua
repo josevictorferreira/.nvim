@@ -17,6 +17,10 @@ lspconfig.gopls.setup{
   capabilities = capabilities
 }
 
+lspconfig.dotls.setup{
+  capabilities = capabilities
+}
+
 lspconfig.crystalline.setup{
   capabilities = capabilities,
   filetypes = {"crystal", "cr"}
@@ -42,7 +46,7 @@ lspconfig.yamlls.setup{
   capabilities = capabilities
 }
 
-lspconfig.sumneko_lua.setup{
+lspconfig.lua_ls.setup{
   capabilities = capabilities,
   settings = {
       Lua = {
@@ -58,6 +62,10 @@ lspconfig.html.setup{
 }
 
 lspconfig.dockerls.setup{
+  capabilities = capabilities
+}
+
+lspconfig.docker_compose_language_service.setup{
   capabilities = capabilities
 }
 

@@ -205,7 +205,7 @@ return {
         }
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "sumneko_lua", "rust_analyzer", "crystalline", "solargraph" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "solargraph", "tsserver", "bashls", "dockerls", "dotls" }
       })
     end
   }
