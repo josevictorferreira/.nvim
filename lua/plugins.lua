@@ -175,6 +175,7 @@ return {
     'phaazon/hop.nvim',
     lazy = true,
     branch = 'v2', -- optional but strongly recommended
+    cmd = 'HopWord',
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
