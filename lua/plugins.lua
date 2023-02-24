@@ -189,6 +189,20 @@ return {
       require('nvim-test').setup()
     end
   },
+  -- Chat GPT
+  {
+    "jackMort/ChatGPT.nvim",
+      config = function()
+        require("chatgpt").setup({
+          -- optional configuration
+        })
+      end,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
+  },
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',
