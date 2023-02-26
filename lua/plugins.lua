@@ -189,6 +189,8 @@ return {
       require('nvim-test').setup()
     end
   },
+  -- Github Copilot
+  { 'github/copilot.vim' },
   -- Chat GPT
   {
     "jackMort/ChatGPT.nvim",
