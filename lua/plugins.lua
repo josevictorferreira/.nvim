@@ -205,6 +205,10 @@ return {
         "nvim-telescope/telescope.nvim"
       }
   },
+  -- Github Copilot
+  {
+    'github/copilot.vim'
+  },
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',

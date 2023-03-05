@@ -69,7 +69,7 @@ lspconfig.docker_compose_language_service.setup{
   capabilities = capabilities
 }
 
-lspconfig.vuels.setup{
+lspconfig.volar.setup{
   capabilities = capabilities,
   filetypes = {"vue"}
 }
