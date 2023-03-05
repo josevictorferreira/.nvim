@@ -18,3 +18,7 @@ function RunCode()
 
   vim.api.nvim_command('tabnew | term ' .. cmd)
 end
+
+function PrettierFormat()
+  vim.api.nvim_command('%! pnpm prettier %')
+end
