@@ -5,6 +5,8 @@ return {
     'lewis6991/impatient.nvim',
     'nvim-lua/plenary.nvim',
   },
+  -- Github Copilot
+  { 'github/copilot.vim' },
   {
     'nathom/filetype.nvim',
     config = function()
@@ -189,8 +191,6 @@ return {
       require('nvim-test').setup()
     end
   },
-  -- Github Copilot
-  { 'github/copilot.vim' },
   -- Chat GPT
   {
     "jackMort/ChatGPT.nvim",
