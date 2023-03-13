@@ -5,79 +5,89 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+  dynamicRegistration = false,
+  lineFoldingOnly = true
 }
 
-lspconfig.rust_analyzer.setup{
+lspconfig.rust_analyzer.setup {
   capabilities = capabilities
 }
 
-lspconfig.gopls.setup{
+lspconfig.gopls.setup {
   capabilities = capabilities
 }
 
-lspconfig.dotls.setup{
+lspconfig.dotls.setup {
   capabilities = capabilities
 }
 
-lspconfig.crystalline.setup{
+lspconfig.crystalline.setup {
   capabilities = capabilities,
-  filetypes = {"crystal", "cr"}
+  filetypes = { "crystal", "cr" }
 }
 
-lspconfig.bashls.setup{
+lspconfig.bashls.setup {
   capabilities = capabilities
 }
 
-lspconfig.pyright.setup{
+lspconfig.pyright.setup {
   capabilities = capabilities
 }
 
-lspconfig.solargraph.setup{
+lspconfig.solargraph.setup {
   capabilities = capabilities
 }
 
-lspconfig.jsonls.setup{
+lspconfig.jsonls.setup {
   capabilities = capabilities
 }
 
-lspconfig.yamlls.setup{
-  capabilities = capabilities
-}
-
-lspconfig.lua_ls.setup{
+lspconfig.yamlls.setup {
   capabilities = capabilities,
+  on_attach = function(client)
+    client.server_capabilities.document_formatting = true
+  end,
   settings = {
-      Lua = {
-          diagnostics = {
-              globals = { 'vim', 'use' }
-          }
-      }
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["../path/relative/to/file.yml"] = "/.github/workflows/*",
+        ["/path/from/root/of/project"] = "/.github/workflows/*",
+        ['https://raw.githubusercontent.com/docker/cli/master/cli/compose/schema/data/config_schema_v3.9.json'] = '/docker-compose.yml',
+        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml"
+      },
+    },
   }
 }
 
-lspconfig.html.setup{
-  capabilities = capabilities
-}
-
-lspconfig.dockerls.setup{
-  capabilities = capabilities
-}
-
-lspconfig.docker_compose_language_service.setup{
-  capabilities = capabilities
-}
-
-lspconfig.volar.setup{
+lspconfig.lua_ls.setup {
   capabilities = capabilities,
-  filetypes = {"vue"}
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim', 'use' }
+      }
+    }
+  }
 }
 
-lspconfig.elixirls.setup{
-  cmd = {path_to_elixirls},
+lspconfig.html.setup {
+  capabilities = capabilities
+}
+
+lspconfig.dockerls.setup {
+  capabilities = capabilities
+}
+
+lspconfig.volar.setup {
   capabilities = capabilities,
-  filetypes = {"elixir"},
+  filetypes = { "vue" }
+}
+
+lspconfig.elixirls.setup {
+  cmd = { path_to_elixirls },
+  capabilities = capabilities,
+  filetypes = { "elixir" },
   settings = {
     elixirLS = {
       dialyzerEnabled = false,
@@ -86,56 +96,54 @@ lspconfig.elixirls.setup{
   }
 }
 
-lspconfig.efm.setup{
+lspconfig.efm.setup {
   capabilities = capabilities,
-  filetypes = {"elixir"}
+  filetypes = { "elixir" }
 }
 
-lspconfig.eslint.setup{
+lspconfig.eslint.setup {
   capabilities = capabilities,
-  filetypes = {"javascript", "vue"}
+  filetypes = { "javascript", "vue" }
 }
 
-lspconfig.tsserver.setup{
+lspconfig.tsserver.setup {
   capabilities = capabilities,
-  filetypes = {"typescript"}
+  filetypes = { "typescript" }
 }
 
-lspconfig.emmet_ls.setup{
+lspconfig.emmet_ls.setup {
   capabilities = capabilities,
-  filetypes = {"vue", "html"}
+  filetypes = { "vue", "html" }
 }
 
 require('lspkind').init({
-    mode = 'symbol_text',
-
-    preset = 'codicons',
-
-    symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "פּ",
-      Event = "",
-      Operator = "",
-      TypeParameter = ""
-    },
+  mode = 'symbol_text',
+  preset = 'codicons',
+  symbol_map = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+  },
 })
