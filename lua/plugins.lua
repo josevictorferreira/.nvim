@@ -56,7 +56,7 @@ return {
           dotfiles = false
         },
         git = {
-          ignore = false
+          ignore = true
         }
       })
     end
