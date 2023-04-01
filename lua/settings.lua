@@ -3,12 +3,10 @@ local cmd = vim.cmd
 
 vim.g["python3_host_prog"] = "/usr/bin/python3"
 vim.g["python3_host_skip_check"] = 1
-vim.g["copilot_no_tab_map"] = true
-vim.g["copilot_assume_mapped"] = true
 
-cmd([[
-	filetype plugin indent on
-]])
+-- cmd([[
+-- 	filetype plugin indent on
+-- ]])
 
 opt.syntax = 'enable'
 

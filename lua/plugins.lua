@@ -6,7 +6,13 @@ return {
     'nvim-lua/plenary.nvim',
   },
   -- Github Copilot
-  { 'github/copilot.vim' },
+  {
+    'github/copilot.vim',
+    config = function()
+      vim.g["copilot_no_tab_map"] = true
+      vim.g["copilot_assume_mapped"] = true
+    end
+  },
   {
     'nathom/filetype.nvim',
     config = function()
@@ -14,6 +20,7 @@ return {
         overrides = {
           extensions = {
             cr = "crystal",
+            sql = "sql"
           },
         }
       })
@@ -211,10 +218,6 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim"
       }
-  },
-  -- Github Copilot
-  {
-    'github/copilot.vim'
   },
   -- Managing external editor tooling
   {
