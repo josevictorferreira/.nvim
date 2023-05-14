@@ -34,7 +34,11 @@ lspconfig.pyright.setup {
   capabilities = capabilities
 }
 
-lspconfig.solargraph.setup {
+lspconfig.ruby_ls.setup {
+  capabilities = capabilities
+}
+
+lspconfig.typeprof.setup{
   capabilities = capabilities
 }
 

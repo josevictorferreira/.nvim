@@ -9,8 +9,7 @@ return {
   {
     'github/copilot.vim',
     config = function()
-      vim.g["copilot_no_tab_map"] = true
-      vim.g["copilot_assume_mapped"] = true
+      require("copilot").setup()
     end
   },
   {
@@ -28,6 +27,8 @@ return {
   },
   -- Crystal language support
   { "vim-crystal/vim-crystal", ft = "cr" },
+  -- Ruby RBS Syntax Highlight
+  { "jlcrochet/vim-rbs", ft = "rbs" },
   -- Buffers Bar
   {
     'akinsho/bufferline.nvim',
@@ -236,7 +237,7 @@ return {
         }
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "solargraph", "tsserver", "bashls", "dockerls", "dotls" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "ruby_ls", "tsserver", "bashls", "dockerls", "dotls" }
       })
     end
   }
