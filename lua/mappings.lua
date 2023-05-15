@@ -49,7 +49,3 @@ map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
 map('n', 'f', ":HopWord<CR>", options)
 
 map('n', '<leader>jl', ':%!jq .<CR>', options)
-
-map('i', '<C-J>', 'copilot#Accept("<CR>")', { silent=true, expr=true })
-map('i', '<C-H>', 'copilot#Previous()', { silent=true, expr=true })
-map('i', '<C-L>', 'copilot#Next()', { silent=true, expr=true })

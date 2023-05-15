@@ -7,11 +7,14 @@ return {
   },
   -- Github Copilot
   {
-    'github/copilot.vim',
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      require("copilot").setup()
-    end
+      require("copilot_setup")
+    end,
   },
+  -- Filetype Plugin
   {
     'nathom/filetype.nvim',
     config = function()
@@ -205,20 +208,6 @@ return {
     config = function()
       require('nvim-test').setup()
     end
-  },
-  -- Chat GPT
-  {
-    "jackMort/ChatGPT.nvim",
-      config = function()
-        require("chatgpt").setup({
-          -- optional configuration
-        })
-      end,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim"
-      }
   },
   -- Managing external editor tooling
   {
