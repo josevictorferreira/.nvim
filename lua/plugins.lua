@@ -11,7 +11,7 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("copilot_setup")
+      require("copilot_config")
     end,
   },
   -- Filetype Plugin
