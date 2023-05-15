@@ -10,15 +10,18 @@ capabilities.textDocument.foldingRange = {
 }
 
 lspconfig.rust_analyzer.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "rs" }
 }
 
 lspconfig.gopls.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "go" }
 }
 
 lspconfig.dotls.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "dot" }
 }
 
 lspconfig.crystalline.setup {
@@ -27,27 +30,33 @@ lspconfig.crystalline.setup {
 }
 
 lspconfig.bashls.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "sh" }
 }
 
 lspconfig.pyright.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "python" }
 }
 
 lspconfig.ruby_ls.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "ruby" }
 }
 
 lspconfig.typeprof.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "ruby", "rbs" }
 }
 
 lspconfig.jsonls.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "json" }
 }
 
 lspconfig.yamlls.setup {
   capabilities = capabilities,
+  filetypes = { "yaml", "yml" },
   on_attach = function(client)
     client.server_capabilities.document_formatting = true
   end,
@@ -65,6 +74,7 @@ lspconfig.yamlls.setup {
 
 lspconfig.lua_ls.setup {
   capabilities = capabilities,
+  filetypes = { "lua" },
   settings = {
     Lua = {
       diagnostics = {
@@ -75,11 +85,13 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.html.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "html" }
 }
 
 lspconfig.dockerls.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "dockerfile" }
 }
 
 lspconfig.volar.setup {
@@ -97,11 +109,6 @@ lspconfig.elixirls.setup {
       fetchDeps = false
     }
   }
-}
-
-lspconfig.efm.setup {
-  capabilities = capabilities,
-  filetypes = { "elixir" }
 }
 
 lspconfig.eslint.setup {
