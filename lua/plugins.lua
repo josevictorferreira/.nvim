@@ -97,7 +97,6 @@ return {
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-refactor', lazy = true },
       { 'windwp/nvim-ts-autotag', lazy = true }

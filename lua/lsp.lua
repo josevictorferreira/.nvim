@@ -44,10 +44,10 @@ lspconfig.ruby_ls.setup {
   filetypes = { "ruby" }
 }
 
-lspconfig.typeprof.setup{
-  capabilities = capabilities,
-  filetypes = { "ruby", "rbs" }
-}
+-- lspconfig.typeprof.setup{
+--   capabilities = capabilities,
+--   filetypes = { "ruby", "rbs" }
+-- }
 
 lspconfig.jsonls.setup {
   capabilities = capabilities,
