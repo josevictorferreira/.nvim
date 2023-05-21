@@ -1,7 +1,6 @@
 return {
   -- Essential setup plugins
   {
-    'wbthomason/packer.nvim',
     'lewis6991/impatient.nvim',
     'nvim-lua/plenary.nvim',
   },
@@ -22,7 +21,8 @@ return {
         overrides = {
           extensions = {
             cr = "crystal",
-            sql = "sql"
+            sql = "sql",
+            html = "html"
           },
         }
       })
@@ -172,8 +172,8 @@ return {
   { 'dstein64/vim-startuptime', cmd = "StartupTime" },
   -- Colorscheme Plugin
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "rebelot/kanagawa.nvim",
+    name = "kanagawa",
     lazy = false,
     priority = 1000,
     config = function()
@@ -226,7 +226,7 @@ return {
         }
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "ruby_ls", "tsserver", "bashls", "dockerls", "dotls" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "ruby_ls", "tsserver", "bashls", "dockerls", "dotls", "html" }
       })
     end
   }
