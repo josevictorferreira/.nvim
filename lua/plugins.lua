@@ -226,7 +226,7 @@ return {
         }
       })
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "ruby_ls", "tsserver", "bashls", "dockerls", "dotls", "html" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "crystalline", "solargraph", "tsserver", "bashls", "dockerls", "dotls", "html" }
       })
     end
   }

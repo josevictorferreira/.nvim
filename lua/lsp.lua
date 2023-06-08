@@ -1,6 +1,8 @@
 local path_to_elixirls = vim.fn.expand("/usr/bin/elixir-ls")
 
 local lspconfig = require('lspconfig')
+local configs = require("lspconfig.configs")
+local util = require("lspconfig.util")
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -39,15 +41,20 @@ lspconfig.pyright.setup {
   filetypes = { "python" }
 }
 
-lspconfig.ruby_ls.setup {
+lspconfig.solargraph.setup {
   capabilities = capabilities,
   filetypes = { "ruby" }
 }
-
+--
 -- lspconfig.typeprof.setup{
 --   capabilities = capabilities,
 --   filetypes = { "ruby", "rbs" }
 -- }
+
+lspconfig.bufls.setup {
+  capabilities = capabilities,
+  filetypes = { "proto", "protobuf" }
+}
 
 lspconfig.jsonls.setup {
   capabilities = capabilities,
@@ -118,7 +125,7 @@ lspconfig.eslint.setup {
 
 lspconfig.tsserver.setup {
   capabilities = capabilities,
-  filetypes = { "typescript" }
+  filetypes = { "typescript", "javascript" }
 }
 
 lspconfig.emmet_ls.setup {
