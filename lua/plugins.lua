@@ -209,6 +209,10 @@ return {
       require('nvim-test').setup()
     end
   },
+  {
+    'taybart/b64.nvim',
+    lazy = true,
+  },
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',
