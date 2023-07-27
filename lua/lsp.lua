@@ -31,6 +31,11 @@ lspconfig.crystalline.setup {
   filetypes = { "crystal", "cr" }
 }
 
+lspconfig.tailwindcss.setup {
+  capabilities = capabilities,
+  filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue" }
+}
+
 lspconfig.bashls.setup {
   capabilities = capabilities,
   filetypes = { "sh" }
