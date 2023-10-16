@@ -56,6 +56,11 @@ lspconfig.solargraph.setup {
 --   filetypes = { "ruby", "rbs" }
 -- }
 
+lspconfig.nginx_language_server.setup {
+  capabilities = capabilities,
+  filetypes = { "nginx" }
+}
+
 lspconfig.bufls.setup {
   capabilities = capabilities,
   filetypes = { "proto", "protobuf" }

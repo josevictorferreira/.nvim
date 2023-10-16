@@ -22,8 +22,11 @@ return {
           extensions = {
             cr = "crystal",
             sql = "sql",
-            html = "html"
+            html = "html",
           },
+          complex = {
+            ["nginx.conf"] = "nginx",
+          }
         }
       })
     end
@@ -172,8 +175,7 @@ return {
   { 'dstein64/vim-startuptime', cmd = "StartupTime" },
   -- Colorscheme Plugin
   {
-    "rebelot/kanagawa.nvim",
-    name = "kanagawa",
+    'navarasu/onedark.nvim',
     lazy = false,
     priority = 1000,
     config = function()
