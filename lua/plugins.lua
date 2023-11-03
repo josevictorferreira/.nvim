@@ -111,7 +111,8 @@ return {
   -- Lsp Integration and Completion
   {
     'neovim/nvim-lspconfig',
-    event = "InsertEnter",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "LspInfo", "LspInstall", "LspUninstall" },
     dependencies = {
       { 'hrsh7th/nvim-cmp' },
       { 'ray-x/lsp_signature.nvim' },
