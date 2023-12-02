@@ -13,7 +13,7 @@ capabilities.textDocument.foldingRange = {
 
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
-  filetypes = { "rs" }
+  filetypes = { "rs", "rust" }
 }
 
 lspconfig.gopls.setup {

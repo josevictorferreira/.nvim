@@ -32,7 +32,7 @@ return {
     end
   },
   -- Crystal language support
-  { "vim-crystal/vim-crystal", ft = "cr" },
+  { "vim-crystal/vim-crystal" },
   -- Ruby RBS Syntax Highlight
   { "jlcrochet/vim-rbs", ft = "rbs" },
   -- Buffers Bar
