@@ -56,25 +56,36 @@ return {
       require('navigation')
     end
   },
-  -- File Browser
+  -- Mass file editing
   {
-    'nvim-tree/nvim-tree.lua',
-    cmd = 'NvimTreeToggle',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    version = 'nightly',
+    'stevearc/oil.nvim',
+    opts = {},
+    lazy = true,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("nvim-tree").setup({
-        filters = {
-          dotfiles = false
-        },
-        git = {
-          ignore = true
-        }
-      })
+      require("oil").setup()
     end
   },
+  -- -- File Browser
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   cmd = 'NvimTreeToggle',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   version = 'nightly',
+  --   config = function()
+  --     require("nvim-tree").setup({
+  --       filters = {
+  --         dotfiles = false
+  --       },
+  --       git = {
+  --         ignore = true
+  --       }
+  --     })
+  --   end
+  -- },
+  -- Autofold
   {
     'kevinhwang91/nvim-ufo',
     dependencies = { 'kevinhwang91/promise-async' },

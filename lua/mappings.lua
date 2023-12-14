@@ -44,7 +44,8 @@ map('n', '<leader>fg', ':Telescope live_grep<CR>', options)
 map('n', '<leader>f', ':Telescope live_grep<CR>', options)
 map('n', '<leader>fb', ':Telescope buffers<CR>', options)
 map('n', '<leader>fh', ':Telescope help_tags<CR>', options)
-map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
+--map('n', '<leader><tab>', ':NvimTreeToggle<CR>', options)
+map('n', '<leader><tab>', ':edit .<CR>', options)
 -- Motion
 map('n', 'f', ":HopWord<CR>", options)
 
