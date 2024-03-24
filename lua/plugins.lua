@@ -56,35 +56,25 @@ return {
       require('navigation')
     end
   },
-  -- Mass file editing
+  -- -- File Browser
   {
-    'stevearc/oil.nvim',
-    opts = {},
-    lazy = true,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    'nvim-tree/nvim-tree.lua',
+    cmd = 'NvimTreeToggle',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    version = 'nightly',
     config = function()
-      require("oil").setup()
+      require("nvim-tree").setup({
+        filters = {
+          dotfiles = false
+        },
+        git = {
+          ignore = true
+        }
+      })
     end
   },
-  -- -- File Browser
-  -- {
-  --   'nvim-tree/nvim-tree.lua',
-  --   cmd = 'NvimTreeToggle',
-  --   dependencies = {
-  --     'nvim-tree/nvim-web-devicons',
-  --   },
-  --   version = 'nightly',
-  --   config = function()
-  --     require("nvim-tree").setup({
-  --       filters = {
-  --         dotfiles = false
-  --       },
-  --       git = {
-  --         ignore = true
-  --       }
-  --     })
-  --   end
-  -- },
   -- Autofold
   {
     'kevinhwang91/nvim-ufo',
@@ -222,10 +212,6 @@ return {
     config = function()
       require('nvim-test').setup()
     end
-  },
-  {
-    'taybart/b64.nvim',
-    lazy = true,
   },
   -- Managing external editor tooling
   {
