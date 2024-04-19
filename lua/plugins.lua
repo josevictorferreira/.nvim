@@ -75,14 +75,14 @@ return {
       })
     end
   },
-  -- Autofold
-  {
-    'kevinhwang91/nvim-ufo',
-    dependencies = { 'kevinhwang91/promise-async' },
-    config = function()
-      require('fold')
-    end
-  },
+  -- -- Autofold
+  -- {
+  --   'kevinhwang91/nvim-ufo',
+  --   dependencies = { 'kevinhwang91/promise-async' },
+  --   config = function()
+  --     require('fold')
+  --   end
+  -- },
   -- Autopair
   {
     'windwp/nvim-autopairs',
@@ -213,6 +213,8 @@ return {
       require('nvim-test').setup()
     end
   },
+  -- Indent Guides
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',
