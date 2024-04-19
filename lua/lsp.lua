@@ -46,6 +46,11 @@ lspconfig.pyright.setup {
   filetypes = { "python" }
 }
 
+lspconfig.pylsp.setup {
+  capabilities = capabilities,
+  filetypes = { "python" }
+}
+
 lspconfig.solargraph.setup {
   capabilities = capabilities,
   filetypes = { "ruby" }
