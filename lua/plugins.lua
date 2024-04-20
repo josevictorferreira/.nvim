@@ -23,6 +23,7 @@ return {
             cr = "crystal",
             sql = "sql",
             html = "html",
+            sh = "bash",
           },
           complex = {
             ["nginx.conf"] = "nginx",

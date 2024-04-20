@@ -20,7 +20,8 @@ local defaults = {
     'rust',
     'regex',
     'vue',
-    'yaml'
+    'yaml',
+    'bash'
   },
   highlight = {
     enable = true,

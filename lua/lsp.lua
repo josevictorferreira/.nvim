@@ -38,7 +38,7 @@ lspconfig.tailwindcss.setup {
 
 lspconfig.bashls.setup {
   capabilities = capabilities,
-  filetypes = { "sh" }
+  filetypes = { "sh", "bash" }
 }
 
 lspconfig.pyright.setup {
