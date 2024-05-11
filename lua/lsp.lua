@@ -41,14 +41,16 @@ lspconfig.bashls.setup {
   filetypes = { "sh", "bash" }
 }
 
-lspconfig.pyright.setup {
-  capabilities = capabilities,
-  filetypes = { "python" }
-}
-
 lspconfig.pylsp.setup {
   capabilities = capabilities,
-  filetypes = { "python" }
+  filetypes = { "python" },
+  settings = {
+    pylsp = {
+      plugins = {
+        black = { enabled = true },
+      }
+    }
+  }
 }
 
 lspconfig.solargraph.setup {

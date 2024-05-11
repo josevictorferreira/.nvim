@@ -35,18 +35,8 @@ return {
   -- Crystal language support
   { "vim-crystal/vim-crystal" },
   -- Ruby RBS Syntax Highlight
-  { "jlcrochet/vim-rbs", ft = "rbs" },
+  { "jlcrochet/vim-rbs",      ft = "rbs" },
   -- Buffers Bar
-  {
-    'akinsho/bufferline.nvim',
-    version = 'v3.*',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    lazy = false,
-    priority = 1010,
-    config = function ()
-      require("bufferline").setup{}
-    end
-  },
   -- Telescope Navigation
   {
     'nvim-telescope/telescope.nvim',
@@ -64,7 +54,6 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
-    version = 'nightly',
     config = function()
       require("nvim-tree").setup({
         filters = {
@@ -72,9 +61,21 @@ return {
         },
         git = {
           ignore = true
+        },
+        view = {
+          width = 40
         }
       })
     end
+  },
+  -- -- Buffer Line
+  {
+    "willothy/nvim-cokeline",
+    dependencies = {
+      "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
+      "nvim-tree/nvim-web-devicons"
+    },
+    config = true
   },
   -- -- Autofold
   -- {
@@ -104,7 +105,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-refactor', lazy = true },
-      { 'windwp/nvim-ts-autotag', lazy = true }
+      { 'windwp/nvim-ts-autotag',                   lazy = true }
     },
     config = function()
       require('treesitter')
@@ -175,7 +176,7 @@ return {
     end
   },
   -- Debug startuptime
-  { 'dstein64/vim-startuptime', cmd = "StartupTime" },
+  { 'dstein64/vim-startuptime',     cmd = "StartupTime" },
   -- Colorscheme Plugin
   {
     'navarasu/onedark.nvim',
@@ -194,7 +195,7 @@ return {
     end
   },
   -- Better Markdown
-  { "ellisonleao/glow.nvim", branch = 'main', ft = 'md' },
+  { "ellisonleao/glow.nvim",               branch = 'main', ft = 'md' },
   -- Motion
   {
     'phaazon/hop.nvim',
@@ -215,7 +216,7 @@ return {
     end
   },
   -- Indent Guides
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",    opts = {} },
   -- Managing external editor tooling
   {
     'williamboman/mason.nvim',
