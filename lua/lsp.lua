@@ -33,7 +33,7 @@ lspconfig.crystalline.setup {
 
 lspconfig.tailwindcss.setup {
   capabilities = capabilities,
-  filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue" }
+  filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" }
 }
 
 lspconfig.bashls.setup {
@@ -150,12 +150,12 @@ lspconfig.elixirls.setup {
 
 lspconfig.eslint.setup {
   capabilities = capabilities,
-  filetypes = { "javascript", "vue" }
+  filetypes = { "javascript", "vue", "typescript", "typescriptreact", "typescript.tsx" }
 }
 
 lspconfig.tsserver.setup {
   capabilities = capabilities,
-  filetypes = { "typescript", "javascript" }
+  filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx" }
 }
 
 lspconfig.emmet_ls.setup {
