@@ -37,6 +37,14 @@ return {
   -- Ruby RBS Syntax Highlight
   { "jlcrochet/vim-rbs",      ft = "rbs" },
   -- Buffers Bar
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup({})
+    end
+  },
   -- Telescope Navigation
   {
     'nvim-telescope/telescope.nvim',
@@ -68,24 +76,6 @@ return {
       })
     end
   },
-  -- -- Buffer Line
-  {
-    "willothy/nvim-cokeline",
-    dependencies = {
-      "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
-      "nvim-tree/nvim-web-devicons"
-    },
-    config = true
-  },
-  -- -- Autofold
-  -- {
-  --   'kevinhwang91/nvim-ufo',
-  --   dependencies = { 'kevinhwang91/promise-async' },
-  --   config = function()
-  --     require('fold')
-  --   end
-  -- },
-  -- Autopair
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
