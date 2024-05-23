@@ -51,6 +51,7 @@ opt.hidden = true
 opt.bomb = true
 opt.binary = true
 opt.expandtab = true
+opt.scrolloff = 10
 
 -- performance
 opt.redrawtime = 1500
