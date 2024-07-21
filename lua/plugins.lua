@@ -36,15 +36,6 @@ return {
   { "vim-crystal/vim-crystal" },
   -- Ruby RBS Syntax Highlight
   { "jlcrochet/vim-rbs",      ft = "rbs" },
-  -- Buffers Bar
-  {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup({})
-    end
-  },
   -- Telescope Navigation
   {
     'nvim-telescope/telescope.nvim',
@@ -129,14 +120,11 @@ return {
 
   -- Multiple cursors
   { 'terryma/vim-multiple-cursors', event = "InsertEnter" },
-
   -- Status Bar plugin
   {
-    'nvim-lualine/lualine.nvim',
-    lazy = false,
-    priority = 900,
+    'ojroques/nvim-hardline',
     config = function()
-      require("statusbar")
+      require('statusbar')
     end
   },
   -- Colorize hex colors
@@ -153,23 +141,11 @@ return {
       require("Comment").setup()
     end
   },
-  -- Snippets
-  {
-    'L3MON4D3/LuaSnip',
-    event = 'VeryLazy',
-    dependencies = {
-      'honza/vim-snippets'
-    },
-    config = function()
-      require("luasnip.loaders.from_snipmate").lazy_load()
-      require 'luasnip'.filetype_extend("ruby", { "rails" })
-    end
-  },
   -- Debug startuptime
   { 'dstein64/vim-startuptime',     cmd = "StartupTime" },
   -- Colorscheme Plugin
   {
-    'navarasu/onedark.nvim',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
     config = function()
