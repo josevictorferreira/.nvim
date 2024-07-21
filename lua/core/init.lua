@@ -1,3 +1,4 @@
+vim.loader.enable()
 require("core.keymaps")
 require("core.lazy")
 require("core.options")
