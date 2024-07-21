@@ -1,34 +1,43 @@
 local lsp_servers = {
-  rust_analyzer =         { filetypes = { 'rs', 'rust' } },
-  bashls =                { filetypes = { 'sh', 'bash' } },
-  cmake =                 { filetypes = { 'cmake' } },
-  cssls =                 { filetypes = { 'css' } },
-  dockerls =              { filetypes = { 'Dockerfile', 'dockerfile' } },
-  gopls =                 { filetypes = { 'go' } },
-  html =                  { filetypes = { 'html' } },
-  jsonls =                { filetypes = { 'json' } },
-  pyright =               { filetypes = { 'python' } },
-  pylsp =                 { filetypes = { 'python' }, settings = { pylsp = { plugins = { black = { enabled = true } } } } },
-  vimls =                 { filetypes = { 'vim' } },
-  yamlls =                { filetypes = { 'yaml', 'yml' } },
-  dotls =                 { filetypes = { 'dot' } },
-  crystalline =           { filetypes = { 'cr' } },
-  tailwindcss =           { filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" } },
-  solargraph =            { filetypes = { 'ruby' } },
+  rust_analyzer = { filetypes = { 'rs', 'rust' } },
+  bashls = { filetypes = { 'sh', 'bash' } },
+  cmake = { filetypes = { 'cmake' } },
+  cssls = { filetypes = { 'css' } },
+  dockerls = { filetypes = { 'Dockerfile', 'dockerfile' } },
+  gopls = { filetypes = { 'go' } },
+  html = { filetypes = { 'html' } },
+  jsonls = { filetypes = { 'json' } },
+  pyright = { filetypes = { 'python' } },
+  pylsp = { filetypes = { 'python' }, settings = { pylsp = { plugins = { black = { enabled = true } } } } },
+  vimls = { filetypes = { 'vim' } },
+  yamlls = { filetypes = { 'yaml', 'yml' } },
+  dotls = { filetypes = { 'dot' } },
+  crystalline = { filetypes = { 'cr' } },
+  tailwindcss = { filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" } },
+  solargraph = { filetypes = { 'ruby' } },
   nginx_language_server = { filetypes = { 'nginx' } },
-  bufls =                 { filetypes = { 'proto', 'protobuf' } },
-  lua_ls =                { filetypes = { 'lua' }, settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } } },
-  volar =                 { filetypes = { 'vue' } },
-  eslint =                { filetypes = { "javascript", "vue", "typescript", "typescriptreact", "typescript.tsx", "tsx" } },
-  tsserver =              { filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx", "tsx" } },
-  emmet_ls =              { filetypes = { "vue", "html", "typescript.tsx", "typescriptreact" } },
-  elixirls =              { filetypes = { 'elixir' }, cmd = { vim.fn.expand("/usr/bin/elixir-ls") }, settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } } },
+  bufls = { filetypes = { 'proto', 'protobuf' } },
+  lua_ls = { filetypes = { 'lua' }, settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } } },
+  volar = { filetypes = { 'vue' } },
+  eslint = { filetypes = { "javascript", "vue", "typescript", "typescriptreact", "typescript.tsx", "tsx" } },
+  tsserver = { filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx", "tsx" } },
+  emmet_ls = { filetypes = { "vue", "html", "typescript.tsx", "typescriptreact" } },
+  elixirls = { filetypes = { 'elixir' }, cmd = { vim.fn.expand("/usr/bin/elixir-ls") }, settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } } },
 }
 
 local function on_attach(_, bufnr)
+  local signs_config = {
+    [vim.diagnostic.severity.ERROR] = " ",
+    [vim.diagnostic.severity.WARN] = " ",
+    [vim.diagnostic.severity.HINT] = " ",
+    [vim.diagnostic.severity.INFO] = " "
+  }
+
   vim.diagnostic.config({
     underline = true,
-    signs = true,
+    signs = {
+      text = signs_config,
+    },
     update_in_insert = false,
     virtual_text = false,
   })
@@ -81,13 +90,6 @@ return {
   },
   config = function()
     local lspconfig = require('lspconfig')
-    local lspui = require("lspconfig.ui.windows")
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-
-    for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
 
     local capabilities = default_capabilites()
 
