@@ -1,6 +1,6 @@
 return {
   'windwp/nvim-autopairs',
-  event = "InsertEnter",
+  event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local npairs = require('nvim-autopairs')
 
