@@ -19,20 +19,13 @@ return {
     require('telescope').setup({
       defaults = {
         file_ignore_patterns = { "node_modules", "target", ".git", ".github", ".helm" },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-          "--glob=!.git/",
-        },
-        color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" },
         layout_strategy = "horizontal",
+        initial_mode = "insert",
+        selection_strategy = "reset",
+        sorting_strategy = "ascending",
+        file_sorter = require("telescope.sorters").get_fuzzy_file,
+        generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         layout_config = {
           horizontal = {
             width = 0.9,
@@ -44,6 +37,14 @@ return {
             vertical = { mirror = false },
           },
         },
+        border = {},
+        borderchars = {
+          prompt = { '═', '║', '═', '║', '╔', '╗', '╝', '╚' },
+          results = { '═', '║', '═', '║', '╔', '╗', '╝', '╚' },
+          preview = { '═', '║', '═', '║', '╔', '╗', '╝', '╚' },
+        },
+        color_devicons = true,
+        use_less = true,
         find_command = {
           "rg",
           "--no-heading",

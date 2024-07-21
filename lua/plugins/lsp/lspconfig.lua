@@ -25,7 +25,28 @@ local lsp_servers = {
   elixirls =              { filetypes = { 'elixir' }, cmd = { vim.fn.expand("/usr/bin/elixir-ls") }, settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } } },
 }
 
-local default_capabilites = function()
+local function on_attach(_, bufnr)
+  vim.diagnostic.config({
+    underline = true,
+    signs = true,
+    update_in_insert = false,
+    virtual_text = false,
+  })
+
+  vim.api.nvim_create_autocmd('CursorHold', {
+    buffer = bufnr,
+    callback = function()
+      vim.diagnostic.open_float(nil, {
+        focusable = false,
+        border = 'double',
+        style = 'minimal',
+        source = 'always',
+      })
+    end
+  })
+end
+
+local function default_capabilites()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -38,13 +59,11 @@ local default_capabilites = function()
   return capabilities
 end
 
-local setup_lsp_servers = function(lspconfig, servers, capabilities)
-  lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
-    capabilities = capabilities,
-  })
+local function setup_lsp_servers(lspconfig, servers, capabilities)
   for server, config in pairs(servers) do
-
     local success, result = pcall(function()
+      config.on_attach = on_attach
+      config.capabilities = capabilities
       lspconfig[server].setup(config)
     end)
     if not success then
@@ -62,7 +81,18 @@ return {
   },
   config = function()
     local lspconfig = require('lspconfig')
+    local lspui = require("lspconfig.ui.windows")
+    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+
+    for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    end
+
     local capabilities = default_capabilites()
+
     setup_lsp_servers(lspconfig, lsp_servers, capabilities)
+
+    vim.o.updatetime = 300
   end
 }
