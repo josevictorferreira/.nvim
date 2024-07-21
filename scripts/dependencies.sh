@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$(uname)" == "Darwin" ]; then
-	brew install ripgrep
+	brew install ripgrep fzf
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	pacaur -S ripgrep
+	yay -Syy ripgrep fzf
 fi

@@ -1,28 +1,28 @@
 function ReplaceSelectedText(newText)
-    local start = vim.fn.getpos("'<")
-    local _end = vim.fn.getpos("'>")
+  local start = vim.fn.getpos("'<")
+  local _end = vim.fn.getpos("'>")
 
-    local start_row, start_col = start[2], start[3]
-    local end_row, end_col = _end[2], _end[3]
+  local start_row, start_col = start[2], start[3]
+  local end_row, end_col = _end[2], _end[3]
 
-    end_col = end_col + 1
+  end_col = end_col + 1
 
-    local buf = vim.api.nvim_get_current_buf()
+  local buf = vim.api.nvim_get_current_buf()
 
-    vim.api.nvim_buf_set_text(buf, start_row - 1, start_col - 1, end_row - 1, end_col - 1, {newText})
+  vim.api.nvim_buf_set_text(buf, start_row - 1, start_col - 1, end_row - 1, end_col - 1, { newText })
 end
 
 function GetSelectedText()
-    local startPos = vim.fn.getpos("'<")
-    local endPos = vim.fn.getpos("'>")
+  local startPos = vim.fn.getpos("'<")
+  local endPos = vim.fn.getpos("'>")
 
-    local startLine, startCol = startPos[2] - 1, startPos[3] - 1
-    local endLine, endCol = endPos[2] - 1, endPos[3]
-    local buffer = vim.api.nvim_get_current_buf()
+  local startLine, startCol = startPos[2] - 1, startPos[3] - 1
+  local endLine, endCol = endPos[2] - 1, endPos[3]
+  local buffer = vim.api.nvim_get_current_buf()
 
-    local lines = vim.api.nvim_buf_get_text(buffer, startLine, startCol, endLine, endCol, {})
+  local lines = vim.api.nvim_buf_get_text(buffer, startLine, startCol, endLine, endCol, {})
 
-    return table.concat(lines, "\n")
+  return table.concat(lines, "\n")
 end
 
 function RunCode()

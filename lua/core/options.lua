@@ -1,7 +1,6 @@
 local opt = vim.opt
 
-vim.g["python3_host_prog"] = "/usr/bin/python3"
-vim.g["python3_host_skip_check"] = 1
+opt.termguicolors = true
 
 opt.syntax = 'enable'
 
@@ -58,17 +57,3 @@ opt.redrawtime = 1500
 opt.timeoutlen = 250
 opt.ttimeoutlen = 10
 opt.updatetime = 100
-
-vim.api.nvim_create_augroup("AutoFormat", {})
-
-vim.api.nvim_create_autocmd(
-    "BufWritePost",
-    {
-        pattern = "*.py",
-        group = "AutoFormat",
-        callback = function()
-            vim.cmd("silent !black --quiet %")
-            vim.cmd("edit")
-        end,
-    }
-)
