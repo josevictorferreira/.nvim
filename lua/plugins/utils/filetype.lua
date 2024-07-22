@@ -8,6 +8,7 @@ return {
           sql = "sql",
           html = "html",
           sh = "bash",
+          snip = "snippet",
         },
         complex = {
           ["nginx.conf"] = "nginx",
