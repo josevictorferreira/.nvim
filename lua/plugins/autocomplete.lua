@@ -30,15 +30,21 @@ return {
   'hrsh7th/nvim-cmp',
   event = { 'InsertEnter' },
   dependencies = {
-    { 'hrsh7th/cmp-buffer' },
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/cmp-path' },
-    { 'onsails/lspkind-nvim' }
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'onsails/lspkind-nvim',
+    'saadparwaiz1/cmp_luasnip',
+    'L3MON4D3/LuaSnip',
+    'honza/vim-snippets'
   },
   config = function()
     local cmp = require('cmp')
     local lspkind = require('lspkind')
     local types = require('cmp.types')
+    local luasnip = require('luasnip')
+
+    require("luasnip.loaders.from_snipmate").lazy_load()
 
     cmp.setup({
       snippet    = {
