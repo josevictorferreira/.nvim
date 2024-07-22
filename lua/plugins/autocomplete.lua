@@ -1,3 +1,31 @@
+local cmp_kinds = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 return {
   'hrsh7th/nvim-cmp',
   event = { 'InsertEnter' },
@@ -13,13 +41,13 @@ return {
     local types = require('cmp.types')
 
     cmp.setup({
-      snippet = {
+      snippet    = {
         expand = function(args)
           require('luasnip').lsp_expand(args.body)
         end
       },
 
-      mapping = {
+      mapping    = {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -29,25 +57,35 @@ return {
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
       },
-      sources = {
+      sources    = {
         { name = 'luasnip' },
-
         { name = 'nvim_lsp' },
-
         { name = 'buffer' },
-
         { name = 'path' },
-
         {}
       },
       completion = {
         autocomplete = {
           types.cmp.TriggerEvent.TextChanged,
         },
-        completeopt = 'menu,menuone,noinsert',
+        completeopt = 'menu,menuone,preview,noselect',
+      },
+      view       = {
+        entries = { name = 'custom', selection_order = 'near_cursor' }
+      },
+      window     = {
+        completion = {
+          border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
+        },
+        documentation = {
+          border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
+        }
       },
       formatting = {
-        format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+        format = function(_, vim_item)
+          vim_item.kind = ' ' .. (cmp_kinds[vim_item.kind] or '')
+          return vim_item
+        end,
       }
     })
   end
