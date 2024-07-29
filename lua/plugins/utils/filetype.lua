@@ -12,6 +12,7 @@ return {
         },
         complex = {
           ["nginx.conf"] = "nginx",
+          ["config"] = "bash",
         }
       }
     })

@@ -39,3 +39,5 @@ nmap('gd', vim.lsp.buf.definition)
 nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
 map('n', '<leader>jl', ':%!jq .<CR>', options)
+
+map('v', '<leader>r', ':lua ReplaceAllFromSelectedText()<CR>', options)

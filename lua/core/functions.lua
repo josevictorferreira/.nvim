@@ -70,3 +70,12 @@ function B64Encode()
     vim.notify(error_message, vim.log.levels.WARN)
   end
 end
+
+function ReplaceAllFromSelectedText()
+  local selected_text = GetSelectedText()
+  vim.fn.inputsave()
+  local replace_text = vim.fn.input('Replace with: ')
+  vim.fn.inputrestore()
+  local replace_cmd = ':%s/' .. selected_text .. '/' .. replace_text .. '/g'
+  vim.cmd(replace_cmd)
+end
