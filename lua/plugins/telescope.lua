@@ -1,3 +1,5 @@
+local data = assert(vim.fn.stdpath "data") --[[@as string]]
+
 local set_telescope_keymap = function()
   local map = vim.api.nvim_set_keymap
   local options = { noremap = true, silent = true }
@@ -56,30 +58,18 @@ return {
           "--column",
           "--smart-case",
         },
-      },
-      extensions = {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = 'smart_case',
-        },
         history = {
-          path = vim.fn.stdpath("data") .. "/telescope_history.sqlite",
+          path = vim.fs.joinpath(data, "telescope_history.sqlite3"),
           limit = 100,
         },
+        wrap_results = true,
+      },
+      extensions = {
+        fzf = {},
         ["ui-select"] = {
           require("telescope.themes").get_dropdown{},
         },
       },
-      pickers = {
-        find_files = {
-          hidden = true,
-        },
-        live_grep = {
-          only_sort_text = true,
-        },
-      }
     })
 
     pcall(require('telescope').load_extension, 'fzf')
