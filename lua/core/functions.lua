@@ -53,7 +53,7 @@ end
 
 function UnsafeB64Decode()
   local selected_text = GetSelectedText()
-  local decoded_text = vim.fn.system('echo -n "' .. selected_text .. '" | base64 -d | tr -d \'\n\'')
+  local decoded_text = vim.fn.system("echo -n '" .. selected_text .. "' | base64 -d | tr -d '\n'")
 
   local error_message = "Error: Can't decode selected text, is the text actually an Base64 string?"
 

@@ -37,7 +37,7 @@ opt.number = true
 opt.relativenumber = true
 
 opt.backspace = { 'eol', 'start', 'indent' }
-opt.clipboard:append({ 'unnamedplus' })
+opt.clipboard = 'unnamedplus'
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 opt.background = "dark"
@@ -57,3 +57,14 @@ opt.redrawtime = 1500
 opt.timeoutlen = 250
 opt.ttimeoutlen = 10
 opt.updatetime = 100
+
+opt.inccommand = 'split'
+
+opt.splitbelow = true
+opt.splitright = true
+
+opt.signcolumn = 'yes'
+opt.shada = { "'10", "<0", "s10", "h" }
+
+opt.wrap = true
+opt.linebreak = true

@@ -13,7 +13,10 @@ end
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    "nvim-telescope/telescope-smart-history.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+    "kkharji/sqlite.lua",
   },
   config = function()
     require('telescope').setup({
@@ -61,6 +64,13 @@ return {
           override_file_sorter = true,
           case_mode = 'smart_case',
         },
+        history = {
+          path = vim.fn.stdpath("data") .. "/telescope_history.sqlite",
+          limit = 100,
+        },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown{},
+        },
       },
       pickers = {
         find_files = {
@@ -72,7 +82,9 @@ return {
       }
     })
 
-    require('telescope').load_extension('fzf')
+    pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'smart_history')
+    pcall(require('telescope').load_extension, 'ui-select')
 
     set_telescope_keymap()
   end
