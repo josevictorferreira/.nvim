@@ -62,9 +62,9 @@ return {
           path = vim.fs.joinpath(data, "telescope_history.sqlite3"),
           limit = 100,
         },
-        wrap_results = true,
       },
       extensions = {
+        wrap_results = true,
         fzf = {},
         ["ui-select"] = {
           require("telescope.themes").get_dropdown{},
