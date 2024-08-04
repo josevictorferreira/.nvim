@@ -25,4 +25,5 @@ return {
   tsserver = { filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx", "tsx" } },
   emmet_ls = { filetypes = { "vue", "html", "typescript.tsx", "typescriptreact" } },
   elixirls = { filetypes = { 'elixir' }, cmd = { elixirls_path }, settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } } },
+  efm = require('core.utils.efm_settings'),
 }

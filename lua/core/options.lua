@@ -2,13 +2,13 @@ local opt = vim.opt
 
 opt.termguicolors = true
 
-opt.syntax = 'enable'
+opt.syntax = "enable"
 
 opt.guicursor = ""
 
-opt.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
-opt.fileencodings = 'utf-8'
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.fileencodings = "utf-8"
 
 opt.hlsearch = true
 opt.incsearch = true
@@ -23,10 +23,9 @@ opt.backup = false
 opt.swapfile = false
 opt.writebackup = false
 opt.cmdheight = 1
-opt.updatetime = 300
-opt.fileformats = { 'unix', 'dos', 'mac' }
-opt.mouse = 'a'
-opt.mousemodel = 'popup'
+opt.fileformats = { "unix", "dos", "mac" }
+opt.mouse = "a"
+opt.mousemodel = "popup"
 opt.modeline = true
 opt.modelines = 10
 opt.title = true
@@ -36,9 +35,9 @@ opt.ruler = true
 opt.number = true
 opt.relativenumber = true
 
-opt.backspace = { 'eol', 'start', 'indent' }
-opt.clipboard = 'unnamedplus'
-opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.backspace = { "eol", "start", "indent" }
+opt.clipboard = "unnamedplus"
+opt.completeopt = { "menu", "menuone", "noselect" }
 
 opt.background = "dark"
 
@@ -58,12 +57,10 @@ opt.timeoutlen = 250
 opt.ttimeoutlen = 10
 opt.updatetime = 100
 
-opt.inccommand = 'split'
+opt.inccommand = "split"
 
 opt.splitbelow = true
 opt.splitright = true
-
-opt.signcolumn = 'yes'
 
 opt.wrap = true
 opt.linebreak = true

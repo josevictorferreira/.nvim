@@ -1,8 +1,6 @@
 return {
   'phaazon/hop.nvim',
-  lazy = true,
   branch = 'v2',
-  cmd = 'HopWord',
   config = function()
     require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
 
