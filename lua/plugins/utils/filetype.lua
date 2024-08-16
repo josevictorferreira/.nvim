@@ -13,6 +13,8 @@ return {
 				literal = {
 					["nginx.conf"] = "nginx",
 					["tmux.conf"] = "tmux",
+					["docker-compose.yml"] = "yaml.docker-compose",
+					["docker-compose.yaml"] = "yaml.docker-compose",
 				},
 				complex = {
 					[".*i3/config"] = "i3config",
