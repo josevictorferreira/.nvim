@@ -8,6 +8,7 @@ return {
 					sql = "sql",
 					html = "html",
 					snip = "snippet",
+					sh = "sh",
 				},
 				literal = {
 					["nginx.conf"] = "nginx",
@@ -18,9 +19,6 @@ return {
 					[".*/i3/*/*.config"] = "i3config",
 					["Dockerfile"] = "dockerfile",
 					["docker-compose"] = "yaml.docker-compose",
-				},
-				shebang = {
-					dash = "sh",
 				},
 			},
 		})
