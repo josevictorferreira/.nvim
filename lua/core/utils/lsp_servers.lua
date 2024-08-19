@@ -32,5 +32,5 @@ return {
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
-	efm = require("core.utils.efm_settings"),
+	-- efm = require("core.utils.efm_settings"),
 }

@@ -9,6 +9,7 @@ return {
 			filters = {
 				dotfiles = false,
 				custom = { "node_modules", ".git", ".cache" },
+				exclude = { ".github" },
 			},
 			view = {
 				width = 40,
