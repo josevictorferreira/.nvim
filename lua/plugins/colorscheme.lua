@@ -20,7 +20,7 @@ return {
 			},
 			theme = "wave",
 			background = {
-				dark = "wave",
+				dark = "dragon",
 				light = "lotus",
 			},
 		})

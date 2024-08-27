@@ -10,8 +10,7 @@ return {
 	gopls = { filetypes = { "go" } },
 	html = { filetypes = { "html" } },
 	jsonls = { filetypes = { "json" } },
-	pyright = { filetypes = { "python" } },
-	pylsp = { filetypes = { "python" }, settings = { pylsp = { plugins = { black = { enabled = true } } } } },
+	ruff_lsp = { filetypes = { "python" } },
 	vimls = { filetypes = { "vim" } },
 	yamlls = { filetypes = { "yaml", "yml" } },
 	dotls = { filetypes = { "dot" } },
@@ -19,7 +18,7 @@ return {
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
 	},
-	solargraph = { filetypes = { "ruby" } },
+	ruby_lsp = { filetypes = { "ruby" } },
 	nginx_language_server = { filetypes = { "nginx" } },
 	bufls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
@@ -32,5 +31,4 @@ return {
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
-	-- efm = require("core.utils.efm_settings"),
 }
