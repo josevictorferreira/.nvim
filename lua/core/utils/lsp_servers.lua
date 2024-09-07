@@ -24,7 +24,7 @@ return {
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
 	volar = { filetypes = { "vue" } },
 	eslint = { filetypes = { "javascript", "vue", "typescript", "typescriptreact", "typescript.tsx", "tsx" } },
-	tsserver = { filetypes = { "typescript", "javascript", "typescriptreact", "typescript.tsx", "tsx" } },
+	ts_ls = { filetypes = { "typescript", "javascript", "jsx", "tsx" } },
 	emmet_ls = { filetypes = { "vue", "html", "typescript.tsx", "typescriptreact" } },
 	elixirls = {
 		filetypes = { "elixir" },
