@@ -8,6 +8,8 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "ruff" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
 			},
 		})
 
