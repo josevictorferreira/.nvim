@@ -3,8 +3,8 @@ return {
 	opts = {
 		provider = "claude",
 	},
-	-- event = "VeryLazy",
-	lazy = false,
+	event = "VeryLazy",
+	lazy = true,
 	version = false,
 	build = "make",
 	dependencies = {
