@@ -33,7 +33,7 @@ opt.title = true
 opt.shortmess:append({ c = true })
 opt.ruler = true
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 
 opt.backspace = { "eol", "start", "indent" }
 opt.clipboard = "unnamedplus"
@@ -51,9 +51,8 @@ opt.binary = true
 opt.expandtab = true
 opt.scrolloff = 10
 
--- performance
-opt.redrawtime = 1500
-opt.timeoutlen = 250
+-- smoothen navigation
+opt.timeoutlen = 500
 opt.ttimeoutlen = 10
 opt.updatetime = 100
 
