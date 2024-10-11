@@ -4,7 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("kanagawa").setup({
-			compile = false,
+			compile = true,
 			undercurl = true,
 			commentStyle = { italic = true },
 			functionStyle = {},
@@ -14,11 +14,7 @@ return {
 			transparent = false,
 			dimInactive = false,
 			terminalColors = true,
-			colors = {
-				palette = {},
-				theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-			},
-			theme = "wave",
+			theme = "dragon",
 			background = {
 				dark = "dragon",
 				light = "lotus",
