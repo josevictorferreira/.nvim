@@ -13,6 +13,7 @@ return {
 	ruff_lsp = { filetypes = { "python" } },
 	vimls = { filetypes = { "vim" } },
 	yamlls = { filetypes = { "yaml", "yml" } },
+	gleam = { filetypes = { "gleam" } },
 	dotls = { filetypes = { "dot" } },
 	crystalline = { filetypes = { "cr" } },
 	tailwindcss = {
