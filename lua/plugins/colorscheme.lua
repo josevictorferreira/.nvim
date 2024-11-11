@@ -3,7 +3,8 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("kanagawa").setup({
+		local kanagawa_colorscheme = require("kanagawa")
+		kanagawa_colorscheme.setup({
 			compile = true,
 			undercurl = true,
 			commentStyle = { italic = true },
@@ -14,13 +15,12 @@ return {
 			transparent = false,
 			dimInactive = false,
 			terminalColors = true,
-			theme = "dragon",
+			theme = "wave",
 			background = {
-				dark = "dragon",
+				dark = "wave",
 				light = "lotus",
 			},
 		})
-
-		vim.cmd("colorscheme kanagawa")
+		kanagawa_colorscheme.load("wave")
 	end,
 }
