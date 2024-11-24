@@ -9,6 +9,7 @@ return {
 					html = "html",
 					snip = "snippet",
 					sh = "sh",
+					mts = "typescript",
 				},
 				literal = {
 					["nginx.conf"] = "nginx",
