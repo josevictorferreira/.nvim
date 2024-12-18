@@ -1,6 +1,7 @@
 return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
+	branch = "master",
 	event = "InsertEnter",
 	config = function()
 		require("copilot").setup({
@@ -15,20 +16,21 @@ return {
 					open = "<M-CR>",
 				},
 				layout = {
-					position = "right", -- | top | left | right
+					position = "bottom",
 					ratio = 0.4,
 				},
 			},
 			suggestion = {
 				enabled = true,
 				auto_trigger = true,
+				hide_during_completion = true,
 				debounce = 75,
 				keymap = {
 					accept = "<C-Y>",
 					accept_word = false,
 					accept_line = false,
-					next = "<C-L>",
-					prev = "<C-H>",
+					next = "<M-]>",
+					prev = "<M-[>",
 					dismiss = "<C-]>",
 				},
 			},
@@ -41,12 +43,10 @@ return {
 				hgcommit = false,
 				svn = false,
 				cvs = false,
-				sql = false,
-				toml = false,
 				["."] = false,
 			},
-			copilot_node_command = "node", -- Node.js version must be > 16.x
-			server_opts_overrides = {},
+			copilot_node_command = "node", -- Node.js version must be > 18.x
+			sherver_opts_overrides = {},
 		})
 	end,
 }

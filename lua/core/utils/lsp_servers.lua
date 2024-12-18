@@ -15,7 +15,7 @@ return {
 	yamlls = { filetypes = { "yaml", "yml" } },
 	gleam = { filetypes = { "gleam" } },
 	dotls = { filetypes = { "dot" } },
-	java_language_server = { filetypes = { "java" } },
+	jdtls = { filetypes = { "java" } },
 	crystalline = { filetypes = { "cr" } },
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
