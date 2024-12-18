@@ -7,7 +7,7 @@ opt.syntax = "enable"
 opt.guicursor = ""
 
 opt.fileencodings = { "utf-8", "utf-16" }
-opt.fileencoding = "utf-16"
+opt.fileencoding = "utf-8"
 
 opt.hlsearch = true
 opt.incsearch = true
