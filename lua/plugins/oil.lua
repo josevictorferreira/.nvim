@@ -10,10 +10,9 @@ end
 return {
 	"stevearc/oil.nvim",
 	opts = {},
-	cmd = "Oil",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		require("oil").setup()
+		require("oil").setup({})
 		set_oil_keymap()
 	end,
 }
