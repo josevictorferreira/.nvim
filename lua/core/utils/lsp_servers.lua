@@ -13,7 +13,7 @@ return {
 	ruff = { filetypes = { "python" } },
 	vimls = { filetypes = { "vim" } },
 	yamlls = { filetypes = { "yaml", "yml" } },
-	gleam = { filetypes = { "gleam" } },
+	gleam = { filetypes = { "gleam" }, auto_install = false },
 	dotls = { filetypes = { "dot" } },
 	jdtls = { filetypes = { "java" } },
 	crystalline = { filetypes = { "cr" } },
@@ -33,4 +33,5 @@ return {
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
+  nil_ls = { filetypes = { "nix" } },
 }

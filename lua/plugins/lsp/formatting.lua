@@ -10,6 +10,7 @@ return {
 				python = { "ruff" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
+        nix = { "nixpkgs_fmt" },
 			},
 		})
 
