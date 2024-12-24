@@ -28,7 +28,7 @@ in
         # development
         alacritty
         tmux
-        xsel
+        gh
 
         # apps
         nordpass
@@ -86,6 +86,16 @@ in
         '
       '';
     };
+
+    wspcConfig = {
+      text = ''
+        runuser -l ${username} -c '
+          if [ ! -d "$HOME/Workspace" ]; then
+            mkdir -p $HOME/Workspace
+          fi
+        '
+      '';
+    };
   };
   
   environment.shells = with pkgs; [ zsh ];
@@ -97,6 +107,7 @@ in
     ripgrep
     gnumake
 		openssh
+    xsel
     nodejs_22
   ]; 
 
@@ -107,8 +118,6 @@ in
 	  	enableCompletion = true;
       ohMyZsh = {
         enable = true;
-        plugins = ["git"];
-        theme = "xiong-chiamiov-plus"; 
       };
       
       autosuggestions.enable = true;
@@ -117,14 +126,8 @@ in
       
       promptInit = ''
           export LD_LIBRARY_PATH="${pkgs.sqlite.out}/lib/:$LD_LIBRARY_PATH"
-          
-          source <(fzf --zsh);
-          HISTFILE=~/.zsh_history;
-          HISTSIZE=10000;
-          SAVEHIST=10000;
-          setopt appendhistory;
 
-          source $HOME/.config/.zshrc
+          source $HOME/.config/zsh/init.zsh
         '';
       };
    };

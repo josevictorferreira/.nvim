@@ -212,6 +212,8 @@
     xdg-user-dirs
     xdg-utils
 
+    nfs-utils
+
     fastfetch
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
     #ranger
@@ -312,6 +314,7 @@
         };
       };
     };
+
     
     smartd = {
       enable = false;
@@ -340,7 +343,8 @@
   
     libinput.enable = true;
 
-    rpcbind.enable = false;
+    rpcbind.enable = true;
+
     nfs.server.enable = false;
   
     openssh.enable = true;
