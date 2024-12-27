@@ -26,7 +26,6 @@ in
         neovim
 
         # development
-        alacritty
         tmux
         gh
 
@@ -57,19 +56,6 @@ in
           fi
         '
       '';
-      deps = [ ];
-    };
-
-    alacrittyConfig = {
-      text = ''
-                runuser -l ${username} -c '
-                  ALACRITTY_CONFIG_PATH="$HOME/.config/alacritty"
-
-                  if [ ! -d "$ALACRITTY_CONFIG_PATH" ]; then
-                    ${pkgs.git}/bin/git clone https://github.com/josevictorferreira/.alacritty.git $ALACRITTY_CONFIG_PATH
-                  fi
-                '
-        			'';
       deps = [ ];
     };
 
