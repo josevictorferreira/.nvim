@@ -33,5 +33,5 @@ return {
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
-  nil_ls = { filetypes = { "nix" } },
+  nixd = { filetypes = { "nix" }, auto_install = false },
 }
