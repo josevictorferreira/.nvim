@@ -5,9 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs =
