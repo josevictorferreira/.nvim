@@ -115,7 +115,15 @@ in
     ruby
     python311
     cargo
+    p7zip
+    nixd
+    protonup
+    lutris
   ];
+
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
+  };
 
   programs = {
     zsh = {
