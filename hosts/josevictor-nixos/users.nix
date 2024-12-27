@@ -73,6 +73,19 @@ in
       '';
     };
 
+    ghosttyConfig = {
+      text = ''
+        runuser -l ${username} -c '
+          GHOSTTY_CONFIG_PATH="$HOME/.config/ghostty"
+
+          if [ ! -d "$GHOSTTY_CONFIG_PATH/.git" ]; then
+            rm -r $GHOSTTY_CONFIG_PATH
+            ${pkgs.git}/bin/git clone https://github.com/josevictorferreira/.ghostty.git
+          fi
+        '
+      '';
+    };
+
     wspcConfig = {
       text = ''
         runuser -l ${username} -c '
