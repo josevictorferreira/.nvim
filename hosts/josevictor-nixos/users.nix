@@ -118,6 +118,10 @@ in
     nixd
     protonup
     lutris
+    podman
+    podman-compose
+    kubectl
+    k9s
   ];
 
   environment.sessionVariables = {
