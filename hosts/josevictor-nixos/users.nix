@@ -122,6 +122,7 @@ in
     podman-compose
     kubectl
     k9s
+    gparted
   ];
 
   environment.sessionVariables = {
