@@ -71,6 +71,15 @@ in
       memtest86.enable = true;
       extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
       configurationName = "${host}";
+      extraEntries = ''
+        menuentry "Windows 11" {
+          insmod part_gpt
+          insmod ntfs
+          insmod chain
+          set root='(hd1,1)'
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
+      '';
     };
 
     # Bootloader GRUB theme, configure below
@@ -265,6 +274,7 @@ in
     wlogout
     yad
     yt-dlp
+    openrgb-with-all-plugins
 
     #waybar  # if wanted experimental next line
     #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
@@ -354,8 +364,8 @@ in
 
     blueman.enable = true;
 
-    #hardware.openrgb.enable = true;
-    #hardware.openrgb.motherboard = "amd";
+    hardware.openrgb.enable = true;
+    hardware.openrgb.motherboard = "amd";
 
     fwupd.enable = true;
 

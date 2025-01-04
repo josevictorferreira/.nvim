@@ -123,6 +123,7 @@ in
     kubectl
     k9s
     gparted
+    direnv
   ];
 
   environment.sessionVariables = {
@@ -133,6 +134,8 @@ in
     zsh = {
       enable = true;
       promptInit = ''
+        eval "$(direnv hook zsh)"
+
         export LD_LIBRARY_PATH="${pkgs.sqlite.out}/lib/:$LD_LIBRARY_PATH"
 
         source $HOME/.config/zsh/init.zsh
