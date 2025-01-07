@@ -38,7 +38,7 @@ in
     ];
 
     # This is for OBS Virtual Cam Support
-    kernelModules = [ "v4l2loopback" ];
+    kernelModules = [ "v4l2loopback" "i2c-dev" "i2c-piix4" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
     initrd = {
@@ -65,21 +65,14 @@ in
     # Bootloader GRUB
     loader.grub = {
       enable = true;
+      version = 2;
       devices = [ "nodev" ];
       efiSupport = true;
       gfxmodeBios = "auto";
       memtest86.enable = true;
       extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
       configurationName = "${host}";
-      extraEntries = ''
-        menuentry "Windows 11" {
-          insmod part_gpt
-          insmod ntfs
-          insmod chain
-          set root='(hd1,1)'
-          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
+      useOSProber = true;
     };
 
     # Bootloader GRUB theme, configure below
@@ -274,7 +267,6 @@ in
     wlogout
     yad
     yt-dlp
-    openrgb-with-all-plugins
 
     #waybar  # if wanted experimental next line
     #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
@@ -344,7 +336,11 @@ in
       wireplumber.enable = true;
     };
 
-    udev.enable = true;
+    udev = {
+      enable = true;
+      packages = [ pkgs.openrgb-with-all-plugins ];
+    };
+
     envfs.enable = true;
     dbus.enable = true;
 
