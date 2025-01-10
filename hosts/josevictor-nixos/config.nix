@@ -156,7 +156,10 @@ in
     firefox.enable = true;
     git.enable = true;
     nm-applet.indicator = true;
-    neovim.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
 
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [

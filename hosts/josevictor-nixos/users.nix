@@ -28,6 +28,11 @@ in
         # development
         tmux
         gh
+        insomnia
+        awscli
+        kubectl
+        k9s
+        cloudlens
 
         # apps
         nordpass
@@ -36,6 +41,50 @@ in
     };
 
     defaultUserShell = pkgs.zsh;
+  };
+
+  environment.shells = with pkgs; [ zsh ];
+
+  environment.systemPackages = with pkgs; [
+    git
+    fzf
+    sqlite
+    clang
+    gcc
+    ripgrep
+    gnumake
+    openssh
+    xsel
+    nodejs_22
+    go
+    ruby
+    python311
+    cargo
+    p7zip
+    nixd
+    protonup
+    lutris
+    podman
+    podman-compose
+    gparted
+    direnv
+  ];
+
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
+  };
+
+  programs = {
+    zsh = {
+      enable = true;
+      promptInit = ''
+        eval "$(direnv hook zsh)"
+
+        export LD_LIBRARY_PATH="${pkgs.sqlite.out}/lib/:$LD_LIBRARY_PATH"
+
+        source $HOME/.config/zsh/init.zsh
+      '';
+    };
   };
 
   system.activationScripts = {
@@ -93,52 +142,6 @@ in
             mkdir -p $HOME/Workspace
           fi
         '
-      '';
-    };
-  };
-
-  environment.shells = with pkgs; [ zsh ];
-
-  environment.systemPackages = with pkgs; [
-    git
-    fzf
-    sqlite
-    clang
-    gcc
-    ripgrep
-    gnumake
-    openssh
-    xsel
-    nodejs_22
-    go
-    ruby
-    python311
-    cargo
-    p7zip
-    nixd
-    protonup
-    lutris
-    podman
-    podman-compose
-    kubectl
-    k9s
-    gparted
-    direnv
-  ];
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
-  };
-
-  programs = {
-    zsh = {
-      enable = true;
-      promptInit = ''
-        eval "$(direnv hook zsh)"
-
-        export LD_LIBRARY_PATH="${pkgs.sqlite.out}/lib/:$LD_LIBRARY_PATH"
-
-        source $HOME/.config/zsh/init.zsh
       '';
     };
   };
