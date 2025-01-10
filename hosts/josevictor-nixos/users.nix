@@ -32,7 +32,6 @@ in
         awscli
         kubectl
         k9s
-        cloudlens
 
         # apps
         nordpass
