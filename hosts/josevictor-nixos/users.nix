@@ -32,7 +32,7 @@ in
         awscli
         kubectl
         k9s
-        helm
+        kubernetes-helm
 
         # apps
         nordpass
