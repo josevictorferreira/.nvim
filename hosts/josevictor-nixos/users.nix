@@ -67,6 +67,7 @@ in
     podman-compose
     gparted
     direnv
+    easyeffects
   ];
 
   environment.sessionVariables = {

@@ -65,7 +65,6 @@ in
     # Bootloader GRUB
     loader.grub = {
       enable = true;
-      version = 2;
       devices = [ "nodev" ];
       efiSupport = true;
       gfxmodeBios = "auto";
@@ -305,6 +304,7 @@ in
   services = {
     xserver = {
       enable = false;
+      xkbOptions = "repeat:delay=250,rate=40";
       xkb = {
         layout = "${keyboardLayout}";
         variant = "";
