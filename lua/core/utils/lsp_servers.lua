@@ -28,10 +28,10 @@ return {
 	eslint = { filetypes = { "javascript", "vue", "typescript", "typescriptreact", "typescript.tsx", "tsx" } },
 	ts_ls = { filetypes = { "typescript", "javascript", "jsx", "tsx", "typescriptreact" } },
 	emmet_ls = { filetypes = { "vue", "html" } },
+	nixd = { filetypes = { "nix" }, auto_install = false },
 	elixirls = {
 		filetypes = { "elixir" },
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
-  nixd = { filetypes = { "nix" }, auto_install = false },
 }
