@@ -149,6 +149,10 @@ in
       xwayland.enable = true;
     };
 
+    nix-ld = {
+      enable = true;
+      libraries = options.programs.nix-ld.libraries.default;
+    };
 
     waybar.enable = true;
     hyprlock.enable = true;
