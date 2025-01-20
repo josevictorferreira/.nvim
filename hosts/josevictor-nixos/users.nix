@@ -37,6 +37,7 @@ in
         # apps
         nordpass
         brave
+        flameshot
       ];
     };
 
@@ -70,6 +71,11 @@ in
     direnv
     easyeffects
   ];
+
+  services.ollama = {
+    enable = true;
+    loadModels = [ "deepseek-v3" ];
+  };
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
