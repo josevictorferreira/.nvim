@@ -62,6 +62,7 @@ in
     go
     ruby
     python311
+    python311Packages.pip
     cargo
     p7zip
     nixd
