@@ -33,11 +33,13 @@ in
         kubectl
         k9s
         kubernetes-helm
+        jupyter
 
         # apps
         nordpass
         brave
         flameshot
+        htop-vim
       ];
     };
 
