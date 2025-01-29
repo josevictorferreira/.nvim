@@ -33,7 +33,7 @@ in
         kubectl
         k9s
         kubernetes-helm
-        jupyter
+        beekeeper-studio
 
         # apps
         nordpass
@@ -62,7 +62,6 @@ in
     go
     ruby
     python311
-    python311Packages.pip
     cargo
     p7zip
     nixd
@@ -73,6 +72,9 @@ in
     gparted
     direnv
     easyeffects
+    wine64
+    winetricks
+    wine-wayland
   ];
 
   services.ollama = {
