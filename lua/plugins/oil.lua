@@ -12,7 +12,15 @@ return {
 	opts = {},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		require("oil").setup({})
+		require("oil").setup({
+			view_options = {
+				show_hidden = true,
+				is_always_hidden = function(name, _)
+					local m = name:match("^.git$")
+					return m ~= nil
+				end,
+			},
+		})
 		set_oil_keymap()
 	end,
 }

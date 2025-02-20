@@ -10,6 +10,7 @@ return {
 					snip = "snippet",
 					sh = "sh",
 					mts = "typescript",
+					ftl = "freemarker",
 				},
 				literal = {
 					["nginx.conf"] = "nginx",
