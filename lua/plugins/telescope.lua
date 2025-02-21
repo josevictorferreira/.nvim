@@ -17,7 +17,6 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-smart-history.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
-		"kkharji/sqlite.lua",
 	},
 	config = function()
 		require("telescope").setup({
@@ -56,10 +55,6 @@ return {
 					"--line-number",
 					"--column",
 					"--smart-case",
-				},
-				history = {
-					path = vim.fs.joinpath(data, "telescope_history.sqlite3"),
-					limit = 100,
 				},
 			},
 			extensions = {
