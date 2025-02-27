@@ -326,6 +326,9 @@ in
       };
     };
 
+    lorri = {
+      enable = true;
+    };
 
     smartd = {
       enable = false;

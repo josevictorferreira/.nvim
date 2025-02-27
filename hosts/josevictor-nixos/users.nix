@@ -33,13 +33,16 @@ in
         kubectl
         k9s
         kubernetes-helm
+        helmfile
         beekeeper-studio
 
         # apps
         nordpass
         brave
-        flameshot
         htop-vim
+        weechat
+        weechatScripts.wee-slack
+        (flameshot.override { enableWlrSupport = true; })
       ];
     };
 
