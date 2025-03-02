@@ -5,11 +5,11 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
-    ghostty.url = "github:ghostty-org/ghostty";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =
-    inputs@{ self, nixpkgs, ghostty, ... }:
+    inputs@{ self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
       host = "josevictor-nixos";
@@ -34,13 +34,10 @@
           modules = [
             ./hosts/${host}/config.nix
             inputs.distro-grub-themes.nixosModules.${system}.default
-            {
-              environment.systemPackages = [
-                ghostty.packages.x86_64-linux.default
-              ];
-            }
+            inputs.sops-nix.nixosModules.sops
           ];
         };
       };
     };
 }
+

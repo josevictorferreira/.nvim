@@ -26,6 +26,7 @@ in
         neovim
 
         # development
+        ghostty
         tmux
         gh
         insomnia
@@ -84,13 +85,7 @@ in
     wine64
     winetricks
     wine-wayland
-    sops
   ];
-
-  services.ollama = {
-    enable = true;
-    loadModels = [ "deepseek-v3" ];
-  };
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
