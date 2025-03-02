@@ -49,6 +49,12 @@ in
     defaultUserShell = pkgs.zsh;
   };
 
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  users.extraGroups.docker.members = [ "${username}" ];
+
   environment.shells = with pkgs; [ zsh ];
 
   environment.systemPackages = with pkgs; [
@@ -70,14 +76,15 @@ in
     nixd
     protonup
     lutris
-    podman
-    podman-compose
+    docker_26
+    docker-compose
     gparted
     direnv
     easyeffects
     wine64
     winetricks
     wine-wayland
+    sops
   ];
 
   services.ollama = {

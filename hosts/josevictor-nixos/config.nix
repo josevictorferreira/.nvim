@@ -496,11 +496,12 @@ in
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
-  };
+  # virtualisation.podman = {
+  #   enable = true;
+  #   dockerCompat = true;
+  #   defaultNetwork.settings.dns_enabled = true;
+  # };
+
 
   # OpenGL
   hardware.graphics = {
