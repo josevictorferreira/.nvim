@@ -85,6 +85,8 @@ in
     wine64
     winetricks
     wine-wayland
+    sops
+    age
   ];
 
   environment.sessionVariables = {

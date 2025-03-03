@@ -306,9 +306,11 @@ in
 
   # Services to start
   services = {
+    pulseaudio.enable = false;
+
     xserver = {
       enable = false;
-      xkbOptions = "repeat:delay=250,rate=40";
+      xkb.options = "repeat:delay=250,rate=40";
       xkb = {
         layout = "${keyboardLayout}";
         variant = "";
@@ -447,9 +449,6 @@ in
       };
     };
   };
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
 
   # Security / Polkit
   security.rtkit.enable = true;
