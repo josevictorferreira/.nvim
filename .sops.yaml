@@ -1,0 +1,5 @@
+keys:
+  - &josevictor age16yrhmz8fytj7j9ns80zl40zjcdfd3pdxh48ld7ys7veea774udtqfn9jyx
+creation_rules:
+  - path_regex: ^secrets/.*\.enc\.ya?ml$
+    age: *josevictor
