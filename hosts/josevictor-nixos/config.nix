@@ -23,6 +23,7 @@ in
     ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
+    ./sops.nix
   ];
 
   # BOOT related stuff
@@ -273,7 +274,6 @@ in
     wlogout
     yad
     yt-dlp
-
     #waybar  # if wanted experimental next line
     #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [

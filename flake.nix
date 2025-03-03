@@ -9,7 +9,7 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{ self, nixpkgs, sops-nix, ... }:
     let
       system = "x86_64-linux";
       host = "josevictor-nixos";
@@ -34,7 +34,7 @@
           modules = [
             ./hosts/${host}/config.nix
             inputs.distro-grub-themes.nixosModules.${system}.default
-            inputs.sops-nix.nixosModules.sops
+            sops-nix.nixosModules.sops
           ];
         };
       };
