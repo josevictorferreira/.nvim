@@ -20,7 +20,8 @@ return {
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
 	},
-	ruby_lsp = { filetypes = { "ruby" } },
+	ruby_lsp = { filetypes = { "ruby" }, auto_install = false },
+	solargraph = { filetypes = { "ruby" }, auto_install = false },
 	nginx_language_server = { filetypes = { "nginx" } },
 	buf_ls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },

@@ -35,7 +35,24 @@ return {
 				},
 			},
 			filetypes = {
-				yaml = false,
+				yaml = function()
+					if string.match(vim.fn.expand("%:t"), "^%docker-compose*") then
+						return true
+					end
+					if string.match(vim.fn.expand("%:t"), "^%helmfile*") then
+						return true
+					end
+					return false
+				end,
+				yml = function()
+					if string.match(vim.fn.expand("%:t"), "^%docker-compose*") then
+						return true
+					end
+					if string.match(vim.fn.expand("%:t"), "^%helmfile*") then
+						return true
+					end
+					return false
+				end,
 				markdown = false,
 				help = false,
 				gitcommit = false,
@@ -43,7 +60,12 @@ return {
 				hgcommit = false,
 				svn = false,
 				cvs = false,
-				["."] = false,
+				sh = function()
+					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
+						return false
+					end
+					return true
+				end,
 			},
 			copilot_node_command = "node", -- Node.js version must be > 18.x
 			sherver_opts_overrides = {},

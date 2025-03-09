@@ -21,7 +21,7 @@ return {
 	config = function()
 		require("telescope").setup({
 			defaults = {
-				file_ignore_patterns = { "node_modules", "target", ".git", ".github", ".helm" },
+				file_ignore_patterns = { "node_modules", "target", ".git", ".cache" },
 				set_env = { ["COLORTERM"] = "truecolor" },
 				layout_strategy = "horizontal",
 				initial_mode = "insert",

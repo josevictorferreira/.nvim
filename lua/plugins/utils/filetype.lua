@@ -23,6 +23,11 @@ return {
 					[".*/i3/*/*.config"] = "i3config",
 					["Dockerfile"] = "dockerfile",
 					["docker-compose"] = "yaml.docker-compose",
+					[".*/templates/.*%.ya?ml"] = "helm",
+					[".*/templates/.*%.tpl"] = "helm",
+					["values.ya?ml.gotmpl"] = "helm",
+					["values.ya?ml.tpl"] = "helm",
+					["helmfile.*%.ya?ml"] = "helm",
 				},
 			},
 		})
