@@ -34,12 +34,6 @@
     options = [ "defaults" "noatime" ];
   };
 
-  fileSystems."/mnt/shared_storage_1" = {
-    device = "10.10.10.200:/mnt/shared_storage_1";
-    fsType = "nfs";
-    options = [ "rw" "vers=4" "timeo=900" "wsize=8192" "nolock" "nosuid" "nofail" ];
-  };
-
   swapDevices =
     [{ device = "/dev/disk/by-uuid/8d8a2d5b-42db-45a6-b6b6-73cd0cd69772"; }];
 

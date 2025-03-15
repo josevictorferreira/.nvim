@@ -43,6 +43,9 @@ in
         htop-vim
         weechat
         weechatScripts.wee-slack
+        grim
+        sway-contrib.grimshot
+        flameshot
         (flameshot.override { enableWlrSupport = true; })
       ];
     };
@@ -85,6 +88,7 @@ in
     wine64
     winetricks
     wine-wayland
+    tree
   ];
 
   environment.sessionVariables = {
@@ -102,6 +106,12 @@ in
         source $HOME/.config/zsh/init.zsh
       '';
     };
+  };
+
+  fileSystems."/home/${username}/shared_storage" = {
+    device = "10.10.10.200:/mnt/shared_storage_1";
+    fsType = "nfs";
+    options = [ "rw" "soft" "noatime" "actimeo=60" "vers=3" "x-systemd.automount" ];
   };
 
   system.activationScripts = {
