@@ -12,7 +12,14 @@ return {
 	jsonls = { filetypes = { "json" } },
 	ruff = { filetypes = { "python" } },
 	vimls = { filetypes = { "vim" } },
-	yamlls = { filetypes = { "yaml", "yml" } },
+	yamlls = {
+		filetypes = { "yaml", "yml" },
+		on_attach = function(client, bufnr)
+			if vim.bo[bufnr].filetype == "helm" then
+				client.stop()
+			end
+		end,
+	},
 	gleam = { filetypes = { "gleam" }, auto_install = false },
 	dotls = { filetypes = { "dot" } },
 	jdtls = { filetypes = { "java" } },
@@ -20,8 +27,7 @@ return {
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
 	},
-	ruby_lsp = { filetypes = { "ruby" }, auto_install = false },
-	solargraph = { filetypes = { "ruby" }, auto_install = false },
+	solargraph = { filetypes = { "ruby" } },
 	nginx_language_server = { filetypes = { "nginx" } },
 	buf_ls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
@@ -35,4 +41,5 @@ return {
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
+	helm_ls = { filetypes = { "helm" } },
 }

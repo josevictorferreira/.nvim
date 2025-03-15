@@ -36,10 +36,10 @@ return {
 			},
 			filetypes = {
 				yaml = function()
-					if string.match(vim.fn.expand("%:t"), "^%docker-compose*") then
+					if string.match(vim.fn.expand("%:t"), "^%docker-compose.*") then
 						return true
 					end
-					if string.match(vim.fn.expand("%:t"), "^%helmfile*") then
+					if string.match(vim.fn.expand("%:t"), "^%helmfile.*") then
 						return true
 					end
 					return false
@@ -53,7 +53,12 @@ return {
 					end
 					return false
 				end,
-				markdown = false,
+				markdown = function()
+					if string.match(vim.fn.expand("%:t"), "^%README*") then
+						return true
+					end
+					return false
+				end,
 				help = false,
 				gitcommit = false,
 				gitrebase = false,
@@ -61,6 +66,9 @@ return {
 				svn = false,
 				cvs = false,
 				sh = function()
+					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env*") then
+						return false
+					end
 					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
 						return false
 					end
