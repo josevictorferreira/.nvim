@@ -89,6 +89,9 @@ in
     winetricks
     wine-wayland
     tree
+    nmap
+    arp-scan
+    vlc
   ];
 
   environment.sessionVariables = {
