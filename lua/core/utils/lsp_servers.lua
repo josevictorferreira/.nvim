@@ -14,11 +14,6 @@ return {
 	vimls = { filetypes = { "vim" } },
 	yamlls = {
 		filetypes = { "yaml", "yml" },
-		on_attach = function(client, bufnr)
-			if vim.bo[bufnr].filetype == "helm" then
-				client.stop()
-			end
-		end,
 	},
 	gleam = { filetypes = { "gleam" }, auto_install = false },
 	dotls = { filetypes = { "dot" } },
@@ -41,5 +36,21 @@ return {
 		cmd = { elixirls_path },
 		settings = { elixirLS = { dialyzerEnabled = false, fetchDeps = false } },
 	},
-	helm_ls = { filetypes = { "helm" } },
+	helm_ls = {
+		filetypes = { "helm" },
+		settings = {
+			["helm-ls"] = {
+				yamlls = {
+					path = "yaml-language-server",
+					config = {
+						schemas = {
+							[vim.fn.stdpath("config") .. "/schemas/helmfile.json"] = {
+								"helmfile.yaml",
+							},
+						},
+					},
+				},
+			},
+		},
+	},
 }

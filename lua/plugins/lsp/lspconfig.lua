@@ -23,7 +23,7 @@ local function on_attach(_, bufnr)
 				border = "double",
 				style = "minimal",
 				source = "always",
-				max_width = 80,
+				max_width = 100,
 			})
 		end,
 	})
