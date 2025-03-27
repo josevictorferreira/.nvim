@@ -8,6 +8,7 @@
           name = "share/cups/model/HP-LaserJet_1020.ppd";
           path = "./HP-LaserJet_1020.ppd";
         }
+        pkgs.foo2zjs
       ]);
       # drivers = [
       #   pkgs.foo2zjs
