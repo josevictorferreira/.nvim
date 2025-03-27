@@ -3,13 +3,15 @@
   services = {
     printing = {
       enable = true;
-      drivers = lib.singleton (pkgs.linkFarm "drivers" [
-        {
-          name = "share/cups/model/HP-LaserJet_1020.ppd";
-          path = "./HP-LaserJet_1020.ppd";
-        }
+      drivers = [
+        (pkgs.linkFarm "drivers" [
+          {
+            name = "share/cups/model/HP-LaserJet_1020.ppd";
+            path = ./../../drivers/HP-LaserJet_1020.ppd;
+          }
+        ])
         pkgs.foo2zjs
-      ]);
+      ];
       # drivers = [
       #   pkgs.foo2zjs
       #   pkgs.linkFarm
@@ -44,6 +46,8 @@
         global = {
           "client min protocol" = "SMB2";
           "client max protocol" = "SMB3";
+          "username" = "${builtins.readFile config.sops.secrets."printer_username".path}";
+          "password" = "${builtins.readFile config.sops.secrets."printer_password".path}";
         };
       };
     };

@@ -11,8 +11,12 @@
     group = config.users.users.${username}.group;
     mode = "0400";
   };
-
-  sops.secrets."printer_address" = {
+  sops.secrets."printer_username" = {
+    owner = config.users.users.${username}.name;
+    group = config.users.users.${username}.group;
+    mode = "0400";
+  };
+  sops.secrets."printer_password" = {
     owner = config.users.users.${username}.name;
     group = config.users.users.${username}.group;
     mode = "0400";
