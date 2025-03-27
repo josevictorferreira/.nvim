@@ -24,6 +24,7 @@ in
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
     ./sops.nix
+    ./printer.nix
   ];
 
   # BOOT related stuff
@@ -276,6 +277,10 @@ in
     yt-dlp
     sops
     age
+    samba
+    sambaFull
+    gvfs
+    hplip
     #waybar  # if wanted experimental next line
     #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [
@@ -339,7 +344,10 @@ in
       autodetect = true;
     };
 
-    gvfs.enable = true;
+    gvfs = {
+      enable = true;
+      package = pkgs.gvfs;
+    };
     tumbler.enable = true;
 
     pipewire = {
@@ -383,18 +391,11 @@ in
 
     gnome.gnome-keyring.enable = true;
 
-    #printing = {
-    #  enable = false;
-    #  drivers = [
-    # pkgs.hplipWithPlugin
-    #  ];
-    #};
-
-    #avahi = {
-    #  enable = true;
-    #  nssmdns4 = true;
-    #  openFirewall = true;
-    #};
+    # avahi = {
+    #   enable = true;
+    #   nssmdns4 = true;
+    #   openFirewall = true;
+    # };
 
     #ipp-usb.enable = true;
 

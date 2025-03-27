@@ -47,6 +47,7 @@ in
         sway-contrib.grimshot
         flameshot
         (flameshot.override { enableWlrSupport = true; })
+        whatsapp-for-linux
       ];
     };
 
