@@ -14,6 +14,16 @@ return {
 	vimls = { filetypes = { "vim" } },
 	yamlls = {
 		filetypes = { "yaml", "yml" },
+		settings = {
+			yaml = {
+				schemas = {
+					["https://raw.githubusercontent.com/Kong/go-database-reconciler/refs/heads/main/pkg/file/kong_json_schema.json"] = {
+						"kong*.yml",
+						"kong*.yaml",
+					},
+				},
+			},
+		},
 	},
 	gleam = { filetypes = { "gleam" }, auto_install = false },
 	dotls = { filetypes = { "dot" } },
@@ -22,7 +32,10 @@ return {
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
 	},
-	solargraph = { filetypes = { "ruby" } },
+	solargraph = {
+		filetypes = { "ruby" },
+		cmd = { "bundle", "exec", "solargraph", "stdio" },
+	},
 	nginx_language_server = { filetypes = { "nginx" } },
 	buf_ls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
