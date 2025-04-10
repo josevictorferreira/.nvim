@@ -41,8 +41,6 @@ in
         nordpass
         brave
         htop-vim
-        weechat
-        weechatScripts.wee-slack
         grim
         sway-contrib.grimshot
         flameshot
@@ -76,7 +74,6 @@ in
     nodejs_22
     go
     ruby
-    python311
     cargo
     p7zip
     nixd

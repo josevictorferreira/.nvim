@@ -15,16 +15,16 @@ let
 in
 {
   imports = [
+    ./sops.nix
     ./hardware.nix
     ./users.nix
-    ../../modules/amd-drivers.nix
-    ../../modules/nvidia-drivers.nix
-    ../../modules/nvidia-prime-drivers.nix
-    ../../modules/intel-drivers.nix
-    ../../modules/vm-guest-services.nix
-    ../../modules/local-hardware-clock.nix
-    ./sops.nix
-    ./printer.nix
+    ../../modules/hardware/amd-drivers.nix
+    ../../modules/hardware/nvidia-drivers.nix
+    ../../modules/hardware/nvidia-prime-drivers.nix
+    ../../modules/hardware/intel-drivers.nix
+    ../../modules/hardware/vm-guest-services.nix
+    ../../modules/hardware/local-hardware-clock.nix
+    ../../modules/hardware/hp-1020-drivers.nix
   ];
 
   # BOOT related stuff

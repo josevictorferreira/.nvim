@@ -7,7 +7,7 @@
         (pkgs.linkFarm "drivers" [
           {
             name = "share/cups/model/HP-LaserJet_1020.ppd";
-            path = ./../../drivers/HP-LaserJet_1020.ppd;
+            path = ./../../assets/HP1020/HP-LaserJet_1020.ppd;
           }
         ])
         pkgs.foo2zjs
