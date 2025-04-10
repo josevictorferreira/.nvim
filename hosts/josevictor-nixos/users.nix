@@ -43,10 +43,17 @@ in
         htop-vim
         grim
         sway-contrib.grimshot
-        flameshot
         (flameshot.override { enableWlrSupport = true; })
         whatsapp-for-linux
         inetutils
+
+        (weechat.override {
+          configure = { availablePlugins, ... }: {
+            plugins = with availablePlugins;
+              [ (python.withPackages (ps: with ps; [ websocket-client ])) ];
+          };
+        })
+        weechatScripts.wee-slack
       ];
     };
 
@@ -91,6 +98,7 @@ in
     nmap
     arp-scan
     vlc
+
   ];
 
   environment.sessionVariables = {
