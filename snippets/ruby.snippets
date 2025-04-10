@@ -1,0 +1,44 @@
+snippet basespec
+	# frozen_string_literal: true
+
+	require 'rails_helper'
+
+	RSpec.describe ${1}, type: ${2} do
+		subject(:class_obj) { described_class }
+
+		${3}
+	end
+snippet iti
+	it { expect(${1}).to eq() }
+snippet itis
+	it { is_expected.to be_${1} }
+snippet leti
+	let(:${1}) do
+		${2}
+	end
+snippet baseservice
+	# frozen_string_literal: true
+
+	class ${1}Service < Aldous::Service
+
+		def initialize()
+		end
+	
+		def perform
+		end
+	end
+snippet pry
+	binding.pry
+snippet itp
+	it do
+		binding.pry
+	end
+snippet resc
+	rescue StandardError => e
+		${1}
+snippet succ
+	Result::Success.new(${1})
+snippet fail
+	Result::Failure.new(${1})
+snippet itc
+	it { expect { ${1} }.to change(${2}, :count).by(1) }
