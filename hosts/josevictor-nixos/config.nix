@@ -1,6 +1,6 @@
 # Main default config
 
-{ config, pkgs, host, username, options, lib, inputs, system, ... }:
+{ config, pkgs, host, username, options, configRoot, ... }:
 let
 
   inherit (import ./variables.nix) keyboardLayout;
@@ -15,16 +15,15 @@ let
 in
 {
   imports = [
-    ./sops.nix
     ./hardware.nix
     ./users.nix
-    ../../modules/hardware/amd-drivers.nix
-    ../../modules/hardware/nvidia-drivers.nix
-    ../../modules/hardware/nvidia-prime-drivers.nix
-    ../../modules/hardware/intel-drivers.nix
-    ../../modules/hardware/vm-guest-services.nix
-    ../../modules/hardware/local-hardware-clock.nix
-    ../../modules/hardware/hp-1020-drivers.nix
+    "${configRoot}/modules/hardware/amd-drivers.nix"
+    "${configRoot}/modules/hardware/nvidia-drivers.nix"
+    "${configRoot}/modules/hardware/nvidia-prime-drivers.nix"
+    "${configRoot}/modules/hardware/intel-drivers.nix"
+    "${configRoot}/modules/hardware/vm-guest-services.nix"
+    "${configRoot}/modules/hardware/local-hardware-clock.nix"
+    "${configRoot}/modules/hardware/hp-1020-drivers.nix"
   ];
 
   nixpkgs = {

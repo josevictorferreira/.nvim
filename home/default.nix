@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./../modules/security/sops.nix
     ./../modules/development/zsh.nix
     ./../modules/development/neovim.nix
     ./../modules/development/tmux.nix

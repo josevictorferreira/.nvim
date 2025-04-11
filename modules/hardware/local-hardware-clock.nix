@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, config, ... }:
 with lib;
 let
   cfg = config.local.hardware-clock;

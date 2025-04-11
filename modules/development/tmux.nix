@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, configRoot, ... }:
 
 let
-  tmuxConfigDir = ./../../config/tmux;
+  tmuxConfigDir = "${configRoot}/config/tmux";
 in
 {
   programs.tmux = {

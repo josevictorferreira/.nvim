@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ configRoot, ... }:
 
 let
-  zshConfigDir = ./../../config/zsh;
+  zshConfigDir = "${configRoot}/config/zsh";
 in
 {
   programs.zsh = {

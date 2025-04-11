@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, configRoot, ... }:
 
 let
-  ghosttyConfigDir = ./../../config/ghostty;
+  ghosttyConfigDir = "${configRoot}/config/ghostty";
 in
 {
   home.file = {

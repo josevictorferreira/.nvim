@@ -1,9 +1,12 @@
-{ config, username, ... }:
+{ config, username, configRoot, isDarwin, ... }:
 
+let
+  homeDirPrefix = if isDarwin then "/Users" else "/home";
+in
 {
   sops = {
-    defaultSopsFile = ../../secrets/secrets.enc.yaml;
-    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    defaultSopsFile = "${configRoot}/secrets/secrets.enc.yaml";
+    age.keyFile = "${homeDirPrefix}/${username}/.config/sops/age/keys.txt";
   };
 
   sops.secrets."anthropic_api_key" = {
