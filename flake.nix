@@ -1,5 +1,5 @@
 {
-  description = "KooL's NixOS-Hyprland";
+  description = "JoseVictor NixOS-Hyprland";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -22,20 +22,21 @@
     let
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      nixpkgsFor = forAllSystems (
+      nixpkgsFor = forAllSystems (system:
         import nixpkgs {
           inherit system;
           config = { allowUnfree = true; };
         }
-      };
+      );
       darwinPkgsFor = system: import nixpkgs-darwin {
         inherit system;
         config = { allowUnfree = true; };
-      }; 
+      };
       system = "x86_64-linux";
       nixHost = "josevictor-nixos";
       macosHost = "josevictorferreira-macos";
       username = "josevictor";
+      macosUsername = "josevictorferreira";
     in
     {
       nixosConfigurations = {
@@ -77,25 +78,26 @@
           system = "aarch64-darwin";
           specialArgs = {
             inherit inputs;
-            inherit username;
+            username = macosUsername;
             host = macosHost;
             pkgs = darwinPkgsFor "aarch64-darwin";
           };
           modules = [
             ./hosts/${macosHost}/darwin.nix
-            
+
             # Home Manager for macOS
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs username;
+                inherit inputs;
+                username = macosUsername;
                 host = macosHost;
                 isNixOS = false;
                 isDarwin = true;
               };
-              home-manager.users.${username} = import ./home/${username}/macos.nix;
+              home-manager.users.${macosUsername} = import ./home/${username}/macos.nix;
               home-manager.backupFileExtension = "backup";
             }
           ];

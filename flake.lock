@@ -33,6 +33,26 @@
         "type": "github"
       }
     },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-darwin"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744224272,
+        "narHash": "sha256-cqePj5nuC7flJWNncaVAFq1YZncU0PSyO0DEqGn+vYc=",
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "rev": "113883e37d985d26ecb65282766e5719f2539103",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "distro-grub-themes": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -405,6 +425,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-darwin": {
+      "locked": {
+        "lastModified": 1744316434,
+        "narHash": "sha256-lzFCg/1C39pyY2hMB2gcuHV79ozpOz/Vu15hdjiFOfI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d19cf9dfc633816a437204555afeb9e722386b76",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixpkgs-unstable",
+        "type": "indirect"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1739020877,
@@ -477,10 +512,12 @@
     },
     "root": {
       "inputs": {
+        "darwin": "darwin",
         "distro-grub-themes": "distro-grub-themes",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-darwin": "nixpkgs-darwin",
         "sops-nix": "sops-nix"
       }
     },
