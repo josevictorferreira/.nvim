@@ -18,22 +18,8 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, nixpkgs-darwin, darwin, sops-nix, home-manager, ... }:
+    inputs@{ nixpkgs, darwin, sops-nix, home-manager, ... }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      nixpkgsFor = forAllSystems (system:
-        import nixpkgs {
-          inherit system;
-          config = { allowUnfree = true; };
-        }
-      );
-      darwinPkgsFor = system: import nixpkgs-darwin {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
       system = "x86_64-linux";
       nixHost = "josevictor-nixos";
       macosHost = "josevictorferreira-macos";

@@ -1,8 +1,5 @@
 { pkgs, username, host, configRoot, ... }:
 
-let
-  inherit (import ./variables.nix) gitUsername;
-in
 {
   imports = [
     "${configRoot}/modules/security/sops.nix"
