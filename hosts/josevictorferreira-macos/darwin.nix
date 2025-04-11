@@ -55,6 +55,9 @@
     ripgrep
     sqlite
 
+    # unfortunately, needed for neovim
+    nodejs_22
+
     m-cli
     mas
   ];
@@ -106,12 +109,6 @@
   services = {
     openssh = {
       enable = true;
-      hostKeys = {
-        RSA = true;
-        DSA = true;
-        ECDSA = true;
-        ED25519 = true;
-      };
     };
   };
 
