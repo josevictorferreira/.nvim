@@ -104,7 +104,15 @@
   };
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      hostKeys = {
+        RSA = true;
+        DSA = true;
+        ECDSA = true;
+        ED25519 = true;
+      };
+    };
   };
 
   system.stateVersion = 4;
