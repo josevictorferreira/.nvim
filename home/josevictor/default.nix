@@ -4,6 +4,10 @@ let
   inherit (import ../../hosts/${host}/variables.nix) gitUsername gitEmail keyboardLayout;
 in
 {
+  imports = [
+    ./../modules/neovim.nix
+  ];
+
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
