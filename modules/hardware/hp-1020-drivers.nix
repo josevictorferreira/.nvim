@@ -29,12 +29,12 @@
 
     samba = {
       enable = true;
-      securityType = "user";
       openFirewall = true;
       settings = {
         global = {
           "client min protocol" = "SMB2";
           "client max protocol" = "SMB3";
+          "securityType" = "user";
           # "username" = "${builtins.readFile config.sops.secrets."printer_username".path}";
           # "password" = "${builtins.readFile config.sops.secrets."printer_password".path}";
         };

@@ -48,7 +48,6 @@
             inherit inputs;
             inherit username;
             host = nixHost;
-            pkgs = nixpkgsFor.${system};
           };
           modules = [
             ./hosts/${nixHost}/config.nix
@@ -81,7 +80,6 @@
             inherit inputs;
             username = macosUsername;
             host = macosHost;
-            pkgs = darwinPkgsFor "aarch64-darwin";
           };
           modules = [
             ./hosts/${macosHost}/darwin.nix

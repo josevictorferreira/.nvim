@@ -27,6 +27,12 @@ in
     ../../modules/hardware/hp-1020-drivers.nix
   ];
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   # BOOT related stuff
   boot = {
     kernelPackages = pkgs.linuxPackages_latest; # Kernel
