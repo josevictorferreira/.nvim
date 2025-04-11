@@ -46,7 +46,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = specialArgs;
-              home-manager.users.${username} = import ./home/${username}/default.nix;
+              home-manager.users.${username} = import ./home/${username}/nixos.nix;
             }
           ];
         };

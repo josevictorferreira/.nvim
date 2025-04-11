@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  zshConfigDir = ./../../config/zsh;
+  zshConfigDir = ./../../../config/zsh;
 in
 {
   programs.zsh = {

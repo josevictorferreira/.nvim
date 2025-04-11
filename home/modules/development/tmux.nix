@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  tmuxConfigDir = ./../../config/tmux;
+  tmuxConfigDir = ./../../../config/tmux;
 in
 {
   programs.tmux = {
@@ -10,7 +10,6 @@ in
     plugins = with pkgs.tmuxPlugins; [
       sensible
       yank
-      tpm
     ];
     terminal = "tmux-256color";
     escapeTime = 10;

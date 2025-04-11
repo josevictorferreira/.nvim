@@ -5,9 +5,10 @@ let
 in
 {
   imports = [
-    ./../modules/zsh.nix
-    ./../modules/neovim.nix
-    ./../modules/tmux.nix
+    ./../modules/development/ghostty.nix
+    ./../modules/development/zsh.nix
+    ./../modules/development/neovim.nix
+    ./../modules/development/tmux.nix
   ];
 
   home = {
@@ -15,8 +16,6 @@ in
     homeDirectory = "/home/${username}";
 
     packages = with pkgs; [
-      ghostty
-      tmux
       gh
       insomnia
       awscli
