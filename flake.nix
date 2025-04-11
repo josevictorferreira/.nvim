@@ -47,6 +47,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.users.${username} = import ./home/${username}/nixos.nix;
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };
