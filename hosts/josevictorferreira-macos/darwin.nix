@@ -1,9 +1,13 @@
-{ pkgs, lib, username, host, ... }:
+{ pkgs, username, host, configRoot, ... }:
 
 let
   inherit (import ./variables.nix) gitUsername;
 in
 {
+  imports = [
+    "${configRoot}/modules/security/sops.nix"
+  ];
+
   networking.hostName = "${host}";
   networking.computerName = "${host}";
   networking.localHostName = "${host}";

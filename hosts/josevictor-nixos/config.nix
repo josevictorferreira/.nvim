@@ -15,6 +15,7 @@ let
 in
 {
   imports = [
+    "${configRoot}/modules/security/sops.nix"
     ./hardware.nix
     ./users.nix
     "${configRoot}/modules/hardware/amd-drivers.nix"
