@@ -30,7 +30,7 @@
       );
       darwinPkgsFor = system: import nixpkgs-darwin {
         inherit system;
-        config = { allowUnfree = true; };
+        config = { allowUnfree = true; allowBroken = true; };
       };
       system = "x86_64-linux";
       nixHost = "josevictor-nixos";

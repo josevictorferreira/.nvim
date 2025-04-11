@@ -5,7 +5,6 @@ let
 in
 {
   imports = [
-    ./../modules/development/ghostty.nix
     ./../modules/development/zsh.nix
     ./../modules/development/neovim.nix
     ./../modules/development/tmux.nix
@@ -23,8 +22,6 @@ in
       k9s
       kubernetes-helm
       helmfile
-      beekeeper-studio
-      nordpass
       brave
       htop-vim
       inetutils

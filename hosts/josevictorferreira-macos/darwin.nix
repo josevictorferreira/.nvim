@@ -8,8 +8,6 @@ in
   networking.computerName = "${host}";
   networking.localHostName = "${host}";
 
-  services.nix-daemon.enable = true;
-
   system.defaults = {
     finder = {
       AppleShowAllExtensions = true;
@@ -42,7 +40,6 @@ in
   };
 
   environment.shells = with pkgs; [ zsh bash ];
-  environment.loginShell = pkgs.zsh;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -69,7 +66,8 @@ in
     noto-fonts
     jetbrains-mono
     font-awesome
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.droid-sans-mono
   ];
 
   system.keyboard = {
@@ -83,7 +81,11 @@ in
     shell = pkgs.zsh;
   };
 
+  nix.enable = true;
+
   nix.package = pkgs.nix;
+
+  nix.optimise.automatic = true;
 
   nix.settings = {
     experimental-features = "nix-command flakes";
@@ -94,7 +96,6 @@ in
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
     trusted-users = [ "root" username ];
-    auto-optimise-store = true;
   };
 
   nix.gc = {
