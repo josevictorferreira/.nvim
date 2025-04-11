@@ -18,7 +18,7 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, nixpkgs-darwin, darwin, sops-nix, home-manager, ... }:
+    inputs@{ nixpkgs, nixpkgs-darwin, darwin, sops-nix, home-manager, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -40,7 +40,7 @@
     in
     {
       nixosConfigurations = {
-        "${nixHost}" = nixpkgs.lib.nixosSystem rec {
+        "${nixHost}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit system;
             inherit inputs;
@@ -53,7 +53,6 @@
             inputs.distro-grub-themes.nixosModules.${system}.default
             sops-nix.nixosModules.sops
 
-            # Add Home Manager as a NixOS module
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -66,7 +65,7 @@
                 isNixOS = true;
                 isDarwin = false;
               };
-              home-manager.users.${username} = import ./home/${username}/nixos.nix;
+              home-manager.users.${username} = import ./home/nixos.nix;
               home-manager.backupFileExtension = "backup";
             }
           ];
@@ -85,7 +84,6 @@
           modules = [
             ./hosts/${macosHost}/darwin.nix
 
-            # Home Manager for macOS
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -97,7 +95,7 @@
                 isNixOS = false;
                 isDarwin = true;
               };
-              home-manager.users.${macosUsername} = import ./home/${username}/macos.nix;
+              home-manager.users.${macosUsername} = import ./home/macos.nix;
               home-manager.backupFileExtension = "backup";
             }
           ];

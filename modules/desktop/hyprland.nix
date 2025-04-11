@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  hyprlandConfig = ./../../../../config/hypr;
+  hyprlandConfig = ./../../config/hypr;
 in
 {
   wayland.windowManager.hyprland = {

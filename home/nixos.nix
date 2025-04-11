@@ -1,9 +1,10 @@
-{ config, pkgs, username, lib, host, inputs, ... }:
+{ ... }:
 
 {
   imports = [
     ./default.nix
-    ./../modules/desktop/hyprland/hypr.nix
+    ./../modules/desktop/hyprland.nix
+    ./../modules/development/ghostty.nix
   ];
 
   xdg = {

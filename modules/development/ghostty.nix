@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  ghosttyConfigDir = ./../../../config/ghostty;
+  ghosttyConfigDir = ./../../config/ghostty;
 in
 {
   home.file = {

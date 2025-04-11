@@ -19,6 +19,7 @@ return {
 					["docker-compose.yaml"] = "yaml.docker-compose",
 				},
 				complex = {
+					["*.nix"] = "nix",
 					[".*i3/config"] = "i3config",
 					[".*/i3/*/*.config"] = "i3config",
 					["Dockerfile"] = "dockerfile",
