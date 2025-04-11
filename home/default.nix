@@ -1,7 +1,7 @@
 { pkgs, username, host, isDarwin, ... }:
 let
   homeDirPrefix = if isDarwin then "/Users" else "/home";
-  inherit (import ../../hosts/${host}/variables.nix) gitUsername gitEmail keyboardLayout;
+  inherit (import ./../hosts/${host}/variables.nix) gitUsername gitEmail keyboardLayout;
 in
 {
   imports = [
