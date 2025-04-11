@@ -1,6 +1,14 @@
-{ config, pkgs, username, lib, host, inputs, ... }:
+{ config, pkgs, username, lib, host, inputs, isDarwin, ... }:
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 
 let
+  homeDirPrefix = if isDarwin then "/Users" else "/home";
   inherit (import ../../hosts/${host}/variables.nix) gitUsername gitEmail keyboardLayout;
 in
 {
@@ -13,7 +21,7 @@ in
 
   home = {
     username = "${username}";
-    homeDirectory = "/home/${username}";
+    homeDirectory = "${homeDirPrefix}/${username}";
 
     packages = with pkgs; [
       gh
@@ -44,37 +52,11 @@ in
       pull.rebase = "true";
     };
   };
-
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "docker" "kubectl" ];
-      theme = "robbyrussell";
-    };
-    initExtra = ''
-      eval "$(direnv hook zsh)"
-      export LD_LIBRARY_PATH="${pkgs.sqlite.out}/lib/:$LD_LIBRARY_PATH"
-      
-      # Source your custom zsh config if it exists
-      if [ -f "$HOME/.config/zsh/init.zsh" ]; then
-        source $HOME/.config/zsh/init.zsh
-      fi
-    '';
   };
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
   };
 
   home.keyboard = {

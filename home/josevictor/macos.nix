@@ -3,8 +3,6 @@
 {
   imports = [
     ./default.nix
-
-    ../modules/desktop/macos
   ];
 
   home.packages = with pkgs; [
@@ -13,7 +11,7 @@
   ];
 
   targets.darwin = {
-    search = "Search";
+    search = "DuckDuckGo";
     defaults = {
       NSGlobalDomain = {
         InitialKeyRepeat = 15;
