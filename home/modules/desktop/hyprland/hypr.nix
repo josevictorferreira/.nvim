@@ -31,15 +31,8 @@ in
     wallust
   ];
   programs = {
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
-      xwayland.enable = true;
-    };
     waybar.enable = true;
     hyprlock.enable = true;
-    xwayland.enable = true;
   };
   xdg.portal = {
     enable = true;
