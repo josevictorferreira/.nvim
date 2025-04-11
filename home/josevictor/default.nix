@@ -25,6 +25,7 @@ in
       brave
       htop-vim
       inetutils
+      eza
     ];
 
     stateVersion = "24.05";
