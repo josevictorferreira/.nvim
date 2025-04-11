@@ -4,7 +4,7 @@ secrets: ## Edit the secrets file
 	sops secrets/secrets.enc.yaml
 
 rebuild: ## Rebuild NixOS configuration.
-	@if [ "$(shell uname)" = "Darwin"]; then \
+	@if [ "$(shell uname)" = "Darwin" ]; then \
 		darwin-rebuild switch --flake .#josevictorferreira-macos --impure; \
 	else \
 		nixos-rebuild switch --flake .#josevictor-nixos --impure; \
