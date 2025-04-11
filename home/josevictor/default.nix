@@ -5,7 +5,9 @@ let
 in
 {
   imports = [
+    ./../modules/zsh.nix
     ./../modules/neovim.nix
+    ./../modules/tmux.nix
   ];
 
   home = {
