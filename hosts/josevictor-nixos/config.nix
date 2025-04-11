@@ -144,20 +144,11 @@ in
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
-      xwayland.enable = true;
-    };
-
     nix-ld = {
       enable = true;
       libraries = options.programs.nix-ld.libraries.default;
     };
 
-    waybar.enable = true;
-    hyprlock.enable = true;
     firefox.enable = true;
     git.enable = true;
     nm-applet.indicator = true;
@@ -179,8 +170,6 @@ in
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
-
-    xwayland.enable = true;
 
     dconf.enable = true;
     seahorse.enable = true;
@@ -239,9 +228,7 @@ in
     eog
     gnome-system-monitor
     file-roller
-    grim
     gtk-engine-murrine #for gtk themes
-    hyprcursor # requires unstable channel
     hypridle # requires unstable channel
     imagemagick
     inxi
@@ -255,20 +242,12 @@ in
     pavucontrol
     playerctl
     polkit_gnome
-    pyprland
     libsForQt5.qt5ct
     qt6ct
     qt6.qtwayland
     qt6Packages.qtstyleplugin-kvantum #kvantum
-    rofi-wayland
-    slurp
     swappy
-    swaynotificationcenter
-    swww
     unzip
-    wallust
-    wl-clipboard
-    wlogout
     yad
     yt-dlp
     sops
