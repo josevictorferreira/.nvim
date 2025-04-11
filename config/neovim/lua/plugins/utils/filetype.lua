@@ -17,9 +17,9 @@ return {
 					["tmux.conf"] = "tmux",
 					["docker-compose.yml"] = "yaml.docker-compose",
 					["docker-compose.yaml"] = "yaml.docker-compose",
+					["zsh.nix"] = "nix",
 				},
 				complex = {
-					["*.nix"] = "nix",
 					[".*i3/config"] = "i3config",
 					[".*/i3/*/*.config"] = "i3config",
 					["Dockerfile"] = "dockerfile",

@@ -48,6 +48,7 @@
             inherit inputs;
             inherit username;
             host = nixHost;
+            configRoot = ./.;
           };
           modules = [
             ./hosts/${nixHost}/config.nix
@@ -65,6 +66,7 @@
                 host = nixHost;
                 isNixOS = true;
                 isDarwin = false;
+                configRoot = ./.;
               };
               home-manager.users.${username} = import ./home/nixos.nix;
               home-manager.backupFileExtension = "backup";
@@ -80,6 +82,7 @@
             inherit inputs;
             username = macosUsername;
             host = macosHost;
+            configRoot = ./.;
           };
           modules = [
             ./hosts/${macosHost}/darwin.nix
@@ -94,6 +97,7 @@
                 host = macosHost;
                 isNixOS = false;
                 isDarwin = true;
+                configRoot = ./.;
               };
               home-manager.users.${macosUsername} = import ./home/macos.nix;
               home-manager.backupFileExtension = "backup";
