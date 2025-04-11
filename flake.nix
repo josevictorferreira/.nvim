@@ -39,9 +39,9 @@
             isNixOS = true;
           };
           modules = [
+            sops-nix.nixosModules.sops
             ./hosts/${nixHost}/config.nix
             inputs.distro-grub-themes.nixosModules.${system}.default
-            sops-nix.nixosModules.sops
 
             home-manager.nixosModules.home-manager
             {
@@ -75,6 +75,7 @@
             isNixOS = false;
           };
           modules = [
+            sops-nix.nixosModules.sops
             ./hosts/${macosHost}/darwin.nix
 
             home-manager.darwinModules.home-manager
