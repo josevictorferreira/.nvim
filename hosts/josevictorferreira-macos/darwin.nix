@@ -41,8 +41,6 @@ in
 
   environment.shells = with pkgs; [ zsh bash ];
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     coreutils
     curl

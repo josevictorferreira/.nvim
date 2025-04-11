@@ -51,6 +51,4 @@ in
   home.keyboard = {
     layout = "${keyboardLayout}";
   };
-
-  nixpkgs.config.allowUnfree = true;
 }
