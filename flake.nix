@@ -49,6 +49,8 @@
             inherit username;
             host = nixHost;
             configRoot = ./.;
+            isDarwin = false;
+            isNixOS = true;
           };
           modules = [
             ./hosts/${nixHost}/config.nix
@@ -83,6 +85,8 @@
             username = macosUsername;
             host = macosHost;
             configRoot = ./.;
+            isDarwin = true;
+            isNixOS = false;
           };
           modules = [
             ./hosts/${macosHost}/darwin.nix
