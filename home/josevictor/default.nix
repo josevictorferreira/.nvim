@@ -1,12 +1,4 @@
 { config, pkgs, username, lib, host, inputs, isDarwin, ... }:
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
 let
   homeDirPrefix = if isDarwin then "/Users" else "/home";
   inherit (import ../../hosts/${host}/variables.nix) gitUsername gitEmail keyboardLayout;
@@ -51,7 +43,6 @@ in
       init.defaultBranch = "main";
       pull.rebase = "true";
     };
-  };
   };
 
   programs.direnv = {
