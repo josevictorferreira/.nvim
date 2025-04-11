@@ -78,12 +78,4 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-  };
 }
