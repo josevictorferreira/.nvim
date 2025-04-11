@@ -103,5 +103,9 @@
     options = "--delete-older-than 14d";
   };
 
+  services = {
+    openssh.enable = true;
+  };
+
   system.stateVersion = 4;
 }
