@@ -11,15 +11,7 @@ in
     vimAlias = true;
   };
 
-  # extraConfig = builtins.readFile "${neovimConfigDir}/init.lua";
-
   home.file = {
     ".config/nvim".source = "${neovimConfigDir}";
-
-    # ".config/nvim/lua".source = "${neovimConfigDir}/lua";
-    # ".config/nvim/after".source = "${neovimConfigDir}/after";
-    # ".config/nvim/schemas".source = "${neovimConfigDir}/schemas";
-    # ".config/nvim/snippets".source = "${neovimConfigDir}/snippets";
   };
-
 }
