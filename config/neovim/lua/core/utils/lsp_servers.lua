@@ -35,6 +35,7 @@ return {
 	solargraph = {
 		filetypes = { "ruby" },
 		cmd = { "bundle", "exec", "solargraph", "stdio" },
+		auto_install = false,
 	},
 	buf_ls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
