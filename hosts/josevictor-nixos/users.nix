@@ -35,18 +35,8 @@ in
   environment.shells = with pkgs; [ zsh ];
 
   environment.systemPackages = with pkgs; [
-    git
-    fzf
-    sqlite
     clang
-    gcc
-    ripgrep
-    gnumake
-    openssh
     xsel
-    nodejs_22
-    go
-    ruby
     cargo
     p7zip
     protonup

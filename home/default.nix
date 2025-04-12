@@ -20,6 +20,7 @@ in
 
       # Dev tools
       gnupg
+      gnumake
       coreutils
       insomnia
       gh
@@ -38,7 +39,6 @@ in
       wget
       curl
       git
-      sqlite
     ];
 
     stateVersion = "24.05";
