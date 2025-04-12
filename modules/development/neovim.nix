@@ -3,6 +3,7 @@
 let
   neovimConfigDir = "${configRoot}/config/neovim";
   sharedLibExt = pkgs.stdenv.hostPlatform.extensions.sharedLibrary;
+  sqliteLibPath = "${pkgs.sqlite}/lib/libsqlite3${sharedLibExt}";
 in
 {
   programs.neovim = {
@@ -12,9 +13,13 @@ in
     vimAlias = true;
     plugins = [
       pkgs.sqlite
+      pkgs.nodejs_22 # Unfortunately needed dependency for copilot neovim plugin
+      pkgs.python311
+      pkgs.luajit
+      pkgs.nixd
       {
         plugin = pkgs.vimPlugins.sqlite-lua;
-        config = "let g:sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3${sharedLibExt}'";
+        config = "let g:sqlite_clib_path = '${sqliteLibPath}'";
       }
     ];
     extraLuaConfig = builtins.readFile "${neovimConfigDir}/init.lua";

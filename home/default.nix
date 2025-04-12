@@ -15,18 +15,30 @@ in
     homeDirectory = "${homeDirPrefix}/${username}";
 
     packages = with pkgs; [
-      gh
+      # Desktop tools
+      brave
+
+      # Dev tools
+      gnupg
+      coreutils
       insomnia
+      gh
       awscli
       kubectl
       k9s
       kubernetes-helm
       helmfile
-      brave
       htop-vim
       inetutils
       eza
-      nixd
+      fzf
+      ripgrep
+      vim
+      openssh
+      wget
+      curl
+      git
+      sqlite
     ];
 
     stateVersion = "24.05";

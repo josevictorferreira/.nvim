@@ -39,26 +39,6 @@
   environment.shells = with pkgs; [ zsh bash ];
 
   environment.systemPackages = with pkgs; [
-    coreutils
-    curl
-    wget
-    git
-    gnupg
-    vim
-    openssh
-
-    fzf
-    ripgrep
-    sqlite
-
-    # unfortunately, needed for neovim
-    nodejs_22
-
-    go
-    cargo
-    lua
-    luajit
-
     m-cli
     mas
   ];
