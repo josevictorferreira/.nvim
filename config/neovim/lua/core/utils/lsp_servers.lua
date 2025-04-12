@@ -36,7 +36,6 @@ return {
 		filetypes = { "ruby" },
 		cmd = { "bundle", "exec", "solargraph", "stdio" },
 	},
-	nginx_language_server = { filetypes = { "nginx" } },
 	buf_ls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
 	volar = { filetypes = { "vue" } },
