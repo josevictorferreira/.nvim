@@ -26,6 +26,7 @@ in
       htop-vim
       inetutils
       eza
+      nixd
     ];
 
     stateVersion = "24.05";

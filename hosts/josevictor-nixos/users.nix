@@ -49,7 +49,6 @@ in
     ruby
     cargo
     p7zip
-    nixd
     protonup
     lutris
     docker_26
