@@ -1,10 +1,6 @@
 { pkgs, username, host, configRoot, ... }:
 
 {
-  imports = [
-    "${configRoot}/modules/security/sops.nix"
-  ];
-
   networking.hostName = "${host}";
   networking.computerName = "${host}";
   networking.localHostName = "${host}";
@@ -58,6 +54,11 @@
     # unfortunately, needed for neovim
     nodejs_22
 
+    go
+    cargo
+    lua
+    luajit
+
     m-cli
     mas
   ];
@@ -106,11 +107,11 @@
     options = "--delete-older-than 14d";
   };
 
-  services = {
-    openssh = {
-      enable = true;
-    };
-  };
+  # services = {
+  #   openssh = {
+  #     enable = true;
+  #   };
+  # };
 
   system.stateVersion = 4;
 }

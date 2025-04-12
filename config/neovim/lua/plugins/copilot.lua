@@ -4,6 +4,11 @@ return {
 	branch = "master",
 	event = "InsertEnter",
 	config = function()
+		local api_key = vim.env.ANTHROPIC_API_KEY
+		if not api_key or api_key == "" then
+			return
+		end
+
 		require("copilot").setup({
 			panel = {
 				enabled = true,

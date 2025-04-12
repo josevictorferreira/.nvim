@@ -75,7 +75,6 @@
             isNixOS = false;
           };
           modules = [
-            sops-nix.nixosModules.sops
             ./hosts/${macosHost}/darwin.nix
 
             home-manager.darwinModules.home-manager
