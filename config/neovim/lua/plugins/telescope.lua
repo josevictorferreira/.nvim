@@ -1,5 +1,3 @@
-local data = assert(vim.fn.stdpath("data")) --[[@as string]]
-
 local set_telescope_keymap = function()
 	local map = vim.api.nvim_set_keymap
 	local options = { noremap = true, silent = true }
@@ -15,7 +13,6 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		"nvim-telescope/telescope-smart-history.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	config = function()
@@ -67,7 +64,6 @@ return {
 		})
 
 		pcall(require("telescope").load_extension, "fzf")
-		pcall(require("telescope").load_extension, "smart_history")
 		pcall(require("telescope").load_extension, "ui-select")
 
 		set_telescope_keymap()
