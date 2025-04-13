@@ -1,5 +1,5 @@
 {
-  description = "JoseVictor NixOS-Hyprland";
+  description = "JoseVictor Nix Configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -17,83 +17,72 @@
     };
   };
 
-  outputs =
-    inputs@{ nixpkgs, darwin, sops-nix, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, darwin, sops-nix, home-manager, ... }:
     let
-      system = "x86_64-linux";
-      nixHost = "josevictor-nixos";
-      macosHost = "josevictorferreira-macos";
-      username = "josevictor";
-      macosUsername = "josevictorferreira";
-    in
-    {
-      nixosConfigurations = {
-        "${nixHost}" = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit system;
-            inherit inputs;
-            inherit username;
-            host = nixHost;
-            configRoot = ./.;
-            isDarwin = false;
-            isNixOS = true;
-          };
-          modules = [
-            sops-nix.nixosModules.sops
-            ./hosts/${nixHost}/config.nix
-            inputs.distro-grub-themes.nixosModules.${system}.default
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit system;
-                inherit inputs;
-                inherit username;
-                host = nixHost;
-                isNixOS = true;
-                isDarwin = false;
-                configRoot = ./.;
-              };
-              home-manager.users.${username} = import ./home/nixos.nix;
-              home-manager.backupFileExtension = "backup";
-            }
-          ];
+      systems = {
+        nixos = {
+          system = "x86_64-linux";
+          os = "nixos";
+          host = "nixos-desktop";
+          username = "josevictor";
+          isDarwin = false;
+          isNixOS = true;
+        };
+        macos = {
+          system = "aarch64-darwin";
+          os = "macos";
+          host = "macos-macbook";
+          username = "josevictorferreira";
+          isDarwin = true;
+          isNixOS = false;
         };
       };
 
-      darwinConfigurations = {
-        "${macosHost}" = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = {
-            inherit inputs;
-            username = macosUsername;
-            host = macosHost;
-            configRoot = ./.;
-            isDarwin = true;
-            isNixOS = false;
-          };
-          modules = [
-            ./hosts/${macosHost}/darwin.nix
+      specialArgsFor = { system, host, username, isDarwin, isNixOS }: {
+        inherit inputs system username host;
+        configRoot = ./.;
+        inherit isDarwin isNixOS;
+      };
 
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-                username = macosUsername;
-                host = macosHost;
-                isNixOS = false;
-                isDarwin = true;
-                configRoot = ./.;
-              };
-              home-manager.users.${macosUsername} = import ./home/macos.nix;
-              home-manager.backupFileExtension = "backup";
-            }
-          ];
-        };
+      homeManagerConfig = { system, os, host, username, isDarwin, isNixOS }: {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "backup";
+        home-manager.extraSpecialArgs = specialArgsFor { inherit system host username isDarwin isNixOS; };
+        home-manager.users.${username} = import ./home-manager/${host}/${os}-specific.nix;
+      };
+
+      nixosModule = { system, host }: nixpkgs.lib.nixosSystem {
+        specialArgs = specialArgsFor (systems.nixos);
+        modules = [
+          sops-nix.nixosModules.sops
+          ./hosts/${host}/config.nix
+          inputs.distro-grub-themes.nixosModules.${system}.default
+          home-manager.nixosModules.home-manager
+          homeManagerConfig
+          (systems.nixos)
+        ];
+      };
+
+      darwinModule = { system, host }: darwin.lib.darwinSystem {
+        specialArgs = specialArgsFor (systems.macos);
+        system = system;
+        modules = [
+          ./hosts/${host}/config.nix
+          home-manager.darwinModules.home-manager
+          homeManagerConfig
+          (systems.macos)
+        ];
+      };
+
+    in
+    {
+      nixosConfigurations = {
+        ${systems.nixos.host} = nixosModule systems.nixos;
+      };
+
+      darwinConfigurations = {
+        ${systems.macos.host} = darwinModule systems.macos;
       };
     };
 }

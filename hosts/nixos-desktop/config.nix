@@ -1,23 +1,13 @@
-# Main default config
-
-{ config, pkgs, host, username, options, configRoot, ... }:
+{ config, pkgs, host, options, configRoot, ... }:
 let
 
   inherit (import ./variables.nix) keyboardLayout;
-  python-packages = pkgs.python3.withPackages (
-    ps:
-      with ps; [
-        requests
-        pyquery # needed for hyprland-dots Weather script
-      ]
-  );
 
 in
 {
   imports = [
     "${configRoot}/modules/security/sops.nix"
     ./hardware.nix
-    ./users.nix
     "${configRoot}/modules/hardware/amd-drivers.nix"
     "${configRoot}/modules/hardware/nvidia-drivers.nix"
     "${configRoot}/modules/hardware/nvidia-prime-drivers.nix"
@@ -183,7 +173,6 @@ in
       enable = true;
       enableSSHSupport = true;
     };
-
   };
 
   users = {
@@ -195,100 +184,26 @@ in
     baobab
     btrfs-progs
     clang
-    curl
     cpufrequtils
     duf
-    eza
-    ffmpeg
     glib #for gsettings to work
     gsettings-qt
-    git
     killall
     libappindicator
     libnotify
-    openssl #required by Rainbow borders
     pciutils
-    vim
-    wget
     xdg-user-dirs
     xdg-utils
 
     nfs-utils
 
-    fastfetch
     (mpv.override { scripts = [ mpvScripts.mpris ]; }) # with tray
-    #ranger
 
-    # Hyprland Stuff
-    (ags.overrideAttrs (oldAttrs: {
-      inherit (oldAttrs) pname;
-      version = "1.8.2";
-    }))
-    #ags    
-    btop
-    brightnessctl # for brightness control
-    #cava
-    cliphist
-    eog
-    gnome-system-monitor
-    file-roller
-    gtk-engine-murrine #for gtk themes
-    hypridle # requires unstable channel
-    imagemagick
-    inxi
-    jq
-    kitty
-    libsForQt5.qtstyleplugin-kvantum #kvantum
-    networkmanagerapplet
-    nwg-look # requires unstable channel
-    nvtopPackages.full
-    pamixer
-    pavucontrol
-    playerctl
-    polkit_gnome
-    libsForQt5.qt5ct
-    qt6ct
-    qt6.qtwayland
-    qt6Packages.qtstyleplugin-kvantum #kvantum
-    swappy
-    unzip
-    yad
-    yt-dlp
-    sops
-    age
     samba
     sambaFull
     gvfs
     hplip
-    #waybar  # if wanted experimental next line
-    #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
-  ]) ++ [
-    python-packages
-  ];
-
-  # FONTS
-  fonts.packages = with pkgs; [
-    noto-fonts
-    fira-code
-    noto-fonts-cjk-sans
-    jetbrains-mono
-    font-awesome
-    terminus_font
-    nerd-fonts.jetbrains-mono
-  ];
-
-  # Extra Portal Configuration
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
-  };
+  ]);
 
   # Services to start
   services = {
@@ -300,17 +215,6 @@ in
       xkb = {
         layout = "${keyboardLayout}";
         variant = "";
-      };
-    };
-
-    greetd = {
-      enable = true;
-      vt = 3;
-      settings = {
-        default_session = {
-          user = username;
-          command = "Hyprland";
-        };
       };
     };
 
@@ -369,22 +273,6 @@ in
     upower.enable = true;
 
     gnome.gnome-keyring.enable = true;
-
-    # avahi = {
-    #   enable = true;
-    #   nssmdns4 = true;
-    #   openFirewall = true;
-    # };
-
-    #ipp-usb.enable = true;
-
-    #syncthing = {
-    #  enable = false;
-    #  user = "${username}";
-    #  dataDir = "/home/${username}";
-    #  configDir = "/home/${username}/.config/syncthing";
-    #};
-
   };
 
   systemd.services.flatpak-repo = {
@@ -407,12 +295,6 @@ in
     enable = true;
     cpuFreqGovernor = "schedutil";
   };
-
-  #hardware.sane = {
-  #  enable = true;
-  #  extraBackends = [ pkgs.sane-airscan ];
-  #  disabledDefaultBackends = [ "escl" ];
-  #};
 
   # Extra Logitech Support
   hardware.logitech.wireless.enable = true;
@@ -475,15 +357,6 @@ in
     };
   };
 
-  # Virtualization / Containers
-  virtualisation.libvirtd.enable = true;
-  # virtualisation.podman = {
-  #   enable = true;
-  #   dockerCompat = true;
-  #   defaultNetwork.settings.dns_enabled = true;
-  # };
-
-
   # OpenGL
   hardware.graphics = {
     enable = true;
@@ -494,21 +367,10 @@ in
   # For Electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 8888 ];
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }

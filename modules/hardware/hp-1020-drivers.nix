@@ -7,7 +7,7 @@
         (pkgs.linkFarm "drivers" [
           {
             name = "share/cups/model/HP-LaserJet_1020.ppd";
-            path = "${configRoot}/assets/HP1020/HP-LaserJet_1020.ppd";
+            path = "${configRoot}/config/HP1020/HP-LaserJet_1020.ppd";
           }
         ])
         pkgs.foo2zjs
@@ -35,8 +35,6 @@
           "client min protocol" = "SMB2";
           "client max protocol" = "SMB3";
           "securityType" = "user";
-          # "username" = "${builtins.readFile config.sops.secrets."printer_username".path}";
-          # "password" = "${builtins.readFile config.sops.secrets."printer_password".path}";
         };
       };
     };

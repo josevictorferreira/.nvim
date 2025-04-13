@@ -4,6 +4,12 @@ let
   inherit (import ./variables.nix) gitUsername;
 in
 {
+  imports = [
+    ../shared/default.nix
+    ../shared/ghostty.nix
+    ./hyprland.nix
+  ];
+
   users = {
     users."${username}" = {
       homeMode = "755";
@@ -18,58 +24,50 @@ in
         "video"
         "input"
         "audio"
-        "docker"
       ];
-
-      # User packages are now managed by Home Manager
-      packages = [ ];
+      packages = [ ]; # Packages handled by Home Manager
     };
 
     defaultUserShell = pkgs.zsh;
   };
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  environment = {
+    shells = with pkgs; [ zsh ];
+    systemPackages = with pkgs; [
+      # System Tools
+      easyeffects
+      gparted
+      p7zip
 
-  environment.shells = with pkgs; [ zsh ];
-
-  environment.systemPackages = with pkgs; [
-    clang
-    xsel
-    cargo
-    p7zip
-    protonup
-    lutris
-    docker_26
-    docker-compose
-    gparted
-    direnv
-    easyeffects
-    wine64
-    winetricks
-    wine-wayland
-    tree
-    nmap
-    arp-scan
-    vlc
-  ];
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
-  };
-
-  programs = {
-    zsh = {
-      enable = true;
-      promptInit = "";
+      # Gaming
+      lutris
+      protonup
+      wine64
+      winetricks
+      wine-wayland
+    ];
+    sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
     };
+  };
+
+  programs.zsh = {
+    enable = true;
+    promptInit = "";
   };
 
   fileSystems."/home/${username}/shared_storage" = {
     device = "10.10.10.200:/mnt/shared_storage_1";
     fsType = "nfs";
     options = [ "rw" "soft" "noatime" "actimeo=60" "vers=3" "x-systemd.automount" ];
+  };
+
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
   };
 
   system.activationScripts = { };

@@ -1,4 +1,4 @@
-{ pkgs, username, host, configRoot, ... }:
+{ pkgs, username, host, ... }:
 
 {
   networking.hostName = "${host}";
@@ -86,12 +86,6 @@
     interval = { Day = 7; };
     options = "--delete-older-than 14d";
   };
-
-  # services = {
-  #   openssh = {
-  #     enable = true;
-  #   };
-  # };
 
   system.stateVersion = 4;
 }
