@@ -20,7 +20,7 @@ local function on_attach(_, bufnr)
 		callback = function()
 			vim.diagnostic.open_float(nil, {
 				focusable = false,
-				border = "double",
+				border = "single",
 				style = "minimal",
 				source = "always",
 				max_width = 100,
@@ -29,24 +29,11 @@ local function on_attach(_, bufnr)
 	})
 end
 
-local function default_capabilites()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
-	capabilities.textDocument.completion.completionItem.resolveSupport = {
-		properties = {
-			"documentation",
-			"detail",
-			"additionalTextEdits",
-		},
-	}
-	return capabilities
-end
-
-local function setup_lsp_servers(lspconfig, servers, capabilities)
+local function setup_lsp_servers(lspconfig, servers)
 	for server, config in pairs(servers) do
 		local success, result = pcall(function()
 			config.on_attach = on_attach
-			config.capabilities = capabilities
+			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 			lspconfig[server].setup(config)
 		end)
 		if not success then
@@ -58,17 +45,13 @@ end
 
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = { "saghen/blink.cmp" },
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		{ "hrsh7th/cmp-nvim-lsp" },
-	},
 	config = function()
 		local lspconfig = require("lspconfig")
 		local lsp_servers = require("core.utils.lsp_servers")
 
-		local capabilities = default_capabilites()
-
-		setup_lsp_servers(lspconfig, lsp_servers, capabilities)
+		setup_lsp_servers(lspconfig, lsp_servers)
 
 		vim.o.updatetime = 300
 	end,

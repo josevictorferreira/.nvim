@@ -6,9 +6,6 @@ opt.syntax = "enable"
 
 opt.guicursor = ""
 
-opt.fileencodings = { "utf-8", "utf-16" }
-opt.fileencoding = "utf-8"
-
 opt.hlsearch = true
 opt.incsearch = true
 opt.ignorecase = true
@@ -38,7 +35,15 @@ opt.backspace = { "eol", "start", "indent" }
 opt.clipboard = "unnamedplus"
 opt.completeopt = { "menu", "menuone", "noselect" }
 
-opt.background = "dark"
+local current_time = tonumber(vim.fn.strftime("%H"))
+vim.print("Current time: " .. current_time)
+if current_time < 6 then
+	opt.background = "dark"
+elseif current_time < 12 then
+	opt.background = "light"
+else
+	opt.background = "dark"
+end
 
 opt.smartindent = true
 opt.tabstop = 2
@@ -62,3 +67,6 @@ opt.splitright = true
 
 opt.wrap = true
 opt.linebreak = true
+
+-- enable cursor blink
+opt.guicursor = "n-v-c-sm:block-blinkwait175-blinkoff150-blinkon175"

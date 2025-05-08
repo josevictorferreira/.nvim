@@ -20,7 +20,6 @@ map("n", "<S-h>", ":bp<CR>", options)
 map("n", "<leader>c", ":bd!<CR>", options)
 
 map("n", "<C-r>", ":lua RunCode()<CR>", options)
-map("n", "<C-p>", ":lua PrettierFormat()<CR>", options)
 
 map("n", "<leader>l", ":lua vim.lsp.buf.format({ async = true })<CR>", options)
 

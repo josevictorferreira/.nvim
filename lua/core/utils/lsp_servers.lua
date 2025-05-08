@@ -7,7 +7,6 @@ return {
 	cssls = { filetypes = { "css" } },
 	dockerls = { filetypes = { "Dockerfile", "dockerfile" } },
 	docker_compose_language_service = { filetypes = { "yaml.docker-compose", "docker-compose" } },
-	gopls = { filetypes = { "go" } },
 	html = { filetypes = { "html" } },
 	jsonls = { filetypes = { "json" } },
 	ruff = { filetypes = { "python" } },
@@ -32,11 +31,22 @@ return {
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
 	},
-	solargraph = {
+	ruby_lsp = {
 		filetypes = { "ruby" },
-		cmd = { "bundle", "exec", "solargraph", "stdio" },
+		cmd = { "bundle", "exec", "ruby-lsp", "stdio" },
+		auto_install = false,
 	},
-	nginx_language_server = { filetypes = { "nginx" } },
+	rubocop = {
+		filetypes = { "ruby" },
+		cmd = { "bundle", "exec", "rubocop", "--lsp" },
+		auto_install = false,
+	},
+	sorbet = {
+		filetypes = { "ruby" },
+		root_markers = { "Gemfile", ".git", "sorbet" },
+		cmd = { "bundle", "exec", "srb", "typecheck", "--lsp" },
+		auto_install = false,
+	},
 	buf_ls = { filetypes = { "proto", "protobuf" } },
 	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
 	volar = { filetypes = { "vue" } },
