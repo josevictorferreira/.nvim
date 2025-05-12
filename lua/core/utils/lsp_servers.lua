@@ -34,6 +34,10 @@ return {
 	ruby_lsp = {
 		filetypes = { "ruby" },
 		cmd = { "bundle", "exec", "ruby-lsp", "stdio" },
+		init_options = {
+			formetter = "rubocop",
+			linter = "rubocop",
+		},
 		auto_install = false,
 	},
 	sorbet = {
