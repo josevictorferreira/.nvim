@@ -36,11 +36,6 @@ return {
 		cmd = { "bundle", "exec", "ruby-lsp", "stdio" },
 		auto_install = false,
 	},
-	rubocop = {
-		filetypes = { "ruby" },
-		cmd = { "bundle", "exec", "rubocop", "--lsp" },
-		auto_install = false,
-	},
 	sorbet = {
 		filetypes = { "ruby" },
 		root_markers = { "Gemfile", ".git", "sorbet" },
