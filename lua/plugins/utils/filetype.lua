@@ -11,6 +11,8 @@ return {
 					sh = "sh",
 					mts = "typescript",
 					ftl = "freemarker",
+					rbi = "ruby",
+					rbs = "ruby",
 				},
 				literal = {
 					["nginx.conf"] = "nginx",
