@@ -29,6 +29,9 @@ return {
 					return hidden_folders[name] or false
 				end,
 			},
+			lsp_file_methods = {
+				enabled = false,
+			},
 		})
 		set_oil_keymap()
 	end,

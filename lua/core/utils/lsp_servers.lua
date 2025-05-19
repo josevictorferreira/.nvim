@@ -35,7 +35,7 @@ return {
 		filetypes = { "ruby" },
 		cmd = { "bundle", "exec", "ruby-lsp", "stdio" },
 		init_options = {
-			formetter = "rubocop",
+			formatter = "rubocop",
 			linter = "rubocop",
 		},
 		auto_install = false,
@@ -43,7 +43,7 @@ return {
 	sorbet = {
 		filetypes = { "ruby" },
 		root_markers = { "Gemfile", ".git", "sorbet" },
-		cmd = { "bundle", "exec", "srb", "typecheck", "--lsp" },
+		cmd = { "bundle", "exec", "srb", "tc", "--lsp" },
 		auto_install = false,
 	},
 	buf_ls = { filetypes = { "proto", "protobuf" } },
