@@ -35,7 +35,7 @@ return {
 		filetypes = { "ruby" },
 		cmd = { "bundle", "exec", "ruby-lsp", "stdio" },
 		init_options = {
-			formatter = "rubocop",
+			formetter = "rubocop",
 			linter = "rubocop",
 		},
 		auto_install = false,
