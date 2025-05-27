@@ -1,7 +1,15 @@
 return {
 	"yetone/avante.nvim",
 	opts = {
-		provider = "claude",
+		endpoint = "claude",
+		claude = {
+			endpoint = "https://api.anthropic.com",
+			model = "claude-sonnet-4-20250514",
+			timeout = 30000,
+			temperature = 0,
+			max_tokens = 20480,
+			disable_tools = true,
+		},
 	},
 	event = "VeryLazy",
 	lazy = true,
