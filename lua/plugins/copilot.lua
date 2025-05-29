@@ -90,7 +90,7 @@ return {
 					return true
 				end,
 			},
-			copilot_model = "claude-sonnet-4",
+			copilot_model = "gpt-4o-copilot",
 			sherver_opts_overrides = {},
 		})
 	end,

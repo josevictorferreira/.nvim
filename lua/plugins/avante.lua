@@ -1,5 +1,7 @@
 return {
 	"yetone/avante.nvim",
+	event = "VeryLazy",
+	version = false,
 	opts = {
 		endpoint = "claude",
 		claude = {
@@ -11,14 +13,16 @@ return {
 			disable_tools = true,
 		},
 	},
-	event = "VeryLazy",
-	lazy = true,
-	version = false,
 	build = "make",
 	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
 		"stevearc/dressing.nvim",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
+		"echasnovski/mini.pick",
+		"nvim-telescope/telescope.nvim",
+		"hrsh7th/nvim-cmp",
+		"ibhagwan/fzf-lua",
 		"nvim-tree/nvim-web-devicons",
 		"zbirenbaum/copilot.lua",
 		{
@@ -31,6 +35,7 @@ return {
 					drag_and_drop = {
 						insert_mode = true,
 					},
+					use_absolute_path = true,
 				},
 			},
 		},
