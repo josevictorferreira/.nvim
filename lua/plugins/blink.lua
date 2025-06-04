@@ -1,6 +1,11 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+	dependencies = {
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		dependencies = { "rafamadriz/friendly-snippets" },
+		run = "make install_jsregexp",
+	},
 	version = "1.*",
 	lazy = false,
 	opts = {
@@ -17,7 +22,19 @@ return {
 					end
 				end,
 			},
-			["<Tab>"] = { "select_and_accept", "fallback" },
+			["<Tab>"] = {
+				function(cmp)
+					if cmp.snippet_active() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+				"snippet_forward",
+				"fallback",
+			},
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
+			["<CR>"] = { "accept", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-p>"] = { "select_prev", "fallback_to_mappings" },
@@ -53,4 +70,9 @@ return {
 		},
 	},
 	opts_extend = { "sources.default" },
+	config = function()
+		require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip").filetype_extend("ruby", { "rails" })
+		require("luasnip").filetype_extend("python", { "django" })
+	end,
 }
