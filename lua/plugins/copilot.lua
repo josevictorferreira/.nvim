@@ -1,3 +1,5 @@
+local file_utils = require("core.utils.file")
+
 return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
@@ -20,7 +22,7 @@ return {
 				type = "binary",
 			},
 			panel = {
-				enabled = true,
+				enabled = not file_utils.is_file_too_large(vim.api.nvim_buf_get_name(0)),
 				auto_refresh = false,
 				keymap = {
 					jump_prev = "[[",
@@ -79,6 +81,8 @@ return {
 				gitrebase = false,
 				hgcommit = false,
 				svn = false,
+				sql = false,
+				csv = false,
 				cvs = false,
 				sh = function()
 					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env*") then
@@ -90,7 +94,7 @@ return {
 					return true
 				end,
 			},
-			copilot_model = "gpt-4o-copilot",
+			copilot_model = "gpt-4o-copilot-2025-04-03",
 			sherver_opts_overrides = {},
 		})
 	end,

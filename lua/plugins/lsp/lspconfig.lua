@@ -1,3 +1,5 @@
+local file_utils = require("core.utils.file")
+
 local function on_attach(_, bufnr)
 	local signs_config = {
 		[vim.diagnostic.severity.ERROR] = " ",
@@ -32,6 +34,9 @@ end
 local function setup_lsp_servers(servers)
 	for server, config in pairs(servers) do
 		local success, result = pcall(function()
+			if file_utils.is_file_too_large(vim.api.nvim_buf_get_name(0)) then
+				return
+			end
 			config.on_attach = on_attach
 			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 			vim.lsp.config(server, config)

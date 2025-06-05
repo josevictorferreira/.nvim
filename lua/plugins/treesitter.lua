@@ -1,3 +1,5 @@
+local file_utils = require("core.utils.file")
+
 local defaults = {
 	ensure_install = { "core", "stable" },
 	highlight = {
@@ -5,11 +7,7 @@ local defaults = {
 		use_languagetree = true,
 		additional_vim_regex_highlighting = false,
 		disable = function(_, buf)
-			local max_filesize = 100 * 1024 -- 100 KB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-			if ok and stats and stats.size > max_filesize then
-				return true
-			end
+			return file_utils.is_file_too_large(vim.api.nvim_buf_get_name(buf))
 		end,
 	},
 	sync_install = false,
