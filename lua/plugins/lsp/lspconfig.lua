@@ -34,7 +34,6 @@ local function setup_lsp_servers(servers)
 		local success, result = pcall(function()
 			config.on_attach = on_attach
 			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-
 			vim.lsp.config(server, config)
 			vim.lsp.enable(server)
 		end)
