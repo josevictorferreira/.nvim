@@ -12,20 +12,17 @@ local function optimize_buffer_for_large_file(bufnr)
 	bufnr = bufnr or 0
 
 	vim.api.nvim_buf_call(bufnr, function()
-		vim.cmd("syntax clear")
+		vim.cmd("syntax off")
 	end)
 
-	pcall(vim.treesitter.stop, bufnr)
+	vim.bo[bufnr].filetype = ""
+	vim.bo[bufnr].syntax = ""
+	vim.bo[bufnr].indentexpr = ""
+	vim.bo[bufnr].indentkeys = ""
 
-	vim.o.incsearch = false
 	vim.o.lazyredraw = true
-
-	vim.api.nvim_buf_set_option(bufnr, "syntax", "")
-	vim.api.nvim_buf_set_option(bufnr, "filetype", "")
-	vim.api.nvim_buf_set_option(bufnr, "indentexpr", "")
-	vim.api.nvim_buf_set_option(bufnr, "indentkeys", "")
-	vim.api.nvim_buf_set_option(bufnr, "foldmethod", "manual")
-	vim.api.nvim_buf_set_option(bufnr, "fondenable", false)
+	vim.o.incsearch = false
+	vim.o.hlsearch = false
 end
 
 return {
