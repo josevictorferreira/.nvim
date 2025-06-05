@@ -7,7 +7,11 @@ local defaults = {
 		use_languagetree = true,
 		additional_vim_regex_highlighting = false,
 		disable = function(_, buf)
-			return file_utils.is_file_too_large(vim.api.nvim_buf_get_name(buf))
+			if file_utils.is_file_too_large(vim.api.nvim_buf_get_name(buf)) then
+				file_utils.optimize_buffer_for_large_file(buf)
+				return true
+			end
+			return false
 		end,
 	},
 	sync_install = false,
