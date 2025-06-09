@@ -4,6 +4,9 @@ return {
 	version = "1.*",
 	lazy = false,
 	opts = {
+		cmdline = {
+			enabled = false,
+		},
 		keymap = {
 			preset = "none",
 			["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
