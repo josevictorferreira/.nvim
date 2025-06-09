@@ -28,30 +28,7 @@ map("n", "<C-w>J", ":resize +2<CR>", options)
 
 map("n", "<leader>,", ":noh<CR>", options)
 
-vim.keymap.set("n", "<leader>r", function()
-	print("Resize mode: h/l = width, j/k = height. Press q to quit.")
-	local resize_keys = {
-		h = ":vertical resize -2<CR>",
-		l = ":vertical resize +2<CR>",
-		j = ":resize -2<CR>",
-		k = ":resize +2<CR>",
-		q = nil,
-	}
-
-	local function resize_loop()
-		vim.fn.getcharstr()
-		local key = vim.fn.nr2char(vim.fn.getchar(0))
-		print("Key pressed: " .. key)
-		local cmd = resize_keys[key]
-		if key == "q" then
-			print("Exiting resize mode.")
-			return
-		end
-		if cmd then
-			vim.cmd(cmd)
-			resize_loop()
-		end
-	end
-
-	resize_loop()
-end)
+vim.keymap.set("n", "<leader>cb", function()
+	local line = vim.api.nvim_get_current_line()
+	vim.api.nvim_set_current_line("- [ ] " .. line)
+end, { desc = "Add checklist box", noremap = true, silent = true })
