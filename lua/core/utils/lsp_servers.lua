@@ -1,7 +1,6 @@
 return {
   rust_analyzer = { filetypes = { "rs", "rust" } },
   bashls = { filetypes = { "sh", "bash" } },
-  cmake = { filetypes = { "cmake" } },
   autotools_ls = { filetypes = { "config", "automake", "make", "Makefile" } },
   cssls = { filetypes = { "css" } },
   dockerls = { filetypes = { "Dockerfile", "dockerfile" } },
