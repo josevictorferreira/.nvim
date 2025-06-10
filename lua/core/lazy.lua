@@ -16,14 +16,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	defaults = {
+		lazy = true,
+	},
+
 	spec = {
 		{ import = "plugins.utils" },
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },
 	},
 
+	install = {
+		colorscheme = { "retrobox" },
+	},
+
 	ui = {
-		border = "single",
+		border = "rounded",
 		size = {
 			width = 0.8,
 			height = 0.8,
@@ -38,4 +46,22 @@ require("lazy").setup({
 	change_detection = {
 		notify = false,
 	},
+
+	performance = {
+		cache = { enabled = true },
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+				"matchit",
+				"matchparen",
+			},
+		},
+	},
+
+	debug = false,
 })
