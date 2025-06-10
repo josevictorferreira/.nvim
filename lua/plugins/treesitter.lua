@@ -1,17 +1,9 @@
-local file_utils = require("core.utils.file")
-
 local defaults = {
 	ensure_install = { "core", "stable" },
 	highlight = {
 		enable = true,
 		use_languagetree = true,
 		additional_vim_regex_highlighting = false,
-		disable = function(_, buf)
-			if file_utils.is_file_too_large(vim.api.nvim_buf_get_name(buf)) then
-				return true
-			end
-			return false
-		end,
 	},
 	sync_install = false,
 	auto_install = true,
@@ -36,8 +28,9 @@ local defaults = {
 
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
+	lazy = false,
 	build = ":TSUpdate",
-	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("nvim-treesitter.configs").setup(defaults)
 	end,

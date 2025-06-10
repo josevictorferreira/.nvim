@@ -12,20 +12,19 @@ return {
 	opts = {},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		local hidden_folders = {
-			[".."] = true,
-			[".ruby-lsp"] = true,
-			[".git"] = true,
-			[".bundle"] = true,
-			["node_modules"] = true,
-			["dist"] = true,
-			[".DS_Store"] = true,
-		}
-
 		require("oil").setup({
 			view_options = {
 				show_hidden = true,
 				is_always_hidden = function(name, _)
+					local hidden_folders = {
+						[".."] = true,
+						[".ruby-lsp"] = true,
+						[".git"] = true,
+						[".bundle"] = true,
+						["node_modules"] = true,
+						["dist"] = true,
+						[".DS_Store"] = true,
+					}
 					return hidden_folders[name] or false
 				end,
 			},
