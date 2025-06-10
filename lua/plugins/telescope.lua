@@ -3,7 +3,6 @@ local set_telescope_keymap = function()
 	local options = { noremap = true, silent = true }
 
 	map("n", "<leader>p", ":Telescope find_files<CR>", options)
-	map("n", "<leader>fg", ":Telescope live_grep<CR>", options)
 	map("n", "<leader>f", ":Telescope live_grep<CR>", options)
 	map("n", "<leader>b", ":Telescope buffers<CR>", options)
 	map("n", "<leader>fh", ":Telescope help_tags<CR>", options)
