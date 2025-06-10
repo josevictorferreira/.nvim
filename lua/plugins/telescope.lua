@@ -11,8 +11,8 @@ end
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-lua/plenary.nvim", lazy = true },
+		{ "nvim-telescope/telescope-fzf-native.nvim", lazy = true, build = "make" },
 	},
 	tag = "0.1.8",
 	config = function()
