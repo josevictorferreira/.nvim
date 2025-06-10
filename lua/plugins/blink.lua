@@ -3,6 +3,7 @@ return {
 	dependencies = { "rafamadriz/friendly-snippets" },
 	version = "1.*",
 	lazy = false,
+	event = "InsertEnter",
 	opts = {
 		cmdline = {
 			enabled = false,

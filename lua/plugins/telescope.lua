@@ -1,13 +1,3 @@
-local set_telescope_keymap = function()
-	local map = vim.api.nvim_set_keymap
-	local options = { noremap = true, silent = true }
-
-	map("n", "<leader>p", ":Telescope find_files<CR>", options)
-	map("n", "<leader>f", ":Telescope live_grep<CR>", options)
-	map("n", "<leader>b", ":Telescope buffers<CR>", options)
-	map("n", "<leader>fh", ":Telescope help_tags<CR>", options)
-end
-
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
@@ -15,6 +5,13 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", lazy = true, build = "make" },
 	},
 	tag = "0.1.8",
+	keys = {
+		{ "<leader>p", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+		{ "<leader>f", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+	},
+	cmd = "Telescope",
 	config = function()
 		require("telescope").setup({
 			defaults = {
@@ -50,12 +47,15 @@ return {
 			},
 			extensions = {
 				wrap_results = true,
-				fzf = {},
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
 			},
 		})
 
 		pcall(require("telescope").load_extension, "fzf")
-
-		set_telescope_keymap()
 	end,
 }

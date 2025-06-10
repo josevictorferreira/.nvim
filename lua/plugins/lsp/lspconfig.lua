@@ -52,7 +52,7 @@ end
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = { "saghen/blink.cmp" },
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	config = function()
 		local lsp_servers = require("core.utils.lsp_servers")
 

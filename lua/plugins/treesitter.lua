@@ -29,11 +29,7 @@ local defaults = {
 return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",
-	lazy = false,
+	event = "BufReadPost",
 	build = ":TSUpdate",
-	config = function()
-		local configs = require("nvim-treesitter")
-
-		configs.setup(defaults)
-	end,
+	opts = defaults,
 }
