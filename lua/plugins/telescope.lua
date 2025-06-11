@@ -11,7 +11,6 @@ return {
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
 	},
-	event = "VimEnter",
 	config = function()
 		require("telescope").setup({
 			defaults = {
