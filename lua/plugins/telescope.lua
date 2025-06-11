@@ -2,13 +2,16 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+		},
 	},
 	tag = "0.1.8",
 	keys = {
-		{ "<leader>p", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-		{ "<leader>f", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
 	},
 	config = function()
@@ -16,23 +19,27 @@ return {
 			defaults = {
 				file_ignore_patterns = { "node_modules", "target", ".git", ".cache" },
 				set_env = { ["COLORTERM"] = "truecolor" },
+				preview = {
+					filesize_limit = 0.1,
+				},
 				layout_strategy = "vertical",
+				layout_config = {
+					horizontal = {
+						size = {
+							width = "90%",
+							height = "60%",
+						},
+					},
+					vertical = {
+						size = {
+							width = "90%",
+							height = "90%",
+						},
+					},
+				},
 				initial_mode = "insert",
 				selection_strategy = "reset",
 				sorting_strategy = "ascending",
-				file_sorter = require("telescope.sorters").get_fuzzy_file,
-				generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-				layout_config = {
-					horizontal = {
-						width = 0.9,
-						height = 0.9,
-						prompt_position = "bottom",
-						preview_cutoff = 120,
-						preview_width = 75,
-						horizontal = { mirror = false },
-						vertical = { mirror = false },
-					},
-				},
 				color_devicons = true,
 				use_less = true,
 				find_command = {
@@ -55,6 +62,6 @@ return {
 			},
 		})
 
-		pcall(require("telescope").load_extension, "fzf")
+		require("telescope").load_extension("fzf")
 	end,
 }

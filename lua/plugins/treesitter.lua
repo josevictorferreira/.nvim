@@ -1,37 +1,51 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	version = false,
 	branch = "main",
-	lazy = false,
 	build = ":TSUpdate",
-	config = function()
-		local defaults = {
-			ensure_install = { "core", "stable", "lua" },
-			highlight = {
-				enable = true,
-				use_languagetree = true,
-				additional_vim_regex_highlighting = false,
-			},
-			sync_install = false,
-			auto_install = true,
-			indent = {
-				enable = true,
-				disable = {
-					"ruby",
-				},
-			},
-			autotag = {
-				enable = true,
-			},
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
-			},
-			refactor = {
-				highlight_definitions = { enable = true },
-				highlight_current_scope = { enable = false },
-			},
-		}
-
-		require("nvim-treesitter").setup(defaults)
+	event = { "VeryLazy" },
+	lazy = vim.fn.argc(-1) == 0,
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+	opts_extend = { "ensure_installed" },
+	opts = {
+		highlight = { enable = true },
+		indent = { enable = true },
+		autotag = { enable = true },
+		ensure_installed = {
+			"bash",
+			"c",
+			"cpp",
+			"css",
+			"diff",
+			"dockerfile",
+			"git_config",
+			"git_rebase",
+			"go",
+			"html",
+			"javascript",
+			"json",
+			"json5",
+			"jsonc",
+			"lua",
+			"make",
+			"markdown",
+			"markdown_inline",
+			"python",
+			"regex",
+			"ruby",
+			"rust",
+			"scss",
+			"sql",
+			"toml",
+			"tsx",
+			"typescript",
+			"vimdoc",
+			"yaml",
+			"gleam",
+			"nix",
+		},
+	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
