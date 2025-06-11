@@ -1,15 +1,8 @@
-local file_utils = require("core.utils.file")
-
 return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
 	event = "InsertEnter",
 	config = function()
-		local api_key = vim.env.ANTHROPIC_API_KEY
-		if not api_key or api_key == "" then
-			return
-		end
-
 		require("copilot").setup({
 			server_opts_overrides = {
 				settings = {
@@ -22,7 +15,6 @@ return {
 				type = "binary",
 			},
 			panel = {
-				enabled = not file_utils.is_file_too_large(vim.api.nvim_buf_get_name(0)),
 				auto_refresh = false,
 				keymap = {
 					jump_prev = "[[",
