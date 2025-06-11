@@ -5,7 +5,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		local defaults = {
-			ensure_install = { "core", "stable" },
+			ensure_install = { "core", "stable", "lua" },
 			highlight = {
 				enable = true,
 				use_languagetree = true,
