@@ -2,7 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope-fzf-native.nvim", lazy = true, build = "make" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	tag = "0.1.8",
 	keys = {
@@ -11,7 +11,7 @@ return {
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
 	},
-	cmd = "Telescope",
+	event = "VimEnter",
 	config = function()
 		require("telescope").setup({
 			defaults = {

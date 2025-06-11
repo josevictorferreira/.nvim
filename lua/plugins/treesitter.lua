@@ -2,7 +2,6 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",
 	event = "BufReadPost",
-	lazy = false,
 	build = ":TSUpdate",
 	config = function()
 		local defaults = {

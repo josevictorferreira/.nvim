@@ -7,7 +7,7 @@ return {
 		local bufferline = require("bufferline")
 
 		bufferline.setup({
-			-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			highlights = require("catppuccin.groups.integrations.bufferline").get(),
 			options = {
 				mode = "buffers",
 				style_preset = bufferline.style_preset.default,
