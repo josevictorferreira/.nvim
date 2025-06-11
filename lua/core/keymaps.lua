@@ -27,8 +27,3 @@ map("n", "<C-w>K", ":resize -2<CR>", options)
 map("n", "<C-w>J", ":resize +2<CR>", options)
 
 map("n", "<leader>,", ":noh<CR>", options)
-
-vim.keymap.set("n", "<leader>cb", function()
-	local line = vim.api.nvim_get_current_line()
-	vim.api.nvim_set_current_line("- [ ] " .. line)
-end, { desc = "Add checklist box", noremap = true, silent = true })
