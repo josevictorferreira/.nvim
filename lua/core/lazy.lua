@@ -27,7 +27,7 @@ require("lazy").setup({
 	},
 
 	install = {
-		colorscheme = { "retrobox" },
+		colorscheme = { "sorbet" },
 	},
 
 	ui = {
