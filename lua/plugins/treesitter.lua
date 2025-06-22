@@ -42,6 +42,8 @@ return {
 			"yaml",
 			"gleam",
 			"nix",
+			"helm",
+			"gotmpl",
 		},
 	},
 	config = function(_, opts)
