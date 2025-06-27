@@ -3,11 +3,10 @@ return {
 	build = ":TSUpdate",
 	branch = "main",
 	lazy = false,
-	opts = {
-		highlight = { enable = true },
-		indent = { enable = true },
-		autotag = { enable = true },
-		ensure_installed = {
+	config = function()
+		local ensure_installed = {
+			"core",
+			"stable",
 			"bash",
 			"c",
 			"cpp",
@@ -41,10 +40,10 @@ return {
 			"nix",
 			"helm",
 			"gotmpl",
-		},
-	},
-	config = function(_, opts)
-		require("nvim-treesitter").install(opts.ensure_installed)
-		require("nvim-treesitter").setup(opts)
+			"elixir",
+		}
+
+		require("nvim-treesitter").install(ensure_installed)
+		require("nvim-treesitter").setup()
 	end,
 }
