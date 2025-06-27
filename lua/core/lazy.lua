@@ -21,13 +21,11 @@ require("lazy").setup({
 	},
 
 	spec = {
-		{ import = "plugins.utils" },
 		{ import = "plugins" },
-		{ import = "plugins.lsp" },
 	},
 
 	install = {
-		colorscheme = { "sorbet" },
+		colorscheme = { "unokai" },
 	},
 
 	ui = {

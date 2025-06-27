@@ -1,71 +1,92 @@
-local opt = vim.opt
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+vim.g.cursorhold_updatetime = 100
+vim.g.highlighturl_enabled = true
+vim.g.zipPlugin = false
+vim.g.load_black = false
+vim.g.loaded_2html_plugin = true
+vim.g.loaded_getscript = true
+vim.g.loaded_getscriptPlugin = true
+vim.g.loaded_gzip = true
+vim.g.loaded_logipat = true
+vim.g.loaded_matchit = true
+vim.g.loaded_netrw = true
+vim.g.loaded_netrwFileHandlers = true
+vim.g.loaded_netrwPlugin = true
+vim.g.loaded_netrwSettngs = true
+vim.g.loaded_remote_plugins = true
+vim.g.loaded_tar = true
+vim.g.loaded_tarPlugin = true
+vim.g.loaded_zip = true
+vim.g.loaded_zipPlugin = true
+vim.g.loaded_vimball = true
+vim.g.loaded_vimballPlugin = true
+vim.g.loaded_python_provider = 0
 
-opt.termguicolors = true
+vim.opt.termguicolors = true
+vim.opt.syntax = "enable"
 
-opt.syntax = "enable"
+vim.opt.guicursor = ""
 
-opt.guicursor = ""
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-opt.hlsearch = true
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.showtabline = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 0
+vim.opt.expandtab = true
 
-opt.showtabline = 2
+vim.opt.ttyfast = true
+vim.opt.lazyredraw = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.writebackup = false
+vim.opt.cmdheight = 1
+vim.opt.fileformats = { "unix", "dos", "mac" }
+vim.opt.mouse = "a"
+vim.opt.mousemodel = "popup"
+vim.opt.modeline = true
+vim.opt.modelines = 10
+vim.opt.title = true
 
-opt.ttyfast = true
-opt.lazyredraw = true
-opt.backup = false
-opt.swapfile = false
-opt.writebackup = false
-opt.cmdheight = 1
-opt.fileformats = { "unix", "dos", "mac" }
-opt.mouse = "a"
-opt.mousemodel = "popup"
-opt.modeline = true
-opt.modelines = 10
-opt.title = true
+vim.opt.shortmess:append({ c = true })
+vim.opt.ruler = true
+vim.opt.number = true
+vim.opt.relativenumber = false
 
-opt.shortmess:append({ c = true })
-opt.ruler = true
-opt.number = true
-opt.relativenumber = false
-
-opt.backspace = { "eol", "start", "indent" }
-opt.clipboard = "unnamedplus"
-opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.backspace = { "eol", "start", "indent" }
+vim.opt.clipboard = "unnamedplus"
 
 local current_time = tonumber(vim.fn.strftime("%H"))
 if current_time < 6 then
-	opt.background = "dark"
+	vim.opt.background = "dark"
 elseif current_time < 12 then
-	opt.background = "light"
+	vim.opt.background = "light"
 else
-	opt.background = "dark"
+	vim.opt.background = "dark"
 end
 
-opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 0
-opt.shiftwidth = 2
-opt.hidden = true
-opt.bomb = true
-opt.binary = true
-opt.expandtab = true
-opt.scrolloff = 10
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
+vim.opt.hidden = true
+vim.opt.bomb = true
+vim.opt.binary = true
+vim.opt.scrolloff = 10
 
 -- smoothen navigation
-opt.timeoutlen = 500
-opt.ttimeoutlen = 10
-opt.updatetime = 100
+vim.opt.timeoutlen = 500
+vim.opt.ttimeoutlen = 10
+vim.opt.updatetime = 100
 
-opt.inccommand = "split"
+vim.opt.inccommand = "split"
 
-opt.splitbelow = true
-opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-opt.wrap = true
-opt.linebreak = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 -- enable cursor blink
-opt.guicursor = "n-v-c-sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.guicursor = "n-v-c-sm:block-blinkwait175-blinkoff150-blinkon175"

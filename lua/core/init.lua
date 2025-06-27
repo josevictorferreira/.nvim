@@ -1,4 +1,5 @@
 vim.loader.enable()
+require("core.filetypes")
 require("core.keymaps")
 require("core.lazy")
 require("core.options")
