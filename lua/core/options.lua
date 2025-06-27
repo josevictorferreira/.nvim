@@ -1,5 +1,4 @@
 vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
 vim.g.cursorhold_updatetime = 100
 vim.g.highlighturl_enabled = true
 vim.g.zipPlugin = false
@@ -33,10 +32,12 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.showtabline = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 0
 vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.showtabline = 2
+vim.opt.smartindent = true
 
 vim.opt.ttyfast = true
 vim.opt.lazyredraw = true
@@ -68,8 +69,6 @@ else
 	vim.opt.background = "dark"
 end
 
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 2
 vim.opt.hidden = true
 vim.opt.bomb = true
 vim.opt.binary = true
