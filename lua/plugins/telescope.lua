@@ -7,7 +7,6 @@ return {
 			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
 		},
 	},
-	tag = "0.1.8",
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
@@ -17,7 +16,7 @@ return {
 	config = function()
 		require("telescope").setup({
 			defaults = {
-				file_ignore_patterns = { "node_modules", "target", ".git", ".cache" },
+				file_ignore_patterns = { "node_modules", "target", ".git", ".cache", "dist" },
 				set_env = { ["COLORTERM"] = "truecolor" },
 				preview = {
 					filesize_limit = 0.1,

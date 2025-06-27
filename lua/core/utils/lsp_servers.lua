@@ -8,6 +8,12 @@ return {
 	html = { filetypes = { "html" } },
 	jsonls = { filetypes = { "json" } },
 	ruff = { filetypes = { "python" } },
+	pylsp = {
+		filetypes = { "python" },
+		root_markers = { "pyproject.toml" },
+		cmd = { "uv", "run", "pylsp" },
+		auto_install = false,
+	},
 	vimls = { filetypes = { "vim" } },
 	yamlls = {
 		filetypes = { "yaml", "yml" },
