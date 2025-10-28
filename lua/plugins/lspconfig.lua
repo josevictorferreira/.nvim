@@ -38,7 +38,7 @@ local function setup_lsp_servers(servers)
 			vim.lsp.enable(server)
 		end)
 		if not success then
-			vim.notify("LSP: " .. server .. " has failed to load. Check logs for details.")
+			vim.print("LSP: " .. server .. " has failed to load")
 		end
 	end
 end

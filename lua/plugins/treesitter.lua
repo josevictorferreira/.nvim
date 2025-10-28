@@ -32,9 +32,9 @@ local parsers = {
 	"yaml",
 	"gleam",
 	"nix",
+	"elixir",
 	"helm",
 	"gotmpl",
-	"elixir",
 }
 
 return {
@@ -54,19 +54,21 @@ return {
 			},
 			indent = {
 				enable = true,
-				disable = { "python", "ruby" },
 			},
 			autotag = {
 				enable = true,
 			},
 		})
-
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = parsers,
 			callback = function()
 				vim.treesitter.start()
 				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				vim.opt.shiftwidth = 2
+				vim.opt.tabstop = 2
+				vim.opt.softtabstop = 2
+				vim.opt.expandtab = true
 			end,
 		})
 	end,

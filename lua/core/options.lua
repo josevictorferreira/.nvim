@@ -55,19 +55,10 @@ vim.opt.title = true
 vim.opt.shortmess:append({ c = true })
 vim.opt.ruler = true
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 vim.opt.backspace = { "eol", "start", "indent" }
 vim.opt.clipboard = "unnamedplus"
-
-local current_time = tonumber(vim.fn.strftime("%H"))
-if current_time < 6 then
-	vim.opt.background = "dark"
-elseif current_time < 12 then
-	vim.opt.background = "light"
-else
-	vim.opt.background = "dark"
-end
 
 vim.opt.hidden = true
 vim.opt.bomb = true

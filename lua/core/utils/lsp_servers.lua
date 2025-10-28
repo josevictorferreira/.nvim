@@ -7,7 +7,12 @@ return {
 	docker_compose_language_service = { filetypes = { "yaml.docker-compose", "docker-compose" } },
 	html = { filetypes = { "html" } },
 	jsonls = { filetypes = { "json" } },
-	ruff = { filetypes = { "python" } },
+	ruff = {
+		filetypes = { "python" },
+		root_markers = { "pyproject.toml" },
+		cmd = { "uv", "run", "ruff", "server" },
+		auto_install = false,
+	},
 	pylsp = {
 		filetypes = { "python" },
 		root_markers = { "pyproject.toml" },
@@ -56,6 +61,7 @@ return {
 	ts_ls = { filetypes = { "typescript", "javascript", "jsx", "tsx", "typescriptreact" } },
 	emmet_ls = { filetypes = { "vue", "html" } },
 	nixd = { filetypes = { "nix" }, auto_install = false },
+	gopls = { filetypes = { "go", "gomod", "gowork", "gotmpl" }, auto_install = false },
 	helm_ls = {
 		filetypes = { "helm" },
 		settings = {
