@@ -97,7 +97,7 @@ return n;
 			context_window = 12000,
 			throttle = 200,
 			debounce = 80,
-			notify = "warn",
+			notify = "debug",
 
 			virtualtext = {
 				auto_trigger_ft = { "*" },
@@ -142,10 +142,17 @@ return n;
 					stream = true,
 					optional = {
 						max_tokens = 256,
-						top_p = 0.9,
+						top_p = 0.95,
+						temperature = 0.6,
 						stop = { "\n\n", "<endCompletion>" },
-						provider = { sort = "throughput" },
-						reasoning_effort = "minimal",
+						provider = {
+							sort = "throughput",
+						},
+						reasoning = {
+							enabled = false,
+							exclude = true,
+							effort = "minimal",
+						},
 					},
 				},
 			},
