@@ -134,7 +134,7 @@ return n;
 				openai_compatible = {
 					api_key = "OPENROUTER_API_KEY_AUTOCOMPLETE",
 					end_point = "https://openrouter.ai/api/v1/chat/completions",
-					model = "moonshotai/kimi-k2",
+					model = "google/gemini-2.5-flash-lite",
 					name = "OpenRouter",
 					system = { prompt = system_prompt },
 					few_shots = few_shots,

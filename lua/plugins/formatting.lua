@@ -5,12 +5,19 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				nixfmt_via_nix = {
+					command = "nix",
+					args = { "fmt", "--" },
+					stdin = true,
+				},
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "ruff" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
-				nix = { "nixpkgs_fmt" },
+				nix = { "nixfmt_via_nix" },
 			},
 		})
 
