@@ -97,7 +97,7 @@ return n;
 			context_window = 12000,
 			throttle = 200,
 			debounce = 80,
-			notify = "debug",
+			notify = "warn",
 
 			virtualtext = {
 				auto_trigger_ft = { "*" },
