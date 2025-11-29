@@ -1,6 +1,7 @@
 return {
 	"milanglacier/minuet-ai.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
+	enabled = vim.env.OPENROUTER_API_KEY_AUTOCOMPLETE ~= nil,
 	event = "BufReadPre",
 	opts = function()
 		local system_prompt = [[
@@ -144,7 +145,7 @@ return n;
 						max_tokens = 256,
 						top_p = 0.95,
 						temperature = 0.6,
-						stop = { "\n\n", "<endCompletion>" },
+						stop = { "\n\n", "<endCompletion>", "};" },
 						provider = {
 							sort = "throughput",
 						},
