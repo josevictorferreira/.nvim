@@ -16,7 +16,7 @@ return {
 	config = function()
 		require("telescope").setup({
 			defaults = {
-				file_ignore_patterns = { "node_modules", "target", ".git", ".cache", "dist" },
+				file_ignore_patterns = { "node_modules", "target", "^%.git/", "/%.git/", "%.cache", "dist" },
 				set_env = { ["COLORTERM"] = "truecolor" },
 				preview = {
 					filesize_limit = 0.1,
