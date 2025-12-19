@@ -137,7 +137,8 @@ return n;
 					end_point = "https://openrouter.ai/api/v1/chat/completions",
 					-- model = "google/gemini-2.5-flash-lite",
 					-- model = "moonshotai/kimi-linear-48b-a3b-instruct",
-					model = "qwen/qwen3-next-80b-a3b-instruct",
+					-- model = "qwen/qwen3-next-80b-a3b-instruct",
+					model = "openai/gpt-oss-120b",
 					name = "OpenRouter",
 					system = { prompt = system_prompt },
 					few_shots = few_shots,
@@ -152,7 +153,7 @@ return n;
 							sort = "throughput",
 						},
 						reasoning = {
-							enabled = false,
+							enabled = true,
 							exclude = true,
 							effort = "minimal",
 						},
