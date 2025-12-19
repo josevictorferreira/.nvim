@@ -21,6 +21,13 @@ return {
 						["node_modules"] = true,
 						["dist"] = true,
 						[".DS_Store"] = true,
+						[".ck"] = true,
+						[".claude"] = true,
+						[".direnv"] = true,
+						[".pg_data"] = true,
+						[".pg_runtime"] = true,
+						[".pg_socket"] = true,
+						["results"] = true,
 					}
 					return hidden_folders[name] or false
 				end,
