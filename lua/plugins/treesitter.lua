@@ -1,5 +1,4 @@
 local parsers = {
-	"core",
 	"stable",
 	"bash",
 	"c",
@@ -14,7 +13,6 @@ local parsers = {
 	"javascript",
 	"json",
 	"json5",
-	"jsonc",
 	"lua",
 	"make",
 	"markdown",
