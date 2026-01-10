@@ -100,6 +100,18 @@ return n;
 			debounce = 80,
 			notify = "warn",
 
+			lsp = {
+				enabled_ft = { "*" },
+				disabled_ft = {
+					".env",
+					".enc.yaml",
+					".enc.yml",
+					".env.prod",
+					".env.production",
+					".env.staging",
+				},
+			},
+
 			virtualtext = {
 				auto_trigger_ft = { "*" },
 				auto_trigger_ignore_ft = {
@@ -138,6 +150,7 @@ return n;
 					-- model = "google/gemini-2.5-flash-lite",
 					-- model = "moonshotai/kimi-linear-48b-a3b-instruct",
 					-- model = "qwen/qwen3-next-80b-a3b-instruct",
+					-- model = "nvidia/nemotron-3-nano-30b-a3b",
 					model = "openai/gpt-oss-120b",
 					name = "OpenRouter",
 					system = { prompt = system_prompt },

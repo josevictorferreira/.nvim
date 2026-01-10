@@ -7,7 +7,7 @@ return {
 		if current_time < 6 then
 			vim.opt.background = "dark"
 			vim.cmd.colorscheme("onedark")
-		elseif current_time < 12 then
+		elseif current_time < 10 then
 			vim.opt.background = "light"
 			vim.cmd.colorscheme("onelight")
 		else
