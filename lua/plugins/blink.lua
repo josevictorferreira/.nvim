@@ -12,6 +12,15 @@ return {
 			preset = "none",
 			["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 			["<C-e>"] = { "hide" },
+			["<C-y>"] = {
+				function(cmp)
+					if require("copilot.suggestion").is_visible() then
+						return require("copilot.suggestion").accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+			},
 			["<Tab>"] = { "select_and_accept", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
