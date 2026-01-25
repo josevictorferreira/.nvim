@@ -27,3 +27,15 @@ map("n", "<C-w>K", ":resize -2<CR>", options)
 map("n", "<C-w>J", ":resize +2<CR>", options)
 
 map("n", "<leader>,", ":noh<CR>", options)
+
+-- Markdown: append done timestamp at end of line
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.keymap.set("n", "<leader>td", function()
+			local timestamp = os.date(" ✅ %Y-%m-%d %H:%M")
+			local line = vim.api.nvim_get_current_line()
+			vim.api.nvim_set_current_line(line .. timestamp)
+		end, { buffer = true, desc = "Append done timestamp" })
+	end,
+})
