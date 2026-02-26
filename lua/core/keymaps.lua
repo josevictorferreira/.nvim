@@ -28,14 +28,24 @@ map("n", "<C-w>J", ":resize +2<CR>", options)
 
 map("n", "<leader>,", ":noh<CR>", options)
 
--- Markdown: append done timestamp at end of line
+-- Markdown: toggle checkbox and append done timestamp
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
 	callback = function()
 		vim.keymap.set("n", "<leader>td", function()
-			local timestamp = os.date(" ✅ %Y-%m-%d %H:%M")
 			local line = vim.api.nvim_get_current_line()
-			vim.api.nvim_set_current_line(line .. timestamp)
-		end, { buffer = true, desc = "Append done timestamp" })
+			local new_line = line
+
+			-- Find and replace [ ] or [] with [x]
+			if line:find("%[ %]") then
+				new_line = line:gsub("%[ %]", "[x]")
+			elseif line:find("%[%]") then
+				new_line = line:gsub("%[%]", "[x]")
+			end
+
+			-- Append timestamp
+			local timestamp = os.date(" ✅ %Y-%m-%d %H:%M")
+			vim.api.nvim_set_current_line(new_line .. timestamp)
+		end, { buffer = true, desc = "Toggle checkbox and append timestamp" })
 	end,
 })

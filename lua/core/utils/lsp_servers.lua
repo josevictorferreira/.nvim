@@ -51,7 +51,7 @@ return {
 	},
 	sorbet = {
 		filetypes = { "ruby" },
-		root_markers = { "sorbet" },
+		-- root_markers = { "sorbet" },
 		cmd = { "bundle", "exec", "srb", "tc", "--lsp" },
 		auto_install = false,
 	},
