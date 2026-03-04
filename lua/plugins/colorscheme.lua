@@ -1,18 +1,9 @@
 return {
-	"olimorris/onedarkpro.nvim",
+	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
-	config = function()
-		local current_time = tonumber(vim.fn.strftime("%H"))
-		if current_time < 6 then
-			vim.opt.background = "dark"
-			vim.cmd.colorscheme("onedark")
-		elseif current_time < 10 then
-			vim.opt.background = "light"
-			vim.cmd.colorscheme("onelight")
-		else
-			vim.opt.background = "dark"
-			vim.cmd.colorscheme("onedark")
-		end
+	opts = {},
+	setup = function()
+		vim.cmd.colorscheme("tokyonight-night")
 	end,
 }
