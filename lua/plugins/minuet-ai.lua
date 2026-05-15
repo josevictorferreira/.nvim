@@ -147,11 +147,7 @@ return n;
 				openai_compatible = {
 					api_key = "OPENROUTER_API_KEY_AUTOCOMPLETE",
 					end_point = "https://openrouter.ai/api/v1/chat/completions",
-					-- model = "google/gemini-2.5-flash-lite",
-					-- model = "moonshotai/kimi-linear-48b-a3b-instruct",
-					-- model = "qwen/qwen3-next-80b-a3b-instruct",
-					-- model = "nvidia/nemotron-3-nano-30b-a3b",
-					model = "openai/gpt-oss-120b",
+					model = "openai/gpt-oss-20b:nitro",
 					name = "OpenRouter",
 					system = { prompt = system_prompt },
 					few_shots = few_shots,
@@ -163,7 +159,7 @@ return n;
 						temperature = 0.5,
 						stop = { "\n\n", "<endCompletion>", "};" },
 						provider = {
-							sort = "throughput",
+							sort = "latency",
 						},
 						reasoning = {
 							enabled = true,
