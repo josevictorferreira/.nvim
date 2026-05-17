@@ -10,6 +10,8 @@ return {
 				python = { "ruff" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
+				json = { "prettier" },
+				jsonc = { "prettier" },
 				nix = { "nixfmt" },
 				ruby = { "rubocop" },
 			},
