@@ -1,32 +1,4 @@
-local function on_attach(_, bufnr)
-	local signs_config = {
-		[vim.diagnostic.severity.ERROR] = " ",
-		[vim.diagnostic.severity.WARN] = " ",
-		[vim.diagnostic.severity.HINT] = " ",
-		[vim.diagnostic.severity.INFO] = " ",
-	}
-
-	vim.diagnostic.config({
-		underline = true,
-		signs = {
-			text = signs_config,
-		},
-		update_in_insert = false,
-		virtual_text = false,
-	})
-
-	vim.api.nvim_create_autocmd("CursorHold", {
-		buffer = bufnr,
-		callback = function()
-			vim.diagnostic.open_float(nil, {
-				focusable = false,
-				border = "single",
-				style = "minimal",
-				source = "always",
-				max_width = 100,
-			})
-		end,
-	})
+local function on_attach(_, _bufnr)
 end
 
 local function setup_lsp_servers(servers)
@@ -43,9 +15,51 @@ local function setup_lsp_servers(servers)
 	end
 end
 
+
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
+		require("lspconfig.configs")
+
+		local signs_config = {
+			[vim.diagnostic.severity.ERROR] = "\u{F057} ",
+			[vim.diagnostic.severity.WARN] = "\u{F071} ",
+			[vim.diagnostic.severity.HINT] = "\u{F0EB} ",
+			[vim.diagnostic.severity.INFO] = "\u{F05A} ",
+		}
+
+		vim.diagnostic.config({
+			underline = true,
+			signs = true,
+			update_in_insert = false,
+			virtual_text = false,
+		})
+
+		local severity_names = {
+			[vim.diagnostic.severity.ERROR] = "Error",
+			[vim.diagnostic.severity.WARN] = "Warn",
+			[vim.diagnostic.severity.HINT] = "Hint",
+			[vim.diagnostic.severity.INFO] = "Info",
+		}
+
+		for severity, icon in pairs(signs_config) do
+			local name = "DiagnosticSign" .. severity_names[severity]
+			local ok, _ = pcall(vim.fn.sign_undefine, name)
+			vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+		end
+
+		vim.api.nvim_create_autocmd("CursorHold", {
+			callback = function()
+				vim.diagnostic.open_float({
+					focusable = false,
+					border = "single",
+					style = "minimal",
+					source = true,
+					max_width = 100,
+				})
+			end,
+		})
+
 		vim.lsp.inline_completion.enable()
 
 		vim.keymap.set("i", "<Tab>", function()
