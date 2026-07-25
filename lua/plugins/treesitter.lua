@@ -14,6 +14,7 @@ local parsers = {
 	"json",
 	"json5",
 	"lua",
+	"luau",
 	"make",
 	"markdown",
 	"markdown_inline",

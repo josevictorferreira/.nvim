@@ -1,27 +1,24 @@
+-- Only override `filetypes` to deliberately narrow a server's scope. Omitting it
+-- inherits nvim-lspconfig's list; setting it *replaces* that list, it does not merge.
 return {
-	rust_analyzer = { filetypes = { "rs", "rust" } },
-	bashls = { filetypes = { "sh", "bash" } },
-	autotools_ls = { filetypes = { "config", "automake", "make", "Makefile" } },
-	cssls = { filetypes = { "css" } },
-	dockerls = { filetypes = { "Dockerfile", "dockerfile" } },
-	docker_compose_language_service = { filetypes = { "yaml.docker-compose", "docker-compose" } },
-	html = { filetypes = { "html" } },
-	jsonls = { filetypes = { "json" } },
+	rust_analyzer = {},
+	bashls = {},
+	autotools_ls = {},
+	cssls = {},
+	dockerls = {},
+	docker_compose_language_service = {},
+	html = {},
+	jsonls = {},
 	ruff = {
-		filetypes = { "python" },
 		root_markers = { "pyproject.toml" },
 		cmd = { "uv", "run", "ruff", "server" },
-		auto_install = false,
 	},
 	pylsp = {
-		filetypes = { "python" },
 		root_markers = { "pyproject.toml" },
 		cmd = { "uv", "run", "pylsp" },
-		auto_install = false,
 	},
-	vimls = { filetypes = { "vim" } },
+	vimls = {},
 	yamlls = {
-		filetypes = { "yaml", "yml" },
 		settings = {
 			yaml = {
 				schemas = {
@@ -33,37 +30,47 @@ return {
 			},
 		},
 	},
-	gleam = { filetypes = { "gleam" }, auto_install = false },
-	dotls = { filetypes = { "dot" } },
-	jdtls = { filetypes = { "java" } },
-	crystalline = { filetypes = { "cr" } },
+	gleam = {},
+	dotls = {},
+	jdtls = {},
+	crystalline = {},
 	tailwindcss = {
-		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
+		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue" },
 	},
 	ruby_lsp = {
-		filetypes = { "ruby" },
 		cmd = { "bundle", "exec", "ruby-lsp", "stdio" },
 		init_options = {
 			formatter = "rubocop",
 			linter = "rubocop",
 		},
-		auto_install = false,
 	},
 	sorbet = {
-		filetypes = { "ruby" },
-		-- root_markers = { "sorbet" },
 		cmd = { "bundle", "exec", "srb", "tc", "--lsp" },
-		auto_install = false,
 	},
-	protols = { filetypes = { "proto", "protobuf" } },
-	lua_ls = { filetypes = { "lua" }, settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
-	eslint = { filetypes = { "javascript", "vue", "typescript", "typescriptreact", "typescript.tsx", "tsx" } },
-	ts_ls = { filetypes = { "typescript", "javascript", "jsx", "tsx", "typescriptreact" } },
+	protols = {},
+	lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim", "use" } } } } },
+	luau_lsp = {
+		root_markers = { ".luaurc", ".git" },
+		settings = {
+			["luau-lsp"] = {
+				platform = { type = "standard" },
+				types = { roblox = false },
+				sourcemap = { enabled = false },
+				completion = { imports = { enabled = true } },
+				inlayHints = {
+					parameterNames = "literals",
+					variableTypes = true,
+					functionReturnTypes = true,
+				},
+			},
+		},
+	},
+	eslint = {},
+	ts_ls = {},
 	emmet_ls = { filetypes = { "vue", "html" } },
-	nixd = { filetypes = { "nix" }, auto_install = false },
-	gopls = { filetypes = { "go", "gomod", "gowork", "gotmpl" }, auto_install = false },
+	nixd = {},
+	gopls = {},
 	helm_ls = {
-		filetypes = { "helm" },
 		settings = {
 			["helm-ls"] = {
 				yamlls = {

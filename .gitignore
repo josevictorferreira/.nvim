@@ -4,3 +4,4 @@ session/*
 autoload/*
 plugin
 .omo/
+.omc/
