@@ -32,7 +32,7 @@ return {
 			underline = true,
 			signs = true,
 			update_in_insert = false,
-			virtual_text = false,
+			virtual_text = true,
 		})
 
 		local severity_names = {
@@ -74,4 +74,5 @@ return {
 
 		vim.o.updatetime = 300
 	end,
+  lazy = false,
 }
