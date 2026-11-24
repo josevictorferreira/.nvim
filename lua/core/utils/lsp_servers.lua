@@ -33,7 +33,6 @@ return {
 	gleam = {},
 	dotls = {},
 	jdtls = {},
-	crystalline = {},
 	tailwindcss = {
 		filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "vue" },
 	},
